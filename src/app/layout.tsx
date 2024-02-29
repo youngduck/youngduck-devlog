@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import Header from "./_components/header";
+// import Header from "./_components/header";
 import Footer from "./_components/footer";
+import { ThemeProvider } from "./_components/theme-provider";
+// import Header from '@/components/header';
+
+import Header from './_components/header'
+import { PaginationDemo } from "./_components/pagination";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -22,9 +27,18 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
+
+      <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
         <Header />
-        {children}
+          {children}
+          <PaginationDemo/>
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
