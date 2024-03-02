@@ -1,20 +1,29 @@
 import { getAllPosts } from "../lib/api";
 import Markdown from "react-markdown";
-import { DarkModeToggle } from "./_components/dark-mode-toggle";
+import { PaginationDemo } from "./_components/pagination";
 
 export default function Home() {
   const allPosts = getAllPosts();
-  console.log(allPosts[0].tag);
 
-  const markdown = "# HI, *pluto*!";
-  const abc = allPosts[0].content;
+  const markdown =
+    "# HI, *pluto*! ## ㅋㅋ ![img](/assets/blog/authors/youngduck.png)";
 
   return (
     <main className="">
-       <DarkModeToggle />
-      <div className="text-lg">다크모드 테스트</div>
-      <Markdown>{allPosts[0].tag[1]}</Markdown>
-      <Markdown>{markdown}</Markdown>
+      {/* {allPosts.map((item) => (
+        <Markdown key={item.slug}>{item.title}</Markdown>
+      ))} */}
+
+      <Markdown
+        key={1234}
+        components={{
+          h1: ({ children }) => <h1 className="text-red-500">{children}</h1>,
+        }}
+      >
+        {markdown}
+      </Markdown>
+
+      <PaginationDemo />
     </main>
   );
 }
