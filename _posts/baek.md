@@ -1,8 +1,9 @@
 ---
-title: "Dynamic Routing and Static Generation"
+title: "백종원"
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus."
 coverImage: "/assets/blog/authors/dd.png"
-date: "2010-04-11"
+date: "2015/04/11"
+category: "회고"
 ogImage:
   url: "/assets/blog/dynamic-routing/cover.jpg"
 ---

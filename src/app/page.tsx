@@ -14,9 +14,11 @@ export default function Home() {
           {posts.map((item, idx) => (
             <PostCard
               key={idx}
+              slug={item.slug}
               title={item.title}
               coverImage={item.coverImage}
               date={item.date}
+              excerpt={item.excerpt}
             />
           ))}
         </div>
