@@ -10,15 +10,15 @@ ogImage:
 
 내용들이다.
 
+## 안녕하세요
+
 내용들이다.
 
 내용들이다.
-내용들이다.
+
 내용들이다.
 
-Venenatis cras sed felis eget velit. Consectetur libe
-
-# 하하
+내용들이다.
 
 ---
 
@@ -43,8 +43,22 @@ ReactDOM.render(
 ```
 
 _기울여_
+_이탤릭_ , _이탤릭_
+**볼드** **볼드**
+**_이탤릭볼드_**
+**_이탤릭볼드_**
+**이렇게 _할수도_**
+~~취소선~~
 
 ## Lorem Ipsum
+
+### 링크
+
+[스팀잇링크](https://steemit.com)
+https://steemit.com
+https://youtu.be/aKTH0o8AEtQ
+
+&#128586;
 
 <blockquote>
   👆 Use the toggle above to add the plugin.
@@ -52,20 +66,11 @@ _기울여_
 
 Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
 
-|    Feature | Support              |
-| ---------: | :------------------- |
-| CommonMark | 100%                 |
-|        GFM | 100% w/ `remark-gfm` |
-
 - 앙
+  - ㅋㅋ
+  - ㅇㅇ
 
-  ![img](/assets/blog/authors/youngduck.png)
-
-```jsx
-const a = "캬하하";
-```
-
-```py
-
-a=3
-```
+1. 첫 번째
+2. 두 번째
+3. 세 번째
+4. 1을 다시 써도 네 번째
