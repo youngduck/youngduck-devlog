@@ -5,8 +5,6 @@ import PostCard from "./_components/post-card";
 export default function Home() {
   const posts = getAllPosts();
 
-  console.log(posts);
-
   return (
     <main className="lg:w-[1150px] mx-auto">
       <div className="flex">
@@ -19,6 +17,7 @@ export default function Home() {
               coverImage={item.coverImage}
               date={item.date}
               excerpt={item.excerpt}
+              category={item.category}
             />
           ))}
         </div>

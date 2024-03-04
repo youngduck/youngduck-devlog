@@ -1,6 +1,5 @@
 import React from "react";
-import { getPostBySlug } from "@/lib/api";
-import markdownToHtml from "@/lib/markdownToHtml";
+import { getPostBySlug, getAllPosts } from "@/lib/api";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { CMS_NAME } from "../../../lib/constants";
@@ -38,11 +37,20 @@ export function generateMetadata({ params }: Params): Metadata {
   const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`;
 
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASED_URL as string),
     openGraph: {
       title,
       images: [post.ogImage.url],
     },
   };
+}
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export default Page;

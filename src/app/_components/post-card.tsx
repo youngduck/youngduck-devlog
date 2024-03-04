@@ -7,6 +7,7 @@ type IPostCard = {
   date: string;
   excerpt: string;
   slug: string;
+  category: string;
 };
 
 const PostCard: React.FC<IPostCard> = ({
@@ -15,6 +16,7 @@ const PostCard: React.FC<IPostCard> = ({
   coverImage,
   date,
   excerpt,
+  category,
 }) => {
   return (
     <div className="w-[296px] h-[325px] m-3 border-2  p-4 rounded-lg shadow-lg relative group">
@@ -30,8 +32,8 @@ const PostCard: React.FC<IPostCard> = ({
           />
         </div>
         <div className="flex items-center my-3">
-          <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold leading-5 text-white font-display mr-2 capitalize bg-red-500">
-            News
+          <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold leading-5 text-white font-display mr-2 capitalize bg-[#E6B43F]">
+            {category}
           </span>
           <p className="font-mono text-sm font-normal opacity-75 text-black">
             {date}
@@ -42,8 +44,8 @@ const PostCard: React.FC<IPostCard> = ({
             {title}
           </span>
         </p>
-        <div className="absolute opacity-0 invisible group-hover:opacity-70 group-hover:visible top-0 left-0 w-[296px] h-[325px] bg-black rounded-lg text-white">
-          <p className="h-[60px] overflow-hidden text-ellipsis">{excerpt}</p>
+        <div className="absolute opacity-0 invisible group-hover:opacity-70 group-hover:visible  p-4 top-0 left-0 w-[296px] h-[325px] bg-black rounded-lg text-white">
+          <p className="">{excerpt}</p>
         </div>
       </a>
     </div>
