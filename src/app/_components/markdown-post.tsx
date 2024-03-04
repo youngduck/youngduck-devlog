@@ -5,6 +5,8 @@ import Image from "next/image";
 import rehypeRaw from "rehype-raw";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark, dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+// import Blockquote from "./styled-markdown/blockquote";
+import { Blockquote, H1 } from "./styled-markdown";
 
 type MarkdownPostProps = {
   postContent: string;
@@ -13,17 +15,12 @@ type MarkdownPostProps = {
 const MarkdownPost: React.FC<MarkdownPostProps> = ({ postContent }) => {
   return (
     <ReactMarkdown
-      key={1}
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
       components={{
-        h1: ({ children, ...props }) => (
-          <h1 className="text-green-500" {...props}>
-            {children}
-          </h1>
-        ),
+        h1: ({ children }) => <H1> {children}</H1>,
         h2: ({ children }) => <h2 className="text-4xl my-8">{children}</h2>,
-        blockquote: ({ children }) => <div className="p-4">{children}</div>,
+        blockquote: ({ children }) => <Blockquote>{children}</Blockquote>,
         img: ({ src, alt }) => (
           <Image src={src || ""} alt={alt || ""} width={500} height={100} />
         ),

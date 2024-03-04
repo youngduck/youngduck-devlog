@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 // import Header from "./_components/header";
-import Footer from "./_components/footer";
+import Footer from "./_components/layout/footer";
 import { ThemeProvider } from "./_components/theme-provider";
 // import Header from '@/components/header';
 
-import Header from "./_components/header";
+import Header from "./_components/layout/header";
 import { Inter } from "next/font/google";
 import "./globals.css";
 

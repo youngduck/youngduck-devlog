@@ -1,4 +1,4 @@
-import { PaginationDemo } from "./_components/pagination";
+import { PaginationDemo } from "./_components/layout/pagination";
 import { getAllPosts } from "@/lib/api";
 import PostCard from "./_components/post-card";
 
