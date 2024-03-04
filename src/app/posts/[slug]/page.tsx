@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { CMS_NAME } from "../../../lib/constants";
 import MarkdownPost from "@/app/_components/markdown-post";
-
+import MarkdownView from "@/app/_components/test-markdown";
 interface Params {
   params: {
     slug: string;
@@ -20,7 +20,11 @@ const Page: React.FC<Params> = async ({ params }) => {
   return (
     <main className="lg:w-[1150px] mx-auto">
       <article>
-        <MarkdownPost post={post} />
+        <h1>{post.title}</h1>
+        <h2>{post.category}</h2>
+        <h2>{post.date}</h2>
+        <MarkdownPost postContent={post.content} />
+        {/* <MarkdownView post={post.content} /> */}
       </article>
       <nav>목차</nav>
     </main>
