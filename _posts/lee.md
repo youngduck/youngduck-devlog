@@ -5,7 +5,7 @@ coverImage: "/assets/blog/posts/reactquery-chart.png"
 date: "2000/04/13"
 category: "React-Query"
 ogImage:
-  url: "/assets/blog/dynamic-routing/cover.jpg"
+  url: "/assets/blog/posts/reactquery-chart.png"
 ---
 
 ## 안녕하세요
