@@ -6,6 +6,8 @@ import { CMS_NAME } from "../../../lib/constants";
 import PostTitle from "@/app/_components/post/post-title";
 import PostBody from "@/app/_components/post/post-body";
 import Toc from "@/app/_components/post/toc";
+import Giscus from "@/app/_components/post/giscus";
+
 interface Params {
   params: {
     slug: string;
@@ -20,14 +22,16 @@ const Page: React.FC<Params> = async ({ params }) => {
   }
 
   return (
-    <main className="w-full lg:w-[1150px] mx-auto flex px-2">
-      <article className="w-full lg:w-[960px] lg:pr-[100px]">
-        <PostTitle title={title} category={category} date={date} />
-        <PostBody content={content} />
-      </article>
-
-      <Toc />
-    </main>
+    <>
+      <main className="w-full lg:w-[1150px] mx-auto flex px-2">
+        <article className="w-full lg:w-[960px] lg:pr-[100px]">
+          <PostTitle title={title} category={category} date={date} />
+          <PostBody content={content} />
+        </article>
+        <Toc />
+      </main>
+      <Giscus />
+    </>
   );
 };
 
@@ -43,8 +47,15 @@ export function generateMetadata({ params }: Params): Metadata {
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASED_URL as string),
     openGraph: {
+      url: `https://youngduck-devlog.vercel.app/posts/${post.slug}`,
+      siteName: "youngduck-devlog",
       title,
+      description: post.excerpt,
       images: [post.ogImage.url],
+      locale: "ko_KR",
+      type: "article",
+      authors: "kimyoungduck",
+      publishedTime: post.date,
     },
   };
 }

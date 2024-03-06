@@ -2,7 +2,7 @@
 title: "ReactQuery의 Staletime,cachetime을 직접 테스트해보자"
 excerpt: "요약문이랍니다."
 coverImage: "/assets/blog/posts/reactquery-chart.png"
-date: "2000/04/13"
+date: "2024/04/13"
 category: "React-Query"
 ogImage:
   url: "/assets/blog/posts/reactquery-chart.png"
@@ -68,7 +68,7 @@ Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris 
 
 - 앙
   - ㅋㅋ
-  - ㅇㅇ
+  - ㅇㅇdfsklfmslmvsdv란ㅇㄹㅇ랄길ㅇ다길어
 
 1. 첫 번째
 2. 두 번째
