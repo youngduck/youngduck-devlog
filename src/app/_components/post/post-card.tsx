@@ -19,7 +19,7 @@ const PostCard: React.FC<IPostCard> = ({
   category,
 }) => {
   return (
-    <div className="w-[296px] h-[325px] m-3 border-2  p-4 rounded-lg shadow-lg relative group">
+    <div className="w-[296px] h-[350px] m-3 border-2  p-4 rounded-lg shadow-lg relative group">
       <a href={`/posts/${slug}`}>
         <div className="relative w-[260px] h-[180px]">
           <Image
@@ -44,7 +44,7 @@ const PostCard: React.FC<IPostCard> = ({
             {title}
           </span>
         </p>
-        <div className="absolute opacity-0 invisible group-hover:opacity-70 group-hover:visible  p-4 top-0 left-0 w-[296px] h-[325px] bg-black rounded-lg text-white">
+        <div className="absolute opacity-0 invisible group-hover:opacity-70 group-hover:visible  p-4 top-0 left-0 w-[296px] h-[350px] bg-black rounded-lg text-white">
           <p className="">{excerpt}</p>
         </div>
       </a>

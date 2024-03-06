@@ -1,14 +1,12 @@
 ---
-title: "lee?"
+title: "ReactQuery의 Staletime,cachetime을 직접 테스트해보자"
 excerpt: "요약문이랍니다."
-coverImage: "/assets/blog/authors/youngduck.png"
-date: "2000-04-13"
-category: "회고"
+coverImage: "/assets/blog/posts/reactquery-chart.png"
+date: "2000/04/13"
+category: "React-Query"
 ogImage:
   url: "/assets/blog/dynamic-routing/cover.jpg"
 ---
-
-내용들이다.
 
 ## 안녕하세요
 
@@ -65,6 +63,8 @@ https://youtu.be/aKTH0o8AEtQ
 </blockquote>
 
 Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
+
+![img](/assets/blog/posts/reactquery-chart.png)
 
 - 앙
   - ㅋㅋ

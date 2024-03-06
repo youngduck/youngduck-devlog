@@ -4,12 +4,6 @@ const Footer = () => {
   return (
     <footer className="w-full px-6 py-6 text-center ">
       <div className="space-y-4 xl:space-y-6">
-        {/* <img
-          className="mx-auto rounded-full h-36 w-36"
-          src="https://thispersondoesnotexist.com/image"
-          alt="author avatar"
-        /> */}
-
         <div className="relative mx-auto w-36 h-36 rounded-full border-2">
           <Image
             src="/assets/blog/authors/youngduck.png"
@@ -22,7 +16,7 @@ const Footer = () => {
         </div>
         <div className="space-y-2">
           <div className="flex justify-center items-center flex-col space-y-3 text-lg font-medium leading-6">
-            <h3 className="text-yellow-500">김영덕</h3>
+            <span className="text-yellow-500">김영덕</span>
             <p className="text-yellow-500">Frontend Developer</p>
             <div className="flex justify-center mt-5 space-x-5">
               <a

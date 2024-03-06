@@ -74,10 +74,7 @@ export const H2: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h2
-      className="block text-4xl text-[#E6B43F] py-4 my-4 font-bold border-b-2"
-      {...rest}
-    >
+    <h2 className="block text-4xl py-4 my-4 font-bold border-b-2" {...rest}>
       {children}
     </h2>
   );

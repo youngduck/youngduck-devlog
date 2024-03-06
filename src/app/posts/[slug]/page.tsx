@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { CMS_NAME } from "../../../lib/constants";
 import PostTitle from "@/app/_components/post/post-title";
 import PostBody from "@/app/_components/post/post-body";
+import Toc from "@/app/_components/post/toc";
 interface Params {
   params: {
     slug: string;
@@ -19,24 +20,13 @@ const Page: React.FC<Params> = async ({ params }) => {
   }
 
   return (
-    <main className="lg:w-[1150px] mx-auto flex px-2">
-      <article className="w-[960px]">
+    <main className="w-full lg:w-[1150px] mx-auto flex px-2">
+      <article className="w-full lg:w-[960px] lg:pr-[100px]">
         <PostTitle title={title} category={category} date={date} />
         <PostBody content={content} />
       </article>
-      <nav className="hidden lg:block">
-        <ul className="sticky top-[50px]">
-          <li>
-            <a href="#section-1">Section 1</a>
-          </li>
-          <li>
-            <a href="#section-2">Section 2</a>
-          </li>
-          <li>
-            <a href="#section-3">Section 3</a>
-          </li>
-        </ul>
-      </nav>
+
+      <Toc />
     </main>
   );
 };

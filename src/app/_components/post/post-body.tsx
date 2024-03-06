@@ -3,6 +3,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import rehypeSlug from "rehype-slug";
 import * as styled from "./styled-markdown";
 
 type MarkdownPostProps = {
@@ -13,7 +14,7 @@ const PostBody: React.FC<MarkdownPostProps> = ({ content }) => {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
+      rehypePlugins={[rehypeRaw, rehypeSlug]}
       components={{
         p: ({ children, ...rest }) => <styled.P {...rest}>{children}</styled.P>,
         a: ({ children, ...rest }) => <styled.A {...rest}>{children}</styled.A>,

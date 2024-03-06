@@ -8,9 +8,8 @@ export default function Home() {
   return (
     <main className="lg:w-[1150px] mx-auto">
       <div className="flex">
-        <div className="flex lg:w-[960px] flex-wrap lg:justify-normal justify-center">
+        <div className="flex lg:w-[960px] border-y flex-wrap lg:justify-normal justify-center">
           {/* <div className="w-full h-[450px]">빔</div> */}
-          <hr className="w-full border-1" />
           {posts.map((item, idx) => (
             <PostCard
               key={idx}
@@ -29,7 +28,6 @@ export default function Home() {
           </ul>
         </aside>
       </div>
-
       <PaginationDemo />
     </main>
   );
