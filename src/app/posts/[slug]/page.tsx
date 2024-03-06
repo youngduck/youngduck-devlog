@@ -45,6 +45,14 @@ export function generateMetadata({ params }: Params): Metadata {
   const title = `${post.title} | ${CMS_NAME}`;
 
   return {
+    title: post.title,
+    description: post.excerpt,
+    authors: { name: "youngduck" },
+    generator: "Next.js",
+    creator: "youngduck",
+    publisher: "Vercel",
+    keywords: post.category,
+    verification: { google: "lybtoBCBf6isHIGdGbYxTHG7N2dUanHjWahiXMgKtXY" },
     metadataBase: new URL(process.env.NEXT_PUBLIC_BASED_URL as string),
     openGraph: {
       url: `https://youngduck-devlog.vercel.app/posts/${post.slug}`,
