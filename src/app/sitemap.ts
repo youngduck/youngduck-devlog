@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (let i = 0; i < posts.length; i++) {
     results.push({
-      url: `${baseUrl}/posts/${posts[i].slug}`,
+      url: `${baseUrl}posts/${posts[i].slug}`,
       lastModified: new Date(),
     });
   }

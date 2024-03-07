@@ -5,17 +5,6 @@ import PostCard from "./_components/post/post-card";
 export default function Home() {
   const posts = getAllPosts();
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASED_URL;
-  const result = [];
-  for (let i = 0; i < posts.length; i++) {
-    result.push({
-      url: `${baseUrl}/${posts[i].slug}`,
-      lastModified: new Date(),
-    });
-  }
-
-  console.log(result, "허");
-
   return (
     <main className="lg:w-[1150px] mx-auto">
       <div className="flex">
