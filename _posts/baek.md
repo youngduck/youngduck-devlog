@@ -9,3 +9,5 @@ ogImage:
 ---
 
 안녕하세요 김영덕입니다.
+
+![img](/assets/blog/posts/react-query-time-check/a.gif)

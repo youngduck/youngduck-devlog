@@ -16,7 +16,7 @@ interface Params {
 
 const Page: React.FC<Params> = async ({ params }) => {
   const post = getPostBySlug(params.slug);
-  const { title, category, date, content } = post;
+  const { title, category, date, coverImage, content } = post;
   if (!post) {
     return notFound();
   }
@@ -25,7 +25,12 @@ const Page: React.FC<Params> = async ({ params }) => {
     <>
       <main className="w-full lg:w-[1150px] mx-auto flex px-2">
         <article className="w-full lg:w-[960px] lg:pr-[100px]">
-          <PostTitle title={title} category={category} date={date} />
+          <PostTitle
+            title={title}
+            category={category}
+            date={date}
+            coverImage={coverImage}
+          />
           <PostBody content={content} />
         </article>
         <Toc />

@@ -25,3 +25,30 @@ export function getAllPosts(): Post[] {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
+
+export function getFilteredPosts(): Post[] {
+  const slugs = getPostSlugs();
+
+  const posts = slugs
+    .map((slug) => getPostBySlug(slug))
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+
+  const filteredPost = posts.filter((post) => post.category === "회고");
+  console.log(filteredPost.length);
+  return posts;
+}
+
+export function getAllCategories(): any {
+  const posts = getAllPosts();
+  const categoryMap = new Map();
+
+  categoryMap.set("AllPost", posts.length);
+  posts.map((item) => {
+    const category = item.category;
+    categoryMap.has(category)
+      ? categoryMap.set(category, categoryMap.get(category) + 1)
+      : categoryMap.set(category, 1);
+  });
+
+  return Array.from(categoryMap.entries());
+}

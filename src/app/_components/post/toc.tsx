@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 const Toc = () => {
-  const [currentId, setCurrentId] = useState<string>("");
   const [headingEls, setHeadingEls] = useState<HTMLElement[]>([]);
 
   useEffect(() => {

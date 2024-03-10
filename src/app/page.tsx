@@ -1,15 +1,26 @@
 import { PaginationDemo } from "./_components/layout/pagination";
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts, getAllCategories, getFilteredPosts } from "@/lib/api";
 import PostCard from "./_components/post/post-card";
 
 export default function Home() {
   const posts = getAllPosts();
+  const categories = getAllCategories();
+  getFilteredPosts();
 
   return (
     <main className="lg:w-[1150px] mx-auto">
-      <div className="flex">
-        <div className="flex lg:w-[960px] border-y flex-wrap lg:justify-normal justify-center">
-          {/* <div className="w-full h-[450px]">빔</div> */}
+      <div className="flex flex-col justify-center items-center">
+        <nav className="block lg:w-[960px] w-full p-7">
+          <ul className="flex">
+            {categories.map((item: any, idx: number) => (
+              <li key={idx} className="mx-2">
+                <span>{item[0]}</span>
+                <span>({item[1]})</span>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className="flex lg:w-[960px] flex-wrap lg:justify-normal justify-center">
           {posts.map((item, idx) => (
             <PostCard
               key={idx}
@@ -22,11 +33,6 @@ export default function Home() {
             />
           ))}
         </div>
-        <aside className="hidden lg:block sticky">
-          <ul className="sticky top-[50px]">
-            <li>아하</li>
-          </ul>
-        </aside>
       </div>
       <PaginationDemo />
     </main>

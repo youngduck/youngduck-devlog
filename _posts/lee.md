@@ -1,11 +1,11 @@
 ---
 title: "ReactQuery의 Staletime,cachetime을 직접 테스트해보자"
 excerpt: "요약문이랍니다."
-coverImage: "/assets/blog/posts/reactquery-chart.png"
+coverImage: "/assets/blog/posts/react-query-time-check/1.png"
 date: "2024/04/13"
 category: "React-Query"
 ogImage:
-  url: "/assets/blog/posts/reactquery-chart.png"
+  url: "/assets/blog/posts/react-query-time-check/3.png"
 ---
 
 ## 안녕하세요

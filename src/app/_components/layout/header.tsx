@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
-    <header className="sticky pt-[20px] top-[-20px] z-10 w-full bg-white dark:bg-black ">
+    <header className="sticky pt-[20px] top-[-20px] z-10 w-full bg-background">
       <div className="flex lg:w-[1150px] h-[55px] mx-auto justify-between p-2">
         <Link href="/">
           <div className="relative w-[200px] h-[50px]">
@@ -20,9 +20,9 @@ const Header = () => {
           </div>
         </Link>
         <div className="flex">
-          <div>
+          {/* <div>
             <Button variant="outline">끼에엑</Button>
-          </div>
+          </div> */}
           <DarkModeToggle />
         </div>
       </div>
