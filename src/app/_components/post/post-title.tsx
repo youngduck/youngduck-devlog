@@ -16,7 +16,7 @@ const PostTitle: React.FC<IPostTitle> = ({
 }) => {
   return (
     <div className="py-3 mt-[20px] lg:mt-[70px]">
-      <span className="inline-flex items-center px-3 py-1 rounded-full font-bold leading-5 text-white font-display mr-2 capitalize bg-[#E6B43F]">
+      <span className="inline-flex items-center px-3 py-1 rounded-full font-bold leading-5 text-white font-display mr-2 capitalize bg-yellow">
         {category}
       </span>
       <h1 className="break-all text-[40px] font-bold">{title}</h1>

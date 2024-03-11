@@ -32,10 +32,10 @@ const PostCard: React.FC<IPostCard> = ({
           />
         </div>
         <div className=" my-3">
-          {/* <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold leading-5  font-display mr-2 capitalize text-[#E6B43F]">
+          {/* <span className="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold leading-5  font-display mr-2 capitalize text-yellow">
             #{category}
           </span> */}
-          <span className="text-sm font-bold mr-2 capitalize text-[#E6B43F]">
+          <span className="text-sm font-bold mr-2 capitalize text-yellow">
             # {category}
           </span>
           <p className="text-[10px] font-normal text-gray-400">{date}</p>

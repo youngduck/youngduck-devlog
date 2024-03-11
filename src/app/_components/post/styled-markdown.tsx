@@ -31,7 +31,7 @@ export const A: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <a className="text-[#E6B43F] underline" {...rest} target="_blank">
+    <a className="text-yellow underline" {...rest} target="_blank">
       {children}
     </a>
   );
@@ -52,7 +52,7 @@ export const Strong: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <strong className="text-[#E6B43F]" {...rest}>
+    <strong className="text-yellow" {...rest}>
       {children}
     </strong>
   );

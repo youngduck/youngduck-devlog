@@ -81,7 +81,7 @@ const Footer = () => {
               </a>
             </div>
             <div>
-              <span className="text-[10px] bg-gradient-to-r from-[#E6B43F] to-[#8C6306] inline-block text-transparent bg-clip-text">
+              <span className="text-[10px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
                 ©2024. Kim Youngduck all right reserved.
               </span>
             </div>
