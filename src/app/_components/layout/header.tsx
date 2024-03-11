@@ -1,4 +1,4 @@
-import { DarkModeToggle } from "../provider/dark-mode-toggle";
+import { DarkModeToggle } from "./dark-mode-toggle";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
