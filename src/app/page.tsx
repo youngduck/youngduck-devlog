@@ -1,25 +1,16 @@
 import { PaginationDemo } from "./_components/layout/pagination";
-import { getAllPosts, getAllCategories, getFilteredPosts } from "@/lib/api";
+import { getAllCategories, getFilteredPosts } from "@/lib/api";
 import PostCard from "./_components/post/post-card";
+import TagNavbar from "./_components/layout/tag-navbar";
 
 export default function Home() {
-  const posts = getAllPosts();
   const categories = getAllCategories();
-  getFilteredPosts();
+  const posts = getFilteredPosts();
 
   return (
     <main className="lg:w-[1150px] mx-auto">
       <div className="flex flex-col justify-center items-center">
-        <nav className="block lg:w-[960px] w-full p-7">
-          <ul className="flex">
-            {categories.map((item: any, idx: number) => (
-              <li key={idx} className="mx-2">
-                <span>{item[0]}</span>
-                <span>({item[1]})</span>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <TagNavbar categories={categories} />
         <div className="flex lg:w-[960px] flex-wrap lg:justify-normal justify-center">
           {posts.map((item, idx) => (
             <PostCard

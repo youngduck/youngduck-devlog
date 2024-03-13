@@ -14,10 +14,13 @@ const Toc = () => {
 
   return (
     <nav className="hidden lg:block">
-      <ul className="sticky top-[250px]">
+      <ul className="sticky top-[250px] border-l-2 p-4">
         {headingEls?.map((heading, index) => {
           return (
-            <li key={`heading-${index}`}>
+            <li
+              key={`heading-${index}`}
+              className={heading.tagName === "H3" ? "ml-6" : ""}
+            >
               <a href={"#" + heading.id}>{heading.innerText}</a>
             </li>
           );

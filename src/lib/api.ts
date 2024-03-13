@@ -29,21 +29,22 @@ export function getAllPosts(): Post[] {
 
 export function getFilteredPosts(): Post[] {
   const slugs = getPostSlugs();
-
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  const filterWord = "회고";
+  let filteredPost =
+    // "All Posts" === "All Post"
+    true ? posts : posts.filter((post) => post.category === filterWord);
 
-  const filteredPost = posts.filter((post) => post.category === "회고");
-  console.log(filteredPost.length);
-  return posts;
+  return filteredPost;
 }
 
 export function getAllCategories(): any {
   const posts = getAllPosts();
   const categoryMap = new Map();
 
-  categoryMap.set("AllPost", posts.length);
+  categoryMap.set("All Post", posts.length);
   posts.map((item) => {
     const category = item.category;
     categoryMap.has(category)
