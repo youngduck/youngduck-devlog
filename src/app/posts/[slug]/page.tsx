@@ -6,7 +6,7 @@ import { CMS_NAME } from "../../../lib/constants";
 import PostTitle from "@/app/_components/post/post-title";
 import PostBody from "@/app/_components/post/post-body";
 import Toc from "@/app/_components/post/toc";
-import Giscus from "@/app/_components/post/giscus";
+import Giscus from "@/app/_components/post/post-comment";
 
 interface Params {
   params: {
