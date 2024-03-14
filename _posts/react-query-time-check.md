@@ -1,11 +1,11 @@
 ---
 title: "React-Query staleTime, gcTime 제대로 이해하기"
 excerpt: ""
-coverImage: "/assets/blog/posts/react-query-time-check/1.png"
+coverImage: "/assets/blog/posts/react-query-time-check/thumbnail.png"
 date: "2024/04/13"
 category: "React-Query"
 ogImage:
-  url: "/assets/blog/posts/react-query-time-check/3.png"
+  url: "/assets/blog/posts/react-query-time-check/thumbnail.png"
 ---
 
 ## &#128210; staleTime, gcTime
