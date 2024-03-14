@@ -27,24 +27,23 @@ export function getAllPosts(): Post[] {
   return posts;
 }
 
-export function getFilteredPosts(): Post[] {
+export function getFilteredPosts(filterWord: string): Post[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  const filterWord = "회고";
-  let filteredPost =
-    // "All Posts" === "All Post"
-    true ? posts : posts.filter((post) => post.category === filterWord);
 
+  let filteredPost = posts.filter(
+    (post) => post.category === decodeURIComponent(filterWord)
+  );
   return filteredPost;
 }
 
-export function getAllCategories(): any {
+export function getAllCategoriesArray(): any {
   const posts = getAllPosts();
   const categoryMap = new Map();
 
-  categoryMap.set("All Post", posts.length);
+  categoryMap.set("All Posts", posts.length);
   posts.map((item) => {
     const category = item.category;
     categoryMap.has(category)
@@ -53,6 +52,21 @@ export function getAllCategories(): any {
   });
 
   return Array.from(categoryMap.entries());
+}
+
+export function getAllCategoriesID(): string[] {
+  const posts = getAllPosts();
+  const categoryMap = new Map();
+
+  categoryMap.set("All Posts", posts.length);
+  posts.map((item) => {
+    const category = item.category;
+    categoryMap.has(category)
+      ? categoryMap.set(category, categoryMap.get(category) + 1)
+      : categoryMap.set(category, 1);
+  });
+
+  return Array.from(categoryMap.keys());
 }
 
 export const generateRSS = () => {

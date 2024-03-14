@@ -1,16 +1,22 @@
-interface SS {
-  categories: [string, number][];
-}
+import Link from "next/link";
+import { getAllCategoriesArray } from "@/lib/api";
 
-const TagNavbar: React.FC<SS> = ({ categories }) => {
+const TagNavbar = async () => {
+  const categories = await getAllCategoriesArray();
+
   return (
-    <nav className="block lg:w-[960px] w-full p-7">
-      <ul className="flex">
+    <nav className="block lg:w-[960px] w-full p-3 border-y-2 ">
+      <ul className="flex flex-wrap">
         {categories.map((item: [string, number], idx: number) => (
-          <li key={idx} className="mx-2">
-            <span># {item[0]}</span>
-            <span className="text-xs">({item[1]})</span>
-          </li>
+          <Link
+            key={idx}
+            href={item[0] === "All Posts" ? "/" : `/category/${item[0]}`}
+          >
+            <li className="mx-2">
+              <span># {item[0]}</span>
+              <span className="text-xs">({item[1]})</span>
+            </li>
+          </Link>
         ))}
       </ul>
     </nav>
