@@ -1,11 +1,11 @@
 ---
-title: "CS-Network-1"
-excerpt: "네트워크 기초 알아보기"
-coverImage: "/assets/blog/posts/what-is-zustand/cover.jpg"
+title: "네트워크 1편"
+excerpt: "네트워크 처리량, 지연시간, 토폴로지, 병목현상, 성능분석 방법에 대해 공부합니다."
+coverImage: "/assets/blog/posts/cs-study/cover.png"
 date: "2024-03-15"
 category: "Computer Science"
 ogImage:
-  url: "/assets/blog/posts/what-is-zustand/cover.jpg"
+  url: "/assets/blog/posts/cs-study/cover.png"
 ---
 
 ## 네트워크
