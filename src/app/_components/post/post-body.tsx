@@ -27,6 +27,9 @@ const PostBody: React.FC<MarkdownPostProps> = ({ content }) => {
         ul: ({ children, ...rest }) => (
           <styled.Ul {...rest}>{children}</styled.Ul>
         ),
+        li: ({ children, ...rest }) => (
+          <styled.Li {...rest}>{children}</styled.Li>
+        ),
         h2: ({ children, ...rest }) => (
           <styled.H2 {...rest}>{children}</styled.H2>
         ),

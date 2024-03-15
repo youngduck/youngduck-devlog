@@ -47,6 +47,7 @@ export const Ol: React.FC<{ children: React.ReactNode }> = ({
     </ol>
   );
 };
+
 export const Strong: React.FC<{ children: React.ReactNode }> = ({
   children,
   ...rest
@@ -66,6 +67,17 @@ export const Ul: React.FC<{ children: React.ReactNode }> = ({
     <ul className="list-disc px-8" {...rest}>
       {children}
     </ul>
+  );
+};
+
+export const Li: React.FC<{ children: React.ReactNode }> = ({
+  children,
+  ...rest
+}) => {
+  return (
+    <li className="p-2" {...rest}>
+      {children}
+    </li>
   );
 };
 
