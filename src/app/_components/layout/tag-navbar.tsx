@@ -5,7 +5,7 @@ const TagNavbar = async () => {
   const categories = await getAllCategoriesArray();
 
   return (
-    <nav className="block lg:w-[960px] w-full p-3 border-y-2 ">
+    <nav className="block lg:w-[960px] w-full my-[30px] p-3 border-y-2 ">
       <ul className="flex flex-wrap">
         {categories.map((item: [string, number], idx: number) => (
           <Link
