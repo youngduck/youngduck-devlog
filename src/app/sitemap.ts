@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   results.push({
     url: `${baseUrl}`,
-    lastModified: new Date(2024, 3, 10, 23, 0),
+    lastModified: new Date(2024, 1, 10, 23, 0),
   });
 
   for (let i = 0; i < posts.length; i++) {
