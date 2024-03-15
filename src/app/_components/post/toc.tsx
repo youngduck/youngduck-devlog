@@ -14,7 +14,7 @@ const Toc = () => {
 
   return (
     <nav className="hidden lg:block">
-      <ul className="sticky top-[250px] border-l-2 p-4">
+      <ul className="w-full sticky top-[250px] border-l-2 p-4">
         {headingEls?.map((heading, index) => {
           return (
             <li

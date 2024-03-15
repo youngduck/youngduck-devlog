@@ -27,7 +27,7 @@ const PostTitle: React.FC<IPostTitle> = ({
         src={coverImage || ""}
         alt={coverImage || ""}
         priority={true}
-        width={960}
+        width={860}
         height={0}
         className="my-4"
       />
