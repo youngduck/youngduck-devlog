@@ -3,7 +3,7 @@ title: "AWS S3로 React배포하기"
 excerpt: "Github action CI/CD구축을 위한 빌드업"
 coverImage: "/assets/blog/posts/aws-s3-deploy/cover.jpg"
 date: "2024-03-17"
-category: "CICD"
+category: "AWS"
 ogImage:
   url: "/assets/blog/posts/aws-s3-deploy/cover.jpg"
 ---
