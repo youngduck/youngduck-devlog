@@ -2,6 +2,7 @@ import { DarkModeToggle } from "./dark-mode-toggle";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import RssFeedButton from "./rss-feed-button";
 
 const Header = () => {
   return (
@@ -20,9 +21,7 @@ const Header = () => {
           </div>
         </Link>
         <div className="flex">
-          {/* <div>
-            <Button variant="outline">끼에엑</Button>
-          </div> */}
+          <RssFeedButton />
           <DarkModeToggle />
         </div>
       </div>
