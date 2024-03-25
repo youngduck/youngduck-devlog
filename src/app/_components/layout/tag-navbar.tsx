@@ -12,7 +12,7 @@ const TagNavbar = async () => {
             key={idx}
             href={item[0] === "All Posts" ? "/" : `/category/${item[0]}`}
           >
-            <li className="mx-2">
+            <li className="mx-2 font-bold italic">
               <span># {item[0]}</span>
               <span className="text-xs">({item[1]})</span>
             </li>
