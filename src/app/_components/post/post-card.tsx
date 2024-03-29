@@ -35,7 +35,9 @@ const PostCard: React.FC<IPostCard> = ({
           <span className="text-sm font-bold mr-2 capitalize text-yellow">
             # {category}
           </span>
-          <p className="text-[10px] font-normal text-gray-400">{date}</p>
+          <p className="text-[10px] font-normal text-gray-400">
+            {date.split("T")[0]}
+          </p>
         </div>
         <p className="font-display max-w-sm text-xl font-bold leading-tight">
           <span className="text-dd dark:text-gray-200">{title}</span>
