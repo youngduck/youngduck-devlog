@@ -1,5 +1,5 @@
 ---
-title: "[Frontend] 브라우저 렌더링, Reflow, Repaint 파헤치기"
+title: "브라우저 렌더링 과정"
 excerpt: "브라우저 렌더링 과정, Reflow, Repaint 개념에 대한 정리글입니다."
 coverImage: "/assets/blog/posts/cs-study/fe-cover.png"
 date: "2024-03-29T15:11:00"
