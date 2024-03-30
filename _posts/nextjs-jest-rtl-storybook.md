@@ -69,28 +69,11 @@ const config: Config = {
 export default createJestConfig(config);
 ```
 
-## Trouble Shooting
-
-### [import/no-extraneous-dependencies](https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-extraneous-dependencies.md) 경고메세지
-
-eslintrc.json의 rule에 해당 규칙을 추가해주어 해결했습니다.
-
-```json
- "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": true,
-        "peerDependencies": true
-      }
-    ],
-```
-
-### Delete ␍ eslint prettier/prettier 경고메세지
+### eslint cr 에러
 
 ![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/1.png)
 
-해당 이슈로인해 lint규칙에 맞게 짜도 계속 빨간줄이 생기는 것을 발견했습니다.
+해당 이슈(Delete ␍ eslint prettier/prettier)는 문장의끝 end line sequence에 대한 양식이 지켜지지 않아서 나타난다고 합니다.
 
 \*\*\*\*eslintrc.json의 rule에 해당 규칙을 추가해주어 해결했습니다.
 
@@ -105,7 +88,7 @@ rules: {
     },
 ```
 
-## Jest,React-Test-Library 기본사용법
+## 2. Jest,React-Test-Library 기본사용법
 
 저같은 경우는 test폴더를 따로만들지않고 직관적이게 하나의 폴더에 두는 편입니다. (~~TMI~~)
 
@@ -144,7 +127,7 @@ describe("Dashboard", () => {
 
 ![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/3.png)
 
-## Storybook 설치하기
+## 3. Storybook 설치하기
 
 ```bash
 npx storybook@latest init
@@ -166,11 +149,7 @@ npx storybook@latest init
 - storybook 은 6006번 포트를 사용합니다.
 - build-storybook을 통해 원격 서버에 배포하기도 합니다.
 
-## Storybook으로 atomic pattern 구현
-
-Storybook을 알아보면서 취업공고에서도 봤었던 [atomic pattern에 대한 글](https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-system/)을 볼 수 있었습니다. 이번 프로젝트에서 atomic pattern을 통해 프로젝트를 만들어보는것도 꽤 좋은 경험이지 않을까 싶습니다.
-
-## Storybook ESLint 충돌 이슈
+### Storybook ESLint 충돌 이슈
 
 또 eslint랑 충돌이 발생했습니다.
 
@@ -182,7 +161,11 @@ Storybook을 알아보면서 취업공고에서도 봤었던 [atomic pattern에 
 
 .eslintrc.js에 ignorePatterns에 storybook과 연관된 파일들을 등록해주었습니다. 협업을 해보면서 storybook에도 eslint같은 규칙이 필요하다면 다시한번 고쳐보도록 해봐야겠습니다.
 
-## Result 공유
+## 4. Storybook으로 atomic pattern 구현
+
+Storybook을 알아보면서 취업공고에서도 봤었던 [atomic pattern에 대한 글](https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-system/)을 볼 수 있었습니다. 이번 프로젝트에서 atomic pattern을 통해 프로젝트를 만들어보는것도 꽤 좋은 경험이지 않을까 싶습니다.
+
+## 5. Result 공유
 
 [nextjs+tailwind+eslint+prettier+husky 코드](https://github.com/youngduck/next-eslint-prettier-husky-boilersetting/releases/tag/1.0)
 
