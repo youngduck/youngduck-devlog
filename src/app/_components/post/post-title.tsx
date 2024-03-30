@@ -21,7 +21,9 @@ const PostTitle: React.FC<IPostTitle> = ({
       </span>
       <h1 className="break-all text-[40px] font-bold">{title}</h1>
       <div className="flex justify-between py-3">
-        <span className="ml-[10px] text-[16px] text-gray-500">{date}</span>
+        <span className="ml-[10px] text-[16px] text-gray-500">
+          {date.split("T")[0]}
+        </span>
       </div>
       <Image
         src={coverImage || ""}
