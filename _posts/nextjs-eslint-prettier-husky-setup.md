@@ -156,9 +156,15 @@ npx lint-staged # 추가
 ### 실행화면
 
 ![Untitled](/assets/blog/posts/nextjs-eslint-prettier-husky/3.png)
+git commit을 실행하게되면 eslint,prettier가 체크되는 모습
+
+### Result 공유
+
+[nextjs 세팅 Github](https://github.com/youngduck/next-eslint-prettier-husky-boilersetting/releases/tag/1.0)
 
 ## 참고자료
 
 - [eslint,Prettier 설정](https://velog.io/@xmun74/Next.js-TS%EC%97%90%EC%84%9C-ESLint-Prettier-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
 - [https://velog.io/@picpal/코드에-eslint-prettier-자동-적용하기-근대-이제-github-커밋-체크까지-곁들인](https://velog.io/@picpal/%EC%BD%94%EB%93%9C%EC%97%90-eslint-prettier-%EC%9E%90%EB%8F%99-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-%EA%B7%BC%EB%8C%80-%EC%9D%B4%EC%A0%9C-github-%EC%BB%A4%EB%B0%8B-%EC%B2%B4%ED%81%AC%EA%B9%8C%EC%A7%80-%EA%B3%81%EB%93%A4%EC%9D%B8)
 - [husky 공식문서](https://typicode.github.io/husky/get-started.html)
+- [tsconfig's path parameter and ESLint 오류](https://stackoverflow.com/questions/62474451/tsconfigs-path-parameter-and-eslint)
