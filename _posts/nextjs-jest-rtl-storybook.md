@@ -26,13 +26,13 @@ typescript 사용하시는 분들은 아래 코드를 추가적으로 입력해 
  npm i ts-node
 ```
 
-루트 폴더에 jest.setup.ts 생성 후 코드 입력
+루트 폴더에 jest.setup.ts 생성 후 해당 코드 입력
 
-```
-import '@testing-library/jest-dom'
+```jsx
+import "@testing-library/jest-dom";
 ```
 
-루트 폴더에 jest.config.ts 생성 후 코드 입력
+루트 폴더에 jest.config.ts 생성 후 해당 코드 입력
 
 ```jsx
 import type { Config } from "jest";
@@ -71,11 +71,11 @@ export default createJestConfig(config);
 
 ## Trouble Shooting
 
-### **[import/no-extraneous-dependencies](https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-extraneous-dependencies.md) 경고메세지**
+### [import/no-extraneous-dependencies](https://github.com/import-js/eslint-plugin-import/blob/v2.29.1/docs/rules/no-extraneous-dependencies.md) 경고메세지
 
 eslintrc.json의 rule에 해당 규칙을 추가해주어 해결했습니다.
 
-```jsx
+```json
  "import/no-extraneous-dependencies": [
       "error",
       {
@@ -86,7 +86,7 @@ eslintrc.json의 rule에 해당 규칙을 추가해주어 해결했습니다.
     ],
 ```
 
-### Delete `␍`eslint prettier/prettier 경고메세지
+### Delete ␍ eslint prettier/prettier 경고메세지
 
 ![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/1.png)
 
