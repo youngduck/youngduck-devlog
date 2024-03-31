@@ -1,15 +1,19 @@
 "use client";
+import { useState } from "react";
 
 import Image from "next/image";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { okaidia } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
   children,
   ...rest
 }) => {
   return (
-    <blockquote className="p-4 bg-slate-700 text-white my-2" {...rest}>
+    <blockquote
+      className="p-4 bg-slate-700 text-white my-2 max-w-[860px]"
+      {...rest}
+    >
       {children}
     </blockquote>
   );
@@ -20,7 +24,7 @@ export const P: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <p className="text-lg" {...rest}>
+    <p className="text-lg my-2" {...rest}>
       {children}
     </p>
   );
@@ -45,6 +49,17 @@ export const Ol: React.FC<{ children: React.ReactNode }> = ({
     <ol className="list-decimal px-8" {...rest}>
       {children}
     </ol>
+  );
+};
+
+export const Pre: React.FC<{ children: React.ReactNode }> = ({
+  children,
+  ...rest
+}) => {
+  return (
+    <pre className="max-w-[860px]" {...rest}>
+      {children}
+    </pre>
   );
 };
 
@@ -75,7 +90,7 @@ export const Li: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <li className="p-2" {...rest}>
+    <li className="" {...rest}>
       {children}
     </li>
   );
@@ -86,10 +101,7 @@ export const H2: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h2
-      className="block text-4xl pb-6 pt-[60px] my-4  font-bold border-b-2"
-      {...rest}
-    >
+    <h2 className="block text-4xl pb-6 pt-[60px] my-4  font-bold" {...rest}>
       {children}
     </h2>
   );
@@ -109,9 +121,23 @@ export const Code: React.FC<{ children: React.ReactNode }> = ({
   children,
   ...rest
 }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(String(children).replace(/\n$/, ""));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 300);
+  };
+
   return (
-    <div className="w-[calc(100vw-16px)] lg:w-[960px]" {...rest}>
-      <SyntaxHighlighter PreTag="div" language="js" style={dracula}>
+    <div className="w-[400px] lg:w-[860px]" {...rest}>
+      <button
+        className=" bg-gray-800 text-white px-2 py-1 rounded hover:bg-gray-700 transition duration-300"
+        onClick={copyToClipboard}
+      >
+        {copied ? "Copied!" : "Copy"}
+      </button>
+      <SyntaxHighlighter PreTag="div" language="javascript" style={okaidia}>
         {String(children).replace(/\n$/, "")}
       </SyntaxHighlighter>
     </div>
@@ -127,9 +153,9 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
       src={src || ""}
       alt={alt || ""}
       priority={true}
-      width={960}
+      width={860}
       height={0}
-      className="w-full max-h-[450px] h-auto object-cover"
+      className="w-full max-h-[1000px] h-auto my-4 object-cover"
     />
   );
 };

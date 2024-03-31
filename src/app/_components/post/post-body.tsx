@@ -45,6 +45,9 @@ const PostBody: React.FC<MarkdownPostProps> = ({ content }) => {
         code: ({ children, ...rest }) => (
           <styled.Code {...rest}>{children}</styled.Code>
         ),
+        pre: ({ children, ...rest }) => (
+          <styled.Pre {...rest}>{children}</styled.Pre>
+        ),
       }}
     >
       {content}
