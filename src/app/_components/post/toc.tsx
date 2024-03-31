@@ -14,12 +14,17 @@ const Toc = () => {
 
   return (
     <nav className="hidden lg:block">
-      <ul className="w-full sticky top-[250px] border-l-2 p-4">
+      <ul className="w-[274px] sticky top-[100px] border-l-2 pl-[10px]">
+        <p className="font-bold text-[24px]">ON THIS PAGE</p>
         {headingEls?.map((heading, index) => {
           return (
             <li
               key={`heading-${index}`}
-              className={heading.tagName === "H3" ? "ml-6" : ""}
+              className={`${
+                heading.tagName === "H3"
+                  ? "ml-6 text-[12px]"
+                  : "font-semibold text-[14px]"
+              }  my-2`}
             >
               <a href={"#" + heading.id}>{heading.innerText}</a>
             </li>
