@@ -8,7 +8,9 @@ ogImage:
   url: "/assets/blog/posts/jest/cover.png"
 ---
 
-## 예제
+## Matchers
+
+> Matchers에 활용된 함수는 다음과 같습니다.
 
 ```jsx
 const fn = {
@@ -21,8 +23,6 @@ const fn = {
 
 module.exports = fn;
 ```
-
-## Matcher
 
 ### 원시값 비교
 
