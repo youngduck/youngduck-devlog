@@ -9,7 +9,7 @@ export default function Home() {
     <main className="lg:w-[1150px] mx-auto">
       <div className="flex flex-col justify-center items-center">
         <TagNavbar />
-        <div className="flex lg:w-[960px] flex-wrap lg:justify-normal justify-center border-b-2">
+        <div className="flex lg:w-[960px] flex-wrap lg:justify-normal justify-center border-b-2 pb-6">
           {posts.map((item, idx) => (
             <PostCard
               key={idx}
