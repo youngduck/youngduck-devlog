@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Image from "next/image";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { okaidia } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -137,7 +137,7 @@ export const Code: React.FC<{ children: React.ReactNode }> = ({
       >
         {copied ? "Copied!" : "Copy"}
       </button>
-      <SyntaxHighlighter PreTag="div" language="javascript" style={okaidia}>
+      <SyntaxHighlighter PreTag="div" language="javascript" style={dracula}>
         {String(children).replace(/\n$/, "")}
       </SyntaxHighlighter>
     </div>
