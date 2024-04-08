@@ -130,16 +130,20 @@ export const Code: React.FC<{ children: React.ReactNode }> = ({
   };
 
   return (
-    <div className="w-[400px] lg:w-[860px]" {...rest}>
+    <div className="relative">
+      <SyntaxHighlighter
+        className="mb-[150px] hover:bg-gray-700 hover:cursor-pointer transition duration-300"
+        language="javascript"
+        style={dracula}
+      >
+        {String(children).replace(/\n$/, "")}
+      </SyntaxHighlighter>
       <button
-        className=" bg-gray-800 text-white px-2 py-1 rounded hover:bg-gray-700 transition duration-300"
+        className="absolute top-0 right-0 bg-gray-800 text-white px-2 py-1 rounded hover:bg-gray-700 transition duration-300"
         onClick={copyToClipboard}
       >
         {copied ? "Copied!" : "Copy"}
       </button>
-      <SyntaxHighlighter PreTag="div" language="javascript" style={dracula}>
-        {String(children).replace(/\n$/, "")}
-      </SyntaxHighlighter>
     </div>
   );
 };
