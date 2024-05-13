@@ -163,3 +163,37 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
     />
   );
 };
+export const Table: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return (
+    <table className="items-center w-full bg-transparent border-collapse">
+      {children}
+    </table>
+  );
+};
+
+export const TableHeader: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return (
+    <th className="bg-slate-700 text-white align-middle py-3 text-md font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
+      {children}
+    </th>
+  );
+};
+
+export const TableRow: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return (
+    <tr className="even:bg-slate-300 odd:bg-slate-200 dark:text-black">
+      {children}
+    </tr>
+  );
+};
+export const TableData: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return <td className="p-2">{children}</td>;
+};

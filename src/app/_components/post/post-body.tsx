@@ -49,6 +49,18 @@ const PostBody: React.FC<MarkdownPostProps> = ({ content }) => {
         pre: ({ children, ...rest }) => (
           <styled.Pre {...rest}>{children}</styled.Pre>
         ),
+        table: ({ children, ...rest }) => (
+          <styled.Table {...rest}>{children}</styled.Table>
+        ),
+        th: ({ children, ...rest }) => (
+          <styled.TableHeader {...rest}>{children}</styled.TableHeader>
+        ),
+        tr: ({ children, ...rest }) => (
+          <styled.TableRow {...rest}>{children}</styled.TableRow>
+        ),
+        td: ({ children, ...rest }) => (
+          <styled.TableData {...rest}>{children}</styled.TableData>
+        ),
       }}
     >
       {content}
