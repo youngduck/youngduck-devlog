@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import Clipboard from "../../../../public/assets/svg/clipboard.svg";
+import CheckIcon from "../../../../public/assets/svg/CheckIcon.svg";
 
 export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -153,7 +155,11 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
         className="absolute top-0 right-0 bg-gray-800 text-white px-2 py-1 rounded hover:bg-gray-700 transition duration-300"
         onClick={copyToClipboard}
       >
-        {copied ? "Copied!" : "Copy"}
+        {copied ? (
+          <CheckIcon width={30} height={30} />
+        ) : (
+          <Clipboard width={30} height={30} />
+        )}
       </button>
     </div>
   );
