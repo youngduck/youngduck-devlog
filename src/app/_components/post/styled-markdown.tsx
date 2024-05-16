@@ -194,7 +194,7 @@ export const TableHeader: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <th className="bg-slate-700 text-white align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 whitespace-nowrap">
+    <th className="bg-slate-700 text-white align-middle py-3 text-xs font-semibold text-center uppercase border-l-0 border-r-0 whitespace-nowrap">
       {children}
     </th>
   );
