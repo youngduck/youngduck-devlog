@@ -117,11 +117,12 @@ export const H3: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export const Code: React.FC<{ children: React.ReactNode }> = ({
+export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
   children,
-  ...rest
+  className,
 }) => {
   const [copied, setCopied] = useState(false);
+  const match = /language-(\w+)/.exec(className || "");
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(String(children).replace(/\n$/, ""));
@@ -131,13 +132,23 @@ export const Code: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <div className="relative">
-      <SyntaxHighlighter
-        className="mb-[150px] hover:bg-gray-700 hover:cursor-pointer transition duration-300"
-        language="javascript"
-        style={dracula}
-      >
-        {String(children).replace(/\n$/, "")}
-      </SyntaxHighlighter>
+      {match ? (
+        <>
+          <SyntaxHighlighter
+            className="mb-[150px] hover:bg-gray-700 hover:cursor-pointer transition duration-300"
+            language={match[1]}
+            style={dracula}
+            PreTag="div"
+          >
+            {String(children).replace(/\n$/, "")}
+          </SyntaxHighlighter>
+        </>
+      ) : (
+        <>
+          <code className={className}>{children}</code>
+        </>
+      )}
+
       <button
         className="absolute top-0 right-0 bg-gray-800 text-white px-2 py-1 rounded hover:bg-gray-700 transition duration-300"
         onClick={copyToClipboard}

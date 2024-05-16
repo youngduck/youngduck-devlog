@@ -43,8 +43,8 @@ const PostBody: React.FC<MarkdownPostProps> = ({ content }) => {
         img: ({ src, alt }) => (
           <styled.MarkdownImage src={src as string} alt={alt as string} />
         ),
-        code: ({ children, ...rest }) => (
-          <styled.Code {...rest}>{children}</styled.Code>
+        code: ({ children, className }) => (
+          <styled.Code className={className}>{children}</styled.Code>
         ),
         pre: ({ children, ...rest }) => (
           <styled.Pre {...rest}>{children}</styled.Pre>
