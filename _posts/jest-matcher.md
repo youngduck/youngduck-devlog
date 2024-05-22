@@ -26,19 +26,19 @@ module.exports = fn;
 
 ### 원시값 비교
 
-```
+```jsx
 // 기본적인 원시값을 비교할땐 toBe를 사용합니다.
-test('2+3은 5다',()=>{
-    expect(fn.add(2,3)).toBe(5)
-})
+test("2+3은 5다", () => {
+  expect(fn.add(2, 3)).toBe(5);
+});
 
-test('3+3은 5가 아니다',()=>{
-    expect(fn.add(3,3)).toBe(5)
-})
+test("3+3은 5가 아니다", () => {
+  expect(fn.add(3, 3)).toBe(5);
+});
 
-test('3+3은 5가 아니다',()=>{
-    expect(fn.add(3,3)).not.toBe(5)
-})
+test("3+3은 5가 아니다", () => {
+  expect(fn.add(3, 3)).not.toBe(5);
+});
 ```
 
 ### 참조값 비교
