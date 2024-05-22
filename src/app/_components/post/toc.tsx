@@ -13,7 +13,7 @@ const Toc = () => {
   }, []);
 
   return (
-    <nav className="hidden lg:block">
+    <nav className="hidden lg:block font-[Seonbi]">
       <ul className="w-[274px] sticky top-[160px] border-l-2 pl-[10px]">
         <p className="font-bold text-[24px]">ON THIS PAGE</p>
         {headingEls?.map((heading, index) => {
@@ -22,8 +22,8 @@ const Toc = () => {
               key={`heading-${index}`}
               className={`${
                 heading.tagName === "H3"
-                  ? "ml-6 text-[12px]"
-                  : "font-semibold text-[14px]"
+                  ? "ml-6 text-[14px]"
+                  : "font-semibold text-[16px]"
               }  my-2`}
             >
               <a href={"#" + heading.id}>{heading.innerText}</a>
