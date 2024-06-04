@@ -19,7 +19,7 @@ const PostCard: React.FC<IPostCard> = ({
   category,
 }) => {
   return (
-    <div className="w-[296px] h-[350px] m-3 p-4 border-2 font-[Seonbi] box-border rounded-lg relative group">
+    <div className="w-[296px] h-[350px] m-3 p-4 border-2 font-[Seonbi] box-border rounded-lg relative group transform duration-500 animate-fade pcHover:hover:scale-105">
       <a href={`/posts/${slug}`}>
         <div className="relative rounded-lg w-[260px] h-[180px] ">
           <Image
