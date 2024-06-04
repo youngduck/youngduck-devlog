@@ -84,7 +84,7 @@ const config = {
         fade: "fadeIn .5s ease-in-out",
       },
       fontFamily: {
-        Seonbi: ["Seonbi"],
+        KCC: ["KCC"],
       },
       screens: {
         pcHover: {

@@ -13,7 +13,7 @@ const Toc = () => {
   }, []);
 
   return (
-    <nav className="hidden lg:block font-[Seonbi] transform duration-500 animate-fade">
+    <nav className="hidden lg:block font-[KCC] transform duration-500 animate-fade">
       <ul className="w-[274px] sticky top-[160px] border-l-2 pl-[10px]">
         <p className="font-bold text-[24px]">ON THIS PAGE</p>
         {headingEls?.map((heading, index) => {
