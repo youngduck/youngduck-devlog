@@ -38,12 +38,7 @@ const Giscus = () => {
     loadGiscus();
   }, [loadGiscus]);
 
-  return (
-    <section
-      id="giscusComments"
-      className="lg:mt-[100px] lg:w-[1150px] lg:mx-auto mt-[50px]"
-    />
-  );
+  return <section id="giscusComments" className="lg:w-[760px] my-[50px]" />;
 };
 
 export default Giscus;
