@@ -156,9 +156,9 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
         onClick={copyToClipboard}
       >
         {copied ? (
-          <CheckIcon width={30} height={30} />
+          <CheckIcon width={20} height={20} />
         ) : (
-          <Clipboard width={30} height={30} />
+          <Clipboard width={20} height={20} />
         )}
       </button>
     </div>
@@ -194,7 +194,7 @@ export const TableHeader: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <th className="bg-yellow text-white align-middle py-3 text-xs font-semibold text-center uppercase border-l-0 border-r-0 whitespace-nowrap">
+    <th className="bg-[#282a36] text-white align-middle py-3 text-xs font-semibold text-center uppercase border-l-0 border-r-0 whitespace-nowrap">
       {children}
     </th>
   );
@@ -204,9 +204,7 @@ export const TableRow: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <tr className="even:bg-yellow-50 odd:bg-yellow-100 dark:text-black">
-      {children}
-    </tr>
+    <tr className="even:bg-[#282a36] odd:bg-gray-600 text-white">{children}</tr>
   );
 };
 export const TableData: React.FC<{ children: React.ReactNode }> = ({
