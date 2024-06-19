@@ -92,7 +92,7 @@ export const Li: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <li className="" {...rest}>
+    <li className="py-[2px]" {...rest}>
       {children}
     </li>
   );
