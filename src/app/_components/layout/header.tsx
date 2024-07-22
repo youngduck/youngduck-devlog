@@ -6,7 +6,7 @@ import RssFeedButton from "./rss-feed-button";
 
 const Header = () => {
   return (
-    <header className="sticky pt-[20px] top-[-20px] z-10 w-full bg-background">
+    <header className="sticky pt-[20px] top-[-20px] z-10 w-full bg-background transform animate-fade-down">
       <div className="flex lg:w-[1150px] h-[55px] mx-auto justify-between p-2">
         <Link href="/">
           <div className="relative w-[200px] h-[50px]">
