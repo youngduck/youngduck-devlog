@@ -1,8 +1,16 @@
+"use client";
+import React from "react";
 import { DarkModeToggle } from "./dark-mode-toggle";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import RssFeedButton from "./rss-feed-button";
+import Lottie from "react-lottie-player";
+// import euro from "../../../../public/assets/lottie/euro.json";
+import euro from "@public/assets/lottie/euro.json";
+import CustomLottie from "../lottie/CustomLottie";
+
+import { lottieData } from "../lottie/lottieData";
 
 const Header = () => {
   return (
@@ -21,6 +29,8 @@ const Header = () => {
           </div>
         </Link>
         <div className="flex">
+          <Lottie loop animationData={euro} play />
+          <CustomLottie animationData={lottieData.euro} />
           <RssFeedButton />
           <DarkModeToggle />
         </div>
