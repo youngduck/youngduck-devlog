@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
   },
   manifest: "/manifest.json",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASED_URL as string),
   openGraph: {
     url: `https://youngduck-devlog.vercel.app`,
     siteName: "youngduck-devlog",
