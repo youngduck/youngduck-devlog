@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "youngduck-devlog",
     title: "김영덕 기술블로그",
     description: "개발자 김영덕의 기술블로그입니다.",
-    images: "/assets/blog/openGraph/cover.png",
+    images: ["/assets/blog/openGraph/cover.png"],
     locale: "ko_KR",
     type: "website",
   },
