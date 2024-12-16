@@ -29,8 +29,8 @@ const Header = () => {
           </div>
         </Link>
         <div className="flex">
-          <Lottie loop animationData={euro} play />
-          <CustomLottie animationData={lottieData.euro} />
+          {/* <Lottie loop animationData={euro} play />
+          <CustomLottie animationData={lottieData.euro} /> */}
           <RssFeedButton />
           <DarkModeToggle />
         </div>
