@@ -6,17 +6,18 @@ import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Clipboard from "../../../../public/assets/svg/clipboard.svg";
 import CheckIcon from "../../../../public/assets/svg/CheckIcon.svg";
-
+import Bulb from "../../../../public/assets/svg/Bulb.svg";
 export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
   children,
   ...rest
 }) => {
   return (
     <blockquote
-      className="p-4 bg-slate-700 text-white my-2 max-w-[860px]"
+      className="p-4 flex items-center gap-4 border-2 border-yellow rounded-lg my-2 max-w-[860px]"
       {...rest}
     >
-      {children}
+      <Bulb width={30} height={30} />
+      <div className="flex-1">{children}</div>
     </blockquote>
   );
 };
