@@ -113,11 +113,7 @@ yo code
 1. Azure DevOps 계정 생성
 2. Personal Access Token 발급 ([링크](https://learn.microsoft.com/ko-kr/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows)참고)
 
-VS Code MarketPlace에 처음 배포한다면 azure계정의 토큰을 발급받기위해 회원가입이 필요합니다.
-
-회원가입 후 [해당 사이트](https://learn.microsoft.com/ko-kr/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows)를 참고해 토큰을 발급해 줍니다.
-
-### 6. VS Code Marketplace 배포
+### 5. VS Code Marketplace 배포
 
 ```json
 # vsce 설치
@@ -140,4 +136,4 @@ vsce publish major  # 메이저 버전 증가 (x.0.0)
 
 ## 참고 자료
 
-[https://velog.io/@junman95/Visual-Studio-Code-Extension-배포하기](https://velog.io/@junman95/Visual-Studio-Code-Extension-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0)
+- [https://velog.io/@junman95/Visual-Studio-Code-Extension-배포하기](https://velog.io/@junman95/Visual-Studio-Code-Extension-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0)
