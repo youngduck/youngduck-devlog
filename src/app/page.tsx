@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/api";
 import PostCard from "./_components/post/post-card";
-import TagNavbar from "./_components/layout/tag-navbar";
+import TagNavbar from "@layout/tag-navbar";
 
 export default function Home() {
   const posts = getAllPosts();

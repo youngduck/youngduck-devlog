@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Footer from "./_components/layout/footer";
+import Footer from "@layout/footer";
 import { ThemeProvider } from "./_components/provider/theme-provider";
 
-import Header from "./_components/layout/header";
+import Header from "@layout/header";
 import { Inter } from "next/font/google";
 import "./globals.css";
 

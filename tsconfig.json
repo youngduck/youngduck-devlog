@@ -19,6 +19,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@layout/*": ["./src/app/_components/layout/*"],
       "@public/assets/*": ["./public/assets/*"]
     }
   },
