@@ -1,12 +1,22 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import Image from "next/image";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {
+  coldarkCold,
+  a11yDark,
+  atomDark,
+  pojoaque,
+  oneDark,
+  oneLight,
+  xonokai,
+  coy,
+} from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Clipboard from "../../../../public/assets/svg/clipboard.svg";
 import CheckIcon from "../../../../public/assets/svg/CheckIcon.svg";
 import Bulb from "../../../../public/assets/svg/Bulb.svg";
+import { useTheme } from "next-themes";
 export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
   children,
   ...rest
@@ -38,7 +48,7 @@ export const A: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <a className="text-yellow underline" {...rest} target="_blank">
+    <a className="text-yellow " {...rest} target="_blank">
       {children}
     </a>
   );
@@ -60,7 +70,7 @@ export const Pre: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <pre className="max-w-[860px]" {...rest}>
+    <pre className="max-w-[860px] border-2 border-yellow rounded-lg" {...rest}>
       {children}
     </pre>
   );
@@ -138,9 +148,13 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
       {match ? (
         <>
           <SyntaxHighlighter
-            className="mb-[150px] hover:bg-gray-700 hover:cursor-pointer transition duration-300"
+            className="mb-[150px] hover:cursor-pointer transition duration-300"
             language={match[1]}
-            style={dracula}
+            customStyle={{
+              margin: "0px",
+              backgroundColor: "blue",
+            }}
+            style={pojoaque}
             PreTag="div"
           >
             {String(children).replace(/\n$/, "")}
@@ -153,7 +167,7 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
       )}
 
       <button
-        className="absolute top-0 right-0 bg-gray-800 text-white px-2 py-1 rounded hover:bg-gray-700 transition duration-300"
+        className="absolute top-0 right-0 text-white px-2 py-1 rounded hover:bg-gray-700 transition duration-300"
         onClick={copyToClipboard}
       >
         {copied ? (

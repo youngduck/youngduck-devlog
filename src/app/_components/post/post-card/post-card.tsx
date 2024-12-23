@@ -19,7 +19,7 @@ const PostCard: React.FC<IPostCard> = ({
   category,
 }) => {
   return (
-    <div className="w-[296px] h-[350px] m-3 p-4 border-2 font-[KCC] box-border rounded-lg relative group transform  duration-500 animate-fade-up pcHover:hover:scale-105">
+    <div className="w-[296px] h-[350px] m-3 p-4 border-2 font-[KCC] box-border bg-background rounded-lg relative group transform  duration-500 animate-fade-up pcHover:hover:scale-105">
       <a href={`/posts/${slug}`}>
         <div className="relative rounded-lg w-[260px] h-[180px] ">
           <Image
@@ -31,8 +31,8 @@ const PostCard: React.FC<IPostCard> = ({
             className="object-cover rounded-lg"
           />
         </div>
-        <div className=" my-3">
-          <span className="text-sm font-bold mr-2 capitalize text-yellow">
+        <div className="my-3">
+          <span className="text-sm font-bold mr-2 capitalize text-yellow whitespace-normal break-normal">
             # {category}
           </span>
           <p className="text-[10px] font-normal text-gray-400">
@@ -42,7 +42,7 @@ const PostCard: React.FC<IPostCard> = ({
         <p className="font-display max-w-sm text-xl font-bold leading-tight">
           <span className="text-dd dark:text-gray-200 ">{title}</span>
         </p>
-        <div className="absolute opacity-0 translate-x-[-50%] translate-y-[-50%] box-border invisible group-hover:opacity-70 group-hover:visible  p-4 top-[50%] left-[50%] w-[296px] h-[350px] bg-black rounded-lg text-white">
+        <div className="absolute opacity-0 translate-x-[-50%] translate-y-[-50%] box-border invisible pcHover:group-hover:opacity-70 pcHover:group-hover:visible  p-4 top-[50%] left-[50%] w-[296px] h-[350px] bg-black rounded-lg text-white">
           <p>{excerpt}</p>
         </div>
       </a>
