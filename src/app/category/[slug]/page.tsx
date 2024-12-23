@@ -1,6 +1,6 @@
 import { getAllCategoriesID, getFilteredPosts } from "@/lib/api";
 import TagNavbar from "@layout/tag-navbar";
-import PostCard from "@/app/_components/post/post-card";
+import PostCard from "@/app/_components/post/post-card/post-card";
 interface Params {
   params: {
     slug: string;

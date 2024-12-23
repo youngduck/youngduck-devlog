@@ -1,5 +1,5 @@
 import React from "react";
-import PostCard from "../_components/post/post-card";
+import PostCard from "../_components/post/post-card/post-card";
 import { getAllPosts } from "@/lib/api";
 
 const layout = ({ children }: { children: React.ReactNode }) => {

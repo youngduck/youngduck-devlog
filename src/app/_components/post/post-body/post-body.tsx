@@ -5,7 +5,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import remarkBreaks from "remark-breaks";
-import * as styled from "./styled-markdown";
+import * as styled from "../styled-markdown";
 
 type MarkdownPostProps = {
   content: string;
