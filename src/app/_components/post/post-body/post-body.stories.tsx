@@ -10,6 +10,50 @@ export default meta;
 
 type Story = StoryObj<typeof PostBody>;
 
+const fullContent = `
+> 인용문
+
+  **굵은 텍스트**
+
+  *기울임 텍스트*
+
+  ## 🤔2단계 제목
+  - 순서가 없는 목록
+  - 순서가 없는 목록
+  - 순서가 없는 목록
+  ### 🤔3단계 제목
+  1. 순서가 있는 목록
+  2. 순서가 있는 목록
+  3. 순서가 있는 목록
+
+
+
+  
+  ### 🤔코드
+  \`\`\`typescript
+  const example = "TypeScript";
+  interface Example {
+    name: string;
+  }
+  \`\`\`
+  \`\`\`typescript
+  const example = "TypeScript";
+  interface Example {
+    name: string;
+  }
+  \`\`\`
+
+  ### 🤔테이블
+  | 헤더1 | 헤더2 | 헤더3 | 헤더4 |
+  |-------|-------|-------|-------|
+  | 데이터1 | 데이터2 | 데이터3 | 데이터4 |
+  | 데이터1 | 데이터2 | 데이터3 | 데이터4 |
+  | 데이터1 | 데이터2 | 데이터3 | 데이터4 |
+  
+  ### 🤔링크
+  [출처: ](https://www.google.com) 구글
+  `;
+
 export const H2: Story = {
   args: {
     content: `## 🤔2단계 제목
@@ -45,49 +89,24 @@ export const Strong: Story = {
   },
 };
 
-export const FullContent: Story = {
+export const FullContentPad: Story = {
   args: {
-    content: `
-> 인용문
-
-  **굵은 텍스트**
-
-  *기울임 텍스트*
-
-  ## 🤔2단계 제목
-  - 순서가 없는 목록
-  - 순서가 없는 목록
-  - 순서가 없는 목록
-  ### 🤔3단계 제목
-  1. 순서가 있는 목록
-  2. 순서가 있는 목록
-  3. 순서가 있는 목록
-
-
-
-  
-  ### 🤔코드
-  \`\`\`typescript
-  const example = "TypeScript";
-  interface Example {
-    name: string;
-  }
-  \`\`\`
-
-  ### 🤔테이블
-  | 헤더1 | 헤더2 | 헤더3 |
-  |-------|-------|-------|
-  | 데이터1 | 데이터2 | 데이터3 |
-  | 데이터1 | 데이터2 | 데이터3 |
-  | 데이터1 | 데이터2 | 데이터3 |
-  
-  ### 🤔링크
-  [출처: ](https://www.google.com) 구글
-  `,
+    content: fullContent,
   },
   parameters: {
     viewport: {
       defaultViewport: "ipad11p",
+    },
+  },
+};
+
+export const FullContentMobile: Story = {
+  args: {
+    content: fullContent,
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: "iphone6",
     },
   },
 };
