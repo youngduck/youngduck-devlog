@@ -70,7 +70,10 @@ export const Pre: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <pre className="max-w-[860px] border-2 border-yellow rounded-lg" {...rest}>
+    <pre
+      className="max-w-[860px] border-2 border-yellow rounded-lg my-3"
+      {...rest}
+    >
       {children}
     </pre>
   );
@@ -103,7 +106,7 @@ export const Li: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <li className="py-[2px]" {...rest}>
+    <li className="" {...rest}>
       {children}
     </li>
   );
@@ -114,7 +117,7 @@ export const H2: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h2 className="block text-4xl pb-6 pt-[60px] my-4  font-bold" {...rest}>
+    <h2 className="block text-3xl pt-[60px] my-4  font-bold" {...rest}>
       {children}
     </h2>
   );
@@ -124,7 +127,7 @@ export const H3: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h3 className="text-3xl  pb-3 pt-[60px] my-4 font-bold" {...rest}>
+    <h3 className="text-2xl pt-[60px] my-4 font-bold" {...rest}>
       {children}
     </h3>
   );
