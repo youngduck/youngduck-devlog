@@ -1,6 +1,6 @@
 ---
 title: "라우터속 컴포넌트는 언제 리렌더링이 일어날까요?"
-excerpt: "선언적컴포넌트에 State를 할당하다가 발견한 문제점에 대해 공유합니다."
+excerpt: "선언적컴포넌트에 State를 할당하다 발견한 문제점에 대해 공유합니다."
 coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png"
 date: "2024-12-24T18:35:00"
 category: "React"
@@ -8,7 +8,7 @@ ogImage:
   url: "/assets/blog/posts/react/react-router-rerender/cover.png"
 ---
 
-## 📢문제상황 발생전
+## 📢 문제상황 발생전
 
 > 사내 프로젝트를 진행하면서 React-Query를 활용해 서버에서 가져온 데이터를 선언적([참고](https://f-lab.kr/insight/understanding-react-declarative-ui-20240802))으로 렌더링 해주었고 URL 파라미터값에 따라 리렌더링이 진행되게끔 만들었습니다. 다음과 같이 말이죠.
 
@@ -169,7 +169,7 @@ URL이 변경되어도 testName은 초기값에서 변경되지 않았습니다.
 
 ## 💡 최종 결론
 
-서칭을해도 잘나오지않아 추가적으로 이러한 분석이 맞는지 클로드와 지피티에게 교차검증을 해보니 받은 답변은 다음과 같습니다. (오개념일시 댓글 부탁드립니다.)
+서칭을해도 잘나오지않아 추가적으로 이러한 분석이 맞는지 클로드와 지피티에게 교차검증을 해보니 받은 답변은 다음과 같습니다. (오개념일시 댓글로 지적 부탁드립니다.)
 
 ### 클로드3.5
 
