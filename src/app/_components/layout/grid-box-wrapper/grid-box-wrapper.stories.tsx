@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import BoxWrapper from "./box-wrapper";
+import BoxWrapper from "./grid-box-wrapper";
 import PostCard from "../../post/post-card/post-card";
 
 const meta: Meta<typeof BoxWrapper> = {
