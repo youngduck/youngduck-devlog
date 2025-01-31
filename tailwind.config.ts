@@ -2,19 +2,19 @@ import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
+    },
+    screens: {
+      sm: "375px",
+      md: "1024px",
+      lg: "1280px",
+      pcHover: {
+        raw: "(hover: hover) and (pointer: fine)",
       },
     },
     extend: {
@@ -80,11 +80,6 @@ const config = {
       },
       fontFamily: {
         KCC: ["KCC"],
-      },
-      screens: {
-        pcHover: {
-          raw: "(hover: hover) and (pointer: fine)",
-        },
       },
     },
   },
