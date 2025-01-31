@@ -32,43 +32,45 @@ const Header = () => {
   return (
     <>
       <header className="sticky pt-[0px] top-[0px] z-10 w-full lg:w-full mx-auto justify-between p-0 bg-background transform animate-fade-down">
-        <div className="flex w-full h-[60px] lg:w-[1200px] mx-auto justify-between items-center p-2">
-          <Link href="/">
-            <div className="w-[250px] h-[60px] flex justify-center items-center border-2 border-yellow border-y-0 border-x-0">
-              <div className="relative w-[200px] h-[40px]">
-                <Image
-                  src="/assets/logo/logo.png"
-                  alt="/assets/logo/logo.png"
-                  fill
-                  priority={true}
-                  sizes="(max-width:192px)"
-                  className="object-cover"
-                />
+        <div className="flex w-full h-[60px] lg:w-[1200px] mx-auto justify-between items-center">
+          <div className="flex items-center">
+            <Link href="/">
+              <div className="w-[250px] h-[60px] flex justify-center items-center bg-secondary">
+                <div className="relative w-[200px] h-[40px]">
+                  <Image
+                    src="/assets/logo/logo.png"
+                    alt="/assets/logo/logo.png"
+                    fill
+                    priority={true}
+                    sizes="(max-width:192px)"
+                    className="object-cover"
+                  />
+                </div>
               </div>
-            </div>
-          </Link>
-          <nav className="flex w-full items-center ">
-            <Link href="/blog">
-              <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
-                Blog
-              </span>
             </Link>
-            <Link href="/about">
-              <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
-                About
-              </span>
-            </Link>
-            <Link href="/project">
-              <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
-                Project
-              </span>
-            </Link>
-            <Link href="/ps">
-              <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
-                PS
-              </span>
-            </Link>
-          </nav>
+            <nav className="items-center hidden md:flex">
+              <Link href="/blog">
+                <span className="text-[20px] font-KCC px-[20px] pl-[30px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
+                  Blog
+                </span>
+              </Link>
+              <Link href="/about">
+                <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
+                  About
+                </span>
+              </Link>
+              <Link href="/project">
+                <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
+                  Project
+                </span>
+              </Link>
+              <Link href="/ps">
+                <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
+                  PS
+                </span>
+              </Link>
+            </nav>
+          </div>
           <div className="flex">
             <RssFeedButton />
             <DarkModeToggle />
