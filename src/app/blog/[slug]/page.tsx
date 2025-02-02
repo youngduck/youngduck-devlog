@@ -1,6 +1,6 @@
 import { getAllCategoriesID, getFilteredPosts } from "@/lib/api";
 import TagNavbar from "@layout/tag-navbar";
-import PostCard from "@/app/_components/post/post-card/post-card";
+import PostCard from "@/app/shared/_components/post/post-card/post-card";
 interface Params {
   params: {
     slug: string;
@@ -11,10 +11,10 @@ const page: React.FC<Params> = ({ params }) => {
   const filteredData = getFilteredPosts(params.slug);
 
   return (
-    <main className="lg:w-[1200px] mx-auto">
-      <div className="flex flex-col justify-center items-center">
+    <main className="mx-auto lg:w-[1200px]">
+      <div className="flex flex-col items-center justify-center">
         <TagNavbar />
-        <div className="flex lg:w-[1200px] flex-wrap lg:justify-normal justify-center border-b-2 pb-6">
+        <div className="flex flex-wrap justify-center border-b-2 pb-6 lg:w-[1200px] lg:justify-normal">
           {filteredData.map((item, idx) => (
             <PostCard
               key={idx}

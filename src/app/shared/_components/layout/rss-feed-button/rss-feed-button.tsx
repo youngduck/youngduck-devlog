@@ -1,5 +1,5 @@
-import { Button } from "../../../../components/ui/button";
-import RssFeedIcon from "../../../../../public/assets/svg/rssFeedIcon.svg";
+import { Button } from "../../../../../components/ui/button";
+import RssFeedIcon from "@public/assets/svg/rssFeedIcon.svg";
 
 const RssFeedButton = () => {
   return (
@@ -7,7 +7,7 @@ const RssFeedButton = () => {
       <Button
         variant="link"
         size="icon"
-        className="border-yellow border-2 mr-2 bg-background"
+        className="mr-2 border-2 border-yellow bg-background"
       >
         <RssFeedIcon width={20} height={20} />
       </Button>

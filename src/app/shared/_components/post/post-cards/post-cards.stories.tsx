@@ -17,7 +17,7 @@ const commonPosts = [
   {
     title: "Post Title1",
     slug: "post-slug",
-    coverImage: "https://via.placeholder.com/150",
+    coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png",
     date: "2024-01-01",
     excerpt: "Post Excerpt",
     category: "Category",
@@ -25,7 +25,7 @@ const commonPosts = [
   {
     title: "Post Title2",
     slug: "post-slug",
-    coverImage: "https://via.placeholder.com/150",
+    coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png",
     date: "2024-01-01",
     excerpt: "Post Excerpt",
     category: "Category",
@@ -33,7 +33,7 @@ const commonPosts = [
   {
     title: "Post Title3",
     slug: "post-slug",
-    coverImage: "https://via.placeholder.com/150",
+    coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png",
     date: "2024-01-01",
     excerpt: "Post Excerpt",
     category: "Category",
@@ -41,7 +41,7 @@ const commonPosts = [
   {
     title: "Post Title4",
     slug: "post-slug",
-    coverImage: "https://via.placeholder.com/150",
+    coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png",
     date: "2024-01-01",
     excerpt: "Post Excerpt",
     category: "Category",
