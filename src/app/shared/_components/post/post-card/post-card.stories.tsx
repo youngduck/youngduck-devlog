@@ -15,7 +15,7 @@ export const Default: Story = {
   args: {
     title: "Post Title",
     slug: "post-slug",
-    coverImage: "https://via.placeholder.com/150",
+    coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png",
     date: "2024-01-01",
     excerpt: "Post Excerpt",
     category: "Category",

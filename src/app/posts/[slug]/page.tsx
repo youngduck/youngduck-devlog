@@ -3,10 +3,10 @@ import { getPostBySlug, getAllPosts } from "@/lib/api";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { CMS_NAME } from "../../../lib/constants";
-import PostTitle from "@/app/_components/post/post-title";
-import PostBody from "@/app/_components/post/post-body/post-body";
-import Toc from "@/app/_components/post/toc";
-import Giscus from "@/app/_components/post/post-comment";
+import PostTitle from "@/app/shared/_components/post/post-title";
+import PostBody from "@/app/shared/_components/post/post-body/post-body";
+import Toc from "@/app/shared/_components/post/toc";
+import Giscus from "@/app/shared/_components/post/post-comment";
 
 interface Params {
   params: {
@@ -23,7 +23,7 @@ const Page: React.FC<Params> = async ({ params }) => {
 
   return (
     <>
-      <main className="w-full lg:w-[1200px] mx-auto flex px-2">
+      <main className="mx-auto flex w-full px-2 lg:w-[1200px]">
         <article className="w-full lg:w-[860px] lg:pr-[100px]">
           <PostTitle
             title={title}

@@ -13,9 +13,9 @@ import {
   xonokai,
   coy,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import Clipboard from "../../../../public/assets/svg/clipboard.svg";
-import CheckIcon from "../../../../public/assets/svg/CheckIcon.svg";
-import Bulb from "../../../../public/assets/svg/Bulb.svg";
+import Clipboard from "@public/assets/svg/clipboard.svg";
+import CheckIcon from "@public/assets/svg/CheckIcon.svg";
+import Bulb from "@public/assets/svg/Bulb.svg";
 import { useTheme } from "next-themes";
 export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -23,7 +23,7 @@ export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <blockquote
-      className="p-4 flex items-center gap-4 border-2 border-yellow rounded-lg my-2 max-w-[860px]"
+      className="my-2 flex max-w-[860px] items-center gap-4 rounded-lg border-2 border-yellow p-4"
       {...rest}
     >
       <Bulb width={30} height={30} />
@@ -37,7 +37,7 @@ export const P: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <p className="text-lg my-2 break-words" {...rest}>
+    <p className="my-2 break-words text-lg" {...rest}>
       {children}
     </p>
   );
@@ -48,7 +48,7 @@ export const A: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <a className="text-yellow " {...rest} target="_blank">
+    <a className="text-yellow" {...rest} target="_blank">
       {children}
     </a>
   );
@@ -71,7 +71,7 @@ export const Pre: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <pre
-      className="max-w-[860px] border-2 border-yellow rounded-lg my-3"
+      className="my-3 max-w-[860px] rounded-lg border-2 border-yellow"
       {...rest}
     >
       {children}
@@ -117,7 +117,7 @@ export const H2: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h2 className="block text-3xl pt-[60px] my-4  font-bold" {...rest}>
+    <h2 className="my-4 block pt-[60px] text-3xl font-bold" {...rest}>
       {children}
     </h2>
   );
@@ -127,7 +127,7 @@ export const H3: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h3 className="text-2xl pt-[60px] my-4 font-bold" {...rest}>
+    <h3 className="my-4 pt-[60px] text-2xl font-bold" {...rest}>
       {children}
     </h3>
   );
@@ -151,7 +151,7 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
       {match ? (
         <>
           <SyntaxHighlighter
-            className="mb-[150px] hover:cursor-pointer transition duration-300"
+            className="mb-[150px] transition duration-300 hover:cursor-pointer"
             language={match[1]}
             customStyle={{
               margin: "0px",
@@ -170,7 +170,7 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
       )}
 
       <button
-        className="absolute top-0 right-0 text-white px-2 py-1 rounded hover:bg-gray-700 transition duration-300"
+        className="absolute right-0 top-0 rounded px-2 py-1 text-white transition duration-300 hover:bg-gray-700"
         onClick={copyToClipboard}
       >
         {copied ? (
@@ -194,7 +194,7 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
       priority={true}
       width={860}
       height={0}
-      className="w-full max-h-[1000px] h-auto my-4 object-cover"
+      className="my-4 h-auto max-h-[1000px] w-full object-cover"
     />
   );
 };
@@ -202,7 +202,7 @@ export const Table: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <table className="items-center w-full bg-transparent border-collapse my-10">
+    <table className="my-10 w-full border-collapse items-center bg-transparent">
       {children}
     </table>
   );
@@ -212,7 +212,7 @@ export const TableHeader: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <th className="bg-[#282a36] text-white align-middle py-3 text-xs font-semibold text-center uppercase border-l-0 border-r-0 whitespace-nowrap">
+    <th className="whitespace-nowrap border-l-0 border-r-0 bg-[#282a36] py-3 text-center align-middle text-xs font-semibold uppercase text-white">
       {children}
     </th>
   );
@@ -222,7 +222,7 @@ export const TableRow: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <tr className="even:bg-[#282a36] odd:bg-gray-600 text-white">{children}</tr>
+    <tr className="text-white odd:bg-gray-600 even:bg-[#282a36]">{children}</tr>
   );
 };
 export const TableData: React.FC<{ children: React.ReactNode }> = ({

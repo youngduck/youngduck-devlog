@@ -1,32 +1,37 @@
 import { getAllPosts } from "@/lib/api";
-import GridBoxWrapper from "./_components/layout/grid-box-wrapper/grid-box-wrapper";
+import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
 
 export default function Home() {
   const posts = getAllPosts();
 
   return (
-    <main className="w-full lg:w-[1200px] h-auto mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-[250px_600px_310px] gap-[20px] w-full h-[480px] grid-rows-4">
-        {/* 첫 번째 행 */}
-        <GridBoxWrapper className=" lg:row-span-4 lg:col-span-1 rounded-t-none">
-          1-1
+    <main className="mx-auto h-auto w-full lg:w-[1200px]">
+      {/* 첫 번째 행 */}
+      <div className="grid w-full grid-cols-1 grid-rows-1 gap-[20px] lg:h-[480px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_370px]">
+        <GridBoxWrapper className="rounded-t-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
+          1-1 Blog KCC 안녕하세요
         </GridBoxWrapper>
-        <GridBoxWrapper className=" lg:row-start-1 lg:row-end-3 lg:col-start-2 lg:col-end-3 border-transparent bg-transparent">
-          2-1
+        <GridBoxWrapper className="border-transparent bg-transparent lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2">
+          <div className="text-[20px]">
+            <p>안녕하세요</p>
+            <p>
+              <strong className="text-yellow">UX</strong>,{" "}
+              <strong className="text-yellow">DX</strong>,{" "}
+              <strong className="text-yellow">TDD</strong>,{" "}
+              <strong className="text-yellow">최적화</strong> 에 관심이
+              많습니다만
+            </p>
+            <p>
+              Trade Off를 고려하며 좋은 코드를 작성하기위해 항상 노력합니다.
+            </p>
+          </div>
         </GridBoxWrapper>
-        <GridBoxWrapper className=" lg:row-start-3 lg:row-end-5 lg:col-start-2 lg:col-end-3 border-2">
+        <GridBoxWrapper className="border-2 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3">
           2-2
         </GridBoxWrapper>
-
-        {/* <div className="rounded-md bg-gradient-to-r from-yellow to-[#8C6306] p-[3px] lg:col-span-6 ">
-          <div className="flex h-full w-full p-2 bg-background back">1-2</div>
-        </div> */}
-        {/* <div className="lg:col-span-6 full border border-gray-300 rounded-lg">
-          1-2
-        </div> */}
-        <div className="lg:col-start-3 lg:col-end-4 full border border-gray-300 rounded-lg">
-          1-3
-        </div>
+        <GridBoxWrapper className="h-[500px] border-2 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:h-auto">
+          3-1?
+        </GridBoxWrapper>
       </div>
     </main>
   );

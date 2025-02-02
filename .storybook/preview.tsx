@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
 import "../src/app/globals.css";
-import { ThemeProvider } from "../src/app/_components/provider/theme-provider";
+import { ThemeProvider } from "../src/app/shared/_components/provider/theme-provider";
 import React from "react";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
