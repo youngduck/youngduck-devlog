@@ -16,6 +16,7 @@ type Story = StoryObj<typeof Header>;
 
 export const Desktop: Story = {
   parameters: {
+    layout: "fullscreen",
     viewport: {
       defaultViewport: "desktop",
     },
@@ -24,6 +25,7 @@ export const Desktop: Story = {
 
 export const Ipad11Pro: Story = {
   parameters: {
+    layout: "fullscreen",
     viewport: {
       defaultViewport: "ipad11p",
     },
@@ -32,6 +34,7 @@ export const Ipad11Pro: Story = {
 
 export const Mobile: Story = {
   parameters: {
+    layout: "fullscreen",
     viewport: {
       defaultViewport: "iphone6",
     },
