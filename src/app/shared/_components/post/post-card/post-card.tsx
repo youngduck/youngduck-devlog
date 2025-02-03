@@ -19,20 +19,20 @@ const PostCard: React.FC<IPostCard> = ({
   category,
 }) => {
   return (
-    <div className="w-[296px] h-[350px] m-3 p-4 border-2 font-[KCC] box-border bg-background rounded-lg relative group transform  duration-500 animate-fade-up pcHover:hover:scale-105">
+    <div className="group relative m-3 box-border h-[350px] w-[296px] transform animate-fade-up rounded-lg border-2 bg-background p-4 font-[KCC] duration-500 pcHover:hover:scale-105">
       <a href={`/posts/${slug}`}>
-        <div className="relative rounded-lg w-[260px] h-[180px] ">
+        <div className="relative h-[180px] w-[260px] rounded-lg">
           <Image
             src={coverImage}
             alt={coverImage}
             fill
             priority={true}
             sizes="(max-width: 296px)"
-            className="object-cover rounded-lg"
+            className="rounded-lg object-cover"
           />
         </div>
         <div className="my-3">
-          <span className="text-sm font-bold mr-2 capitalize text-yellow whitespace-normal break-normal">
+          <span className="mr-2 whitespace-normal break-normal text-sm font-bold capitalize text-yellow">
             # {category}
           </span>
           <p className="text-[10px] font-normal text-gray-400">
@@ -40,9 +40,9 @@ const PostCard: React.FC<IPostCard> = ({
           </p>
         </div>
         <p className="font-display max-w-sm text-xl font-bold leading-tight">
-          <span className="text-dd dark:text-gray-200 ">{title}</span>
+          <span className="text-dd dark:text-gray-200">{title}</span>
         </p>
-        <div className="absolute opacity-0 translate-x-[-50%] translate-y-[-50%] box-border invisible pcHover:group-hover:opacity-70 pcHover:group-hover:visible  p-4 top-[50%] left-[50%] w-[296px] h-[350px] bg-black rounded-lg text-white">
+        <div className="invisible absolute left-[50%] top-[50%] box-border h-[350px] w-[296px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-black p-4 text-white opacity-0 pcHover:group-hover:visible pcHover:group-hover:opacity-70">
           <p>{excerpt}</p>
         </div>
       </a>

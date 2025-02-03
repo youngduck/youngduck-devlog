@@ -7,15 +7,15 @@ const Toc = () => {
 
   useEffect(() => {
     const headingElements: HTMLElement[] = Array.from(
-      document.querySelectorAll("h2, h3")
+      document.querySelectorAll("h2, h3"),
     );
     setHeadingEls(headingElements);
   }, []);
 
   return (
-    <nav className="hidden lg:block font-[KCC] transform duration-500 animate-fade-up">
-      <ul className="w-[274px] sticky top-[160px] border-l-2 pl-[10px]">
-        <p className="font-bold text-[24px]">ON THIS PAGE</p>
+    <nav className="hidden transform animate-fade-up font-[KCC] duration-500 lg:block">
+      <ul className="sticky top-[160px] w-[274px] border-l-2 pl-[10px]">
+        <p className="text-[24px] font-bold">ON THIS PAGE</p>
         {headingEls?.map((heading, index) => {
           return (
             <li
@@ -23,8 +23,8 @@ const Toc = () => {
               className={`${
                 heading.tagName === "H3"
                   ? "ml-6 text-[14px]"
-                  : "font-semibold text-[16px]"
-              }  my-2`}
+                  : "text-[16px] font-semibold"
+              } my-2`}
             >
               <a href={"#" + heading.id}>{heading.innerText}</a>
             </li>

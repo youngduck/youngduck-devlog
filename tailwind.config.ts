@@ -11,7 +11,7 @@ const config = {
     },
     screens: {
       sm: "375px",
-      md: "1024px",
+      md: "870px",
       lg: "1280px",
       pcHover: {
         raw: "(hover: hover) and (pointer: fine)",
