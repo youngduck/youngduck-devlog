@@ -17,7 +17,7 @@ const Giscus = () => {
     script.setAttribute("data-category-id", "DIC_kwDOLZSYnc4Cdwhe");
     script.setAttribute(
       "data-theme",
-      resolvedTheme === "light" ? "light" : "dark"
+      resolvedTheme === "light" ? "light" : "dark",
     );
     script.setAttribute("crossorigin", "anonymous");
     script.setAttribute("data-mapping", "pathname");
@@ -38,7 +38,7 @@ const Giscus = () => {
     loadGiscus();
   }, [loadGiscus]);
 
-  return <section id="giscusComments" className="lg:w-[760px] my-[50px]" />;
+  return <section id="giscusComments" className="my-[50px] lg:w-[760px]" />;
 };
 
 export default Giscus;

@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import { DarkModeToggle } from "../dark-mode-toggle";
 import Link from "next/link";
 import Image from "next/image";
-import RssFeedButton from "../rss-feed-button/rss-feed-button";
+import ListButton from "@layout/list-button/list-button";
+import RssFeedButton from "@layout/rss-feed-button/rss-feed-button";
 
 const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -31,12 +32,12 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky pt-[0px] top-[0px] z-10 w-full lg:w-full mx-auto justify-between p-0 bg-background transform animate-fade-down">
-        <div className="flex w-full h-[60px] lg:w-[1200px] mx-auto justify-between items-center">
+      <header className="sticky top-[0px] z-10 mx-auto w-full transform animate-fade-down justify-between bg-background p-0 pt-[0px] lg:w-full">
+        <div className="mx-auto flex h-[60px] w-full items-center justify-between md:w-[870px] lg:w-[1200px]">
           <div className="flex items-center">
             <Link href="/">
-              <div className="w-[250px] h-[60px] flex justify-center items-center bg-secondary">
-                <div className="relative w-[200px] h-[40px]">
+              <div className="flex h-[60px] w-[250px] items-center justify-center md:bg-secondary">
+                <div className="relative h-[40px] w-[200px]">
                   <Image
                     src="/assets/logo/logo.png"
                     alt="/assets/logo/logo.png"
@@ -48,24 +49,24 @@ const Header = () => {
                 </div>
               </div>
             </Link>
-            <nav className="items-center hidden md:flex">
+            <nav className="hidden items-center md:flex">
               <Link href="/blog">
-                <span className="text-[20px] font-KCC px-[20px] pl-[30px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
+                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] pl-[30px] font-KCC text-[20px] text-transparent">
                   Blog
                 </span>
               </Link>
               <Link href="/about">
-                <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
+                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
                   About
                 </span>
               </Link>
               <Link href="/project">
-                <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
+                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
                   Project
                 </span>
               </Link>
               <Link href="/ps">
-                <span className="text-[20px] font-KCC px-[20px] bg-gradient-to-r from-yellow to-[#8C6306] inline-block text-transparent bg-clip-text">
+                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
                   PS
                 </span>
               </Link>
@@ -76,7 +77,7 @@ const Header = () => {
             <DarkModeToggle />
           </div>
         </div>
-        <div className="w-full h-[3px] bg-gray-300">
+        <div className="h-[3px] w-full bg-gray-300">
           <div
             className="h-full bg-gradient-to-r from-yellow to-[#8C6306]"
             style={{ width: `${scrollPosition}%` }}

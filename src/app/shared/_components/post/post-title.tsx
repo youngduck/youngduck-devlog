@@ -15,8 +15,8 @@ const PostTitle: React.FC<IPostTitle> = ({
   coverImage,
 }) => {
   return (
-    <div className="py-3 mt-[20px] lg:mt-[70px] font-[KCC] transform duration-500 animate-fade-up">
-      <span className="inline-flex items-center px-3 py-1 rounded-full font-bold leading-5 text-white font-display mr-2 capitalize bg-yellow">
+    <div className="mt-[20px] transform animate-fade-up py-3 font-[KCC] duration-500 lg:mt-[70px]">
+      <span className="font-display mr-2 inline-flex items-center rounded-full bg-yellow px-3 py-1 font-bold capitalize leading-5 text-white">
         {category}
       </span>
       <h1 className="break-all text-[40px] font-bold">{title}</h1>

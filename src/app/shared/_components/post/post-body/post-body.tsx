@@ -16,7 +16,7 @@ const PostBody: React.FC<MarkdownPostProps> = ({ content }) => {
     <ReactMarkdown
       remarkPlugins={[remarkGfm, remarkBreaks]}
       rehypePlugins={[rehypeRaw, rehypeSlug]}
-      className="font-[KCC] transform duration-500 animate-fade-up"
+      className="transform animate-fade-up font-[KCC] duration-500"
       components={{
         p: ({ children, ...rest }) => <styled.P {...rest}>{children}</styled.P>,
         a: ({ children, ...rest }) => <styled.A {...rest}>{children}</styled.A>,
