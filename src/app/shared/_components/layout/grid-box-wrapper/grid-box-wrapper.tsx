@@ -11,7 +11,7 @@ const GridBoxWrapper: React.FC<GridBoxWrapperProps> = ({
 }) => {
   return (
     <div
-      className={`flex h-full w-full transform animate-fade-up rounded-md border-2 bg-secondary p-2 ${className}`}
+      className={`h-full w-full transform animate-fade-up rounded-md border-2 bg-secondary p-2 ${className}`}
     >
       {children}
     </div>
