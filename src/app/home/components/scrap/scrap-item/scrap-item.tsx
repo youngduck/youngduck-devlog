@@ -6,7 +6,13 @@
  */
 import { getAllScrapList } from "@/app/home/apis/scrap-apis";
 
-interface IScrapItem {}
+interface IScrapItem {
+  scrapList?: Array<{
+    name: string;
+    tags: string[];
+    link: string;
+  }>;
+}
 
 const ScrapItem: React.FC<IScrapItem> = async () => {
   //SECTION HOOK호출 영역
@@ -14,6 +20,10 @@ const ScrapItem: React.FC<IScrapItem> = async () => {
   //!SECTION HOOK호출 영역
 
   //SECTION 상태값 영역
+
+  if (!scrapList || scrapList.length === 0) {
+    return <div>스크랩된 항목이 없습니다.</div>;
+  }
 
   //!SECTION 상태값 영역
 
@@ -23,8 +33,8 @@ const ScrapItem: React.FC<IScrapItem> = async () => {
 
   return (
     <div>
-      {scrapList.map((item: any) => (
-        <div key={item.name}>{item.name}</div>
+      {scrapList.map((item: { name: string; tags: string[]; link: string }) => (
+        <div key={item.name || Math.random()}>{item.name}</div>
       ))}
     </div>
   );

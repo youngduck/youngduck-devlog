@@ -1,8 +1,6 @@
 import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
-import { getAllScrapList } from "./home/apis/scrap-apis";
 import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
 export default async function Home() {
-  const scrapList = await getAllScrapList();
 
   return (
     <main className="mx-auto h-auto w-full lg:w-[1200px]">
