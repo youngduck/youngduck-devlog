@@ -1,8 +1,6 @@
-import { getAllPosts } from "@/lib/api";
 import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
-
-export default function Home() {
-  const posts = getAllPosts();
+import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
+export default async function Home() {
 
   return (
     <main className="mx-auto h-auto w-full lg:w-[1200px]">
@@ -29,8 +27,11 @@ export default function Home() {
         <GridBoxWrapper className="border-2 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3">
           2-2
         </GridBoxWrapper>
-        <GridBoxWrapper className="h-[500px] border-2 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:h-auto">
-          3-1?
+        <GridBoxWrapper
+          title="최근 스크랩한 게시글"
+          className="h-[500px] border-2 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:h-auto"
+        >
+          <ScrapItem />
         </GridBoxWrapper>
       </div>
     </main>
