@@ -1,5 +1,29 @@
 import { NOTION_API_ERROR_MESSAGES } from "@/app/shared/constants/error/error-messages";
 
+interface NotionProperty {
+  title: {
+    title: {
+      plain_text: string;
+    }[];
+  };
+  "다중 선택": {
+    multi_select: {
+      name: string;
+    }[];
+  };
+  link: {
+    rich_text: {
+      plain_text: string;
+    }[];
+  };
+}
+
+interface ScrapItem {
+  name: string;
+  tags: string[];
+  link: string;
+}
+
 export async function getAllScrapList() {
   try {
     const response = await fetch(
@@ -20,31 +44,22 @@ export async function getAllScrapList() {
       throw new Error(NOTION_API_ERROR_MESSAGES.FETCH_FAILED);
     }
 
-    const responseData = await response.json();
-    console.log(responseData.results[0].properties, "responseData");
-    console.log(
-      responseData.results
-        ?.map((item: any) => item.properties)
-        ?.map((item: any) => ({
-          name: item?.title?.title?.[0]?.plain_text || "",
-          tags:
-            item?.["다중 선택"]?.multi_select?.map((tag: any) => tag.name) ||
-            [],
-          link: item?.link?.rich_text?.[0]?.plain_text || "",
-        })) || [],
-      "responseData.results",
-    );
-    return (
-      responseData.results
-        ?.map((item: any) => item.properties)
-        ?.map((item: any) => ({
-          name: item?.title?.title?.[0]?.plain_text || "",
-          tags:
-            item?.["다중 선택"]?.multi_select?.map((tag: any) => tag.name) ||
-            [],
-          link: item?.link?.rich_text?.[0]?.plain_text || "",
-        })) || []
-    );
+    const responseData: {
+      results: {
+        properties: NotionProperty;
+      }[];
+    } = await response.json();
+
+    const mappedResults: ScrapItem[] = responseData.results
+      .map((item) => item.properties)
+      .map((item) => ({
+        name: item.title.title[0]?.plain_text || "",
+        tags: item["다중 선택"].multi_select.map((tag) => tag.name) || [],
+        link: item.link.rich_text[0]?.plain_text || "",
+      }));
+
+    console.log(mappedResults, "responseData.results");
+    return mappedResults;
   } catch (error) {
     console.error(NOTION_API_ERROR_MESSAGES.NETWORK_ERROR, error);
     return [];
