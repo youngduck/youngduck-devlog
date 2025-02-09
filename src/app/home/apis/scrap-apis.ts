@@ -26,15 +26,16 @@ interface ScrapItem {
 
 export async function getAllScrapList() {
   try {
+    console.log("Fetching scrap list...");
     const response = await fetch(
-      `https://api.notion.com/v1/databases/${process.env.NEXT_PUBLIC_NOTION_DATABASE_ID}/query`,
+      `https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`,
       {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Notion-Version": "2022-06-28",
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTION_TOKEN}`,
+          Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
         },
         body: JSON.stringify({ page_size: 100 }),
       },
@@ -49,6 +50,7 @@ export async function getAllScrapList() {
         properties: NotionProperty;
       }[];
     } = await response.json();
+    console.log("Fetched data:", responseData);
 
     const mappedResults: ScrapItem[] = responseData.results
       .map((item) => item.properties)
@@ -60,7 +62,7 @@ export async function getAllScrapList() {
 
     return mappedResults;
   } catch (error) {
-    console.error(NOTION_API_ERROR_MESSAGES.NETWORK_ERROR, error);
+    console.error("Error details:", error);
     return [];
   }
 }
