@@ -1,7 +1,7 @@
 import { NOTION_API_ERROR_MESSAGES } from "@/app/shared/constants/error/error-messages";
 
 interface NotionProperty {
-  title: {
+  이름: {
     title: {
       plain_text: string;
     }[];
@@ -53,12 +53,11 @@ export async function getAllScrapList() {
     const mappedResults: ScrapItem[] = responseData.results
       .map((item) => item.properties)
       .map((item) => ({
-        name: item.title.title[0]?.plain_text || "",
-        tags: item["다중 선택"].multi_select.map((tag) => tag.name) || [],
-        link: item.link.rich_text[0]?.plain_text || "",
+        name: item["이름"]?.title?.[0]?.plain_text ?? "",
+        tags: item["다중 선택"]?.multi_select?.map((tag) => tag.name) ?? [],
+        link: item.link?.rich_text?.[0]?.plain_text ?? "",
       }));
 
-    console.log(mappedResults, "responseData.results");
     return mappedResults;
   } catch (error) {
     console.error(NOTION_API_ERROR_MESSAGES.NETWORK_ERROR, error);
