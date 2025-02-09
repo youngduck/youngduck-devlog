@@ -14,41 +14,49 @@
   :root {
     --background: 30 5% 90%;
     --foreground: 240 10% 3.9%;
-
     --secondary: 30 5% 85%;
     --secondary-foreground: 240 5.9% 10%;
-
     --border: 240 5.9% 70%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
-
     --radius: 0.5rem;
-    /* --font-kcc: "KCC", sans-serif; */
   }
 
   .dark {
     --background: 240 10% 11%;
     --foreground: 0 0% 98%;
-
     --secondary: 222, 17%, 15%;
     --secondary-foreground: 0 0% 98%;
-
     --border: 220 15% 24%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
-    @apply box-border;
-    @apply m-0;
-    @apply p-0;
-    @apply font-KCC;
+    @apply m-0 box-border border-border p-0 font-KCC;
   }
 
   body {
     @apply bg-background text-foreground;
+    /* width */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
   }
 }

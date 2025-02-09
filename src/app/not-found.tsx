@@ -1,5 +1,10 @@
-import CustomLottie from "@/app/shared/_components/lottie/CustomLottie";
+import dynamic from "next/dynamic";
 import { lottieData } from "@/app/shared/_components/lottie/lottieData";
+
+const CustomLottie = dynamic(
+  () => import("@/app/shared/_components/lottie/CustomLottie"),
+  { ssr: false },
+);
 
 const NotFound = () => {
   return (

@@ -1,13 +1,6 @@
 /** @type {import('next').NextConfig} */
 import withPWA from "next-pwa";
 import runtimeCaching from "next-pwa/cache.js";
-// const withPWA = require("next-pwa")({
-//   dest: "public",
-//   register: true,
-//   skipWaiting: true,
-//   runtimeCaching,
-//   disable: prod ? false : true,
-// });
 
 const prod = process.env.NODE_ENV === "production";
 
@@ -27,6 +20,16 @@ const nextConfig = pwaConfig({
     });
 
     return config;
+  },
+  // experimental: {
+  //   serverActions: true,
+  // },
+  env: {
+    NOTION_TOKEN: process.env.NOTION_TOKEN,
+    NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
+  },
+  images: {
+    domains: ['localhost'],
   },
 });
 

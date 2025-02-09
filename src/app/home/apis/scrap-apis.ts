@@ -1,12 +1,12 @@
 import { NOTION_API_ERROR_MESSAGES } from "@/app/shared/constants/error/error-messages";
 
 interface NotionProperty {
-  이름: {
+  title: {
     title: {
       plain_text: string;
     }[];
   };
-  "다중 선택": {
+  tags: {
     multi_select: {
       name: string;
     }[];
@@ -18,7 +18,8 @@ interface NotionProperty {
   };
 }
 
-interface ScrapItem {
+export interface IScrapItem {
+  id: number;
   name: string;
   tags: string[];
   link: string;
@@ -26,10 +27,14 @@ interface ScrapItem {
 
 export async function getAllScrapList() {
   try {
-    console.log("Fetching scrap list...");
+    if (!process.env.NOTION_DATABASE_ID || !process.env.NOTION_TOKEN) {
+      throw new Error("Configuration error: Missing environment variables");
+    }
+
     const response = await fetch(
       `https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`,
       {
+        cache: "no-store",
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -50,19 +55,17 @@ export async function getAllScrapList() {
         properties: NotionProperty;
       }[];
     } = await response.json();
-    console.log("Fetched data:", responseData);
-
-    const mappedResults: ScrapItem[] = responseData.results
+    const mappedResults: IScrapItem[] = responseData.results
       .map((item) => item.properties)
-      .map((item) => ({
-        name: item["이름"]?.title?.[0]?.plain_text ?? "",
-        tags: item["다중 선택"]?.multi_select?.map((tag) => tag.name) ?? [],
+      .map((item, index) => ({
+        id: index,
+        name: item.title?.title?.[0]?.plain_text ?? "",
+        tags: item.tags?.multi_select?.map((tag) => tag.name) ?? [],
         link: item.link?.rich_text?.[0]?.plain_text ?? "",
       }));
 
     return mappedResults;
   } catch (error) {
-    console.error("Error details:", error);
     return [];
   }
 }
