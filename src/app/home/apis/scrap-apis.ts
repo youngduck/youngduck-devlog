@@ -27,14 +27,14 @@ interface ScrapItem {
 export async function getAllScrapList() {
   try {
     const response = await fetch(
-      `https://api.notion.com/v1/databases/${process.env.NOTION_DATABASE_ID}/query`,
+      `https://api.notion.com/v1/databases/${process.env.NEXT_PUBLIC_NOTION_DATABASE_ID}/query`,
       {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Notion-Version": "2022-06-28",
           "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTION_TOKEN}`,
         },
         body: JSON.stringify({ page_size: 100 }),
       },
