@@ -1,13 +1,13 @@
 import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
 import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
+import RenderModel from "./domains/render-model/components/render-model";
 export default async function Home() {
-
   return (
     <main className="mx-auto h-auto w-full lg:w-[1200px]">
       {/* 첫 번째 행 */}
       <div className="grid w-full grid-cols-1 grid-rows-1 gap-[20px] lg:h-[480px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_370px]">
         <GridBoxWrapper className="rounded-t-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
-          1-1 Blog KCC 안녕하세요
+          <RenderModel />
         </GridBoxWrapper>
         <GridBoxWrapper className="border-transparent bg-transparent lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2">
           <div className="text-[20px]">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Footer from "@layout/footer";
+import Footer from "@/app/shared/_components/layout/footer";
 import { ThemeProvider } from "@/app/shared/_components/provider/theme-provider";
 
 import Header from "@layout/header/header";
