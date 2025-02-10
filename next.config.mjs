@@ -29,7 +29,13 @@ const nextConfig = pwaConfig({
     NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
   },
   images: {
-    domains: ['localhost'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+
   },
 });
 
