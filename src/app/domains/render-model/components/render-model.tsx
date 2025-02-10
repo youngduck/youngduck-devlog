@@ -6,14 +6,13 @@
 "use client";
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera, useGLTF } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { angleToRadians } from "../utils/angle-to-radians";
 
 interface IRenderModel {}
 
 const RenderModel: React.FC<IRenderModel> = () => {
   //SECTION HOOK호출 영역
-  const { nodes, materials } = useGLTF("./models/rubber_duck.glb");
   //!SECTION HOOK호출 영역
 
   //SECTION 상태값 영역
