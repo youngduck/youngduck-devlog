@@ -1,12 +1,13 @@
 import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
 import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
 import RenderModel from "./domains/render-model/components/render-model";
+import ChartsFunnel from "./domains/charts/charts-funnel/ChartsFunnel";
 export default async function Home() {
   return (
     <main className="mx-auto h-auto w-full lg:w-[1200px]">
       {/* 첫 번째 행 */}
       <div className="grid w-full grid-cols-1 grid-rows-1 gap-[20px] lg:h-[480px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_370px]">
-        <GridBoxWrapper className="rounded-t-none lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
+        <GridBoxWrapper className="rounded-t-none border-t-0 lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
           <RenderModel />
         </GridBoxWrapper>
         <GridBoxWrapper className="border-transparent bg-transparent lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2">
@@ -24,8 +25,11 @@ export default async function Home() {
             </p>
           </div>
         </GridBoxWrapper>
-        <GridBoxWrapper className="border-2 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3">
-          2-2
+        <GridBoxWrapper
+          title="최근 스크랩한 게시글"
+          className="border-2 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3"
+        >
+          <ChartsFunnel />
         </GridBoxWrapper>
         <GridBoxWrapper
           title="최근 스크랩한 게시글"
