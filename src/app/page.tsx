@@ -1,23 +1,24 @@
 import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
 import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
-import RenderModel from "./domains/render-model/components/render-model";
 import ChartsFunnel from "./domains/charts/charts-funnel/ChartsFunnel";
+
+import Profile from "./domains/profile/profile";
 export default async function Home() {
   return (
     <main className="mx-auto h-auto w-full lg:w-[1200px]">
       {/* 첫 번째 행 */}
-      <div className="grid w-full grid-cols-1 grid-rows-1 gap-[20px] lg:h-[480px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_370px]">
+      <div className="grid w-full grid-cols-1 grid-rows-1 gap-[20px] lg:h-[480px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_350px]">
         <GridBoxWrapper className="rounded-t-none border-t-0 lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
-          <RenderModel />
+          <Profile />
         </GridBoxWrapper>
         <GridBoxWrapper className="border-transparent bg-transparent lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2">
-          <div className="text-[20px]">
+          <div className="text-[18px]">
             <p>안녕하세요</p>
             <p>
-              <strong className="text-yellow">UX</strong>,{" "}
-              <strong className="text-yellow">DX</strong>,{" "}
-              <strong className="text-yellow">TDD</strong>,{" "}
-              <strong className="text-yellow">최적화</strong> 에 관심이
+              <strong className="text-yellow">UX</strong>,&nbsp;
+              <strong className="text-yellow">DX</strong>,&nbsp;
+              <strong className="text-yellow">TDD</strong>,&nbsp;
+              <strong className="text-yellow">최적화</strong>에 관심이
               많습니다만
             </p>
             <p>
