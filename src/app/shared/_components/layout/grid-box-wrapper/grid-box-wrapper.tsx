@@ -24,7 +24,7 @@ const GridBoxWrapper: React.FC<GridBoxWrapperProps> = ({
   const titleHeight = title ? "30px" : "0px";
   return (
     <section
-      className={`h-full w-full transform animate-fade-up rounded-md border-[3px] bg-secondary p-2 ${className}`}
+      className={`h-full w-full rounded-md border-[3px] bg-secondary p-2 ${className}`}
     >
       {title && (
         <div

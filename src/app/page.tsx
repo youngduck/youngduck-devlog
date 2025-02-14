@@ -8,7 +8,7 @@ export default async function Home() {
     <main className="mx-auto h-auto w-full lg:w-[1200px]">
       {/* 첫 번째 행 */}
       <div className="grid w-full grid-cols-1 grid-rows-1 gap-[20px] lg:h-[480px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_350px]">
-        <GridBoxWrapper className="rounded-t-none border-t-0 lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
+        <GridBoxWrapper className="bg-header-bg rounded-t-none border-t-0 bg-contain lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
           <Profile />
         </GridBoxWrapper>
         <GridBoxWrapper className="border-transparent bg-transparent lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2">

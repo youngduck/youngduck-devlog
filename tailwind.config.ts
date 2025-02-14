@@ -9,6 +9,9 @@ const config = {
       center: true,
       padding: "2rem",
     },
+    backgroundImage: {
+      "header-bg": "url('/assets/blog/posts/test3.png')",
+    },
     screens: {
       sm: "375px",
       md: "870px",
@@ -16,6 +19,9 @@ const config = {
       pcHover: {
         raw: "(hover: hover) and (pointer: fine)",
       },
+    },
+    backgroundSize: {
+      contain: "contain",
     },
     extend: {
       colors: {
@@ -73,10 +79,26 @@ const config = {
           from: { opacity: "0", transform: "translateY(-10px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        threeD: {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(180deg)" },
+        },
+        threeFront: {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
+        threeD2: {
+          "0%": { transform: "translate3d(0px, 0px, 0px)" },
+          "50%": { transform: "translate3d(0,100px, 100px)" },
+          "100%": { transform: "translate3d(0, 100px, 100px)" },
+        },
       },
       animation: {
         "fade-up": "fadeUp .5s ease-in-out",
         "fade-down": "fadeDown .5s ease-in-out",
+        "three-d": "threeD 10s infinite linear",
+        "three-d2": "threeD2 3s infinite linear alternate",
+        "three-front": "threeFront 10s infinite linear",
       },
       fontFamily: {
         KCC: ["KCC"],
