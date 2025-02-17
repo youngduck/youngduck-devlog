@@ -79,26 +79,25 @@ const config = {
           from: { opacity: "0", transform: "translateY(-10px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
-        threeD: {
-          "0%": { transform: "rotateY(0deg)" },
-          "100%": { transform: "rotateY(180deg)" },
-        },
-        threeFront: {
+        cardFront: {
           "0%": { transform: "rotateY(0deg)" },
           "100%": { transform: "rotateY(360deg)" },
         },
-        threeD2: {
-          "0%": { transform: "translate3d(0px, 0px, 0px)" },
-          "50%": { transform: "translate3d(0,100px, 100px)" },
-          "100%": { transform: "translate3d(0, 100px, 100px)" },
+        cardBack: {
+          "0%": { transform: "rotateY(180deg)" },
+          "100%": { transform: "rotateY(540deg)" },
+        },
+        changeScale: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
         },
       },
       animation: {
         "fade-up": "fadeUp .5s ease-in-out",
         "fade-down": "fadeDown .5s ease-in-out",
-        "three-d": "threeD 10s infinite linear",
-        "three-d2": "threeD2 3s infinite linear alternate",
-        "three-front": "threeFront 10s infinite linear",
+        "card-front": "cardFront 2s 1 linear",
+        "card-back": "cardBack 2s 1 linear",
+        "change-scale": "changeScale 2s 1 cubic-bezier(0.25, 0.1, 0.25, 1.0)",
       },
       fontFamily: {
         KCC: ["KCC"],

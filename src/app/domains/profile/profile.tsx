@@ -6,6 +6,9 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import GithubIcon from "@public/assets/svg/github.svg";
+import NotionIcon from "@public/assets/svg/notion.svg";
+import Link from "next/link";
 
 interface Iprofile {}
 
@@ -30,7 +33,7 @@ const Profile: React.FC<Iprofile> = () => {
     const y = (clientX - left - width / 2) / 25;
     console.log(x, y);
 
-    setRotation({ x: x * 10, y: y * 30 });
+    setRotation({ x: x * 4, y: y * 4 });
   };
 
   const handleMouseLeave = () => {
@@ -44,9 +47,15 @@ const Profile: React.FC<Iprofile> = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="flex h-[300px] w-[200px] transform animate-three-d items-center justify-center [transform-style:preserve-3d]">
-        <div className="relative flex h-full w-full items-center justify-center bg-blue-500 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-          <figure className="absolute h-36 w-36 rounded-full border-2 border-yellow">
+      <div
+        style={{
+          transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+        }}
+        className="animate-change-scale flex h-[300px] w-[200px] transform items-center justify-center [transform-style:preserve-3d]"
+      >
+        {/* 앞면카드 */}
+        <div className="animate-card-front relative flex h-full w-full items-center justify-center rounded-sm border-2 border-yellow bg-secondary [transform-style:preserve-3d] [backface-visibility:hidden]">
+          <figure className="absolute top-5 h-36 w-36 rounded-full border-2 border-yellow bg-border [transform:translateZ(20px)]">
             <Image
               src="/assets/blog/authors/youngduck.png"
               alt="/assets/blog/authors/youngduck.png"
@@ -56,40 +65,41 @@ const Profile: React.FC<Iprofile> = () => {
               className="rounded-full object-cover"
             />
           </figure>
-          <figure className="left-30 absolute bottom-10 flex h-10 w-10 flex-col items-center justify-center">
-            <Image
-              src="/assets/profile/next.png"
-              alt="/assets/profile/next.png"
-              fill
-              priority={true}
-              sizes="(max-width:40px)"
-              className="object-cover"
-            />
-          </figure>
-          {/* <figure className="absolute left-10 top-10 flex h-10 w-10 flex-col items-center justify-center [transform:translateZ(100px)]"> */}
-          <figure className="absolute left-10 top-10 flex h-10 w-10 transform animate-three-d2 flex-col items-center justify-center">
-            <Image
-              src="/assets/profile/ts.png"
-              alt="/assets/profile/ts.png"
-              fill
-              priority={true}
-              sizes="(max-width:40px)"
-              className="object-cover"
-            />
-          </figure>
+          <p className="absolute top-[180px] text-sm [transform:translateZ(30px)]">
+            김영덕
+          </p>
+          <p className="absolute top-[200px] text-sm [transform:translateZ(30px)]">
+            Frontend Developer
+          </p>
+          <div className="absolute top-[240px] flex w-full items-center justify-center [transform-style:preserve-3d]">
+            <Link
+              href="https://github.com/youngduck"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute left-[55px] text-gray-400 [transform:translateZ(30px)] hover:text-black"
+            >
+              <GithubIcon width={20} height={20} />
+            </Link>
+            <Link
+              href="https://dev-youngduck.notion.site/ec16c2874ca74ea5b023b8e7ef2384e5?pvs=4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute left-[85px] text-gray-400 [transform:translateZ(28px)] hover:text-black"
+            >
+              <NotionIcon width={20} height={20} />
+            </Link>
+          </div>
         </div>
-        <div className="absolute h-full w-full bg-red-500 [backface-visibility:hidden]">
-          back{" "}
-          <figure className="absolute h-36 w-36 rounded-full border-2 border-yellow">
-            <Image
-              src="/assets/blog/authors/youngduck.png"
-              alt="/assets/blog/authors/youngduck.png"
-              fill
-              priority={true}
-              sizes="(max-width:144px)"
-              className="rounded-full object-cover"
-            />
-          </figure>
+        {/* 뒷면카드 */}
+        <div className="animate-card-back absolute h-full w-full rounded-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <Image
+            src="/assets/blog/posts/test.png"
+            alt="/assets/blog/posts/test.png"
+            fill
+            priority={true}
+            sizes="(max-width:200px)"
+            className="rounded-sm border-2 border-yellow"
+          />
         </div>
       </div>
     </div>
