@@ -21,10 +21,10 @@ const GridBoxWrapper: React.FC<GridBoxWrapperProps> = ({
   title,
   option,
 }) => {
-  const titleHeight = title ? "24px" : "0px";
+  const titleHeight = title ? "30px" : "0px";
   return (
     <section
-      className={`h-full w-full transform animate-fade-up rounded-md border-2 bg-secondary p-2 ${className}`}
+      className={`h-full w-full rounded-md border-[3px] bg-secondary p-2 ${className}`}
     >
       {title && (
         <div

@@ -1,0 +1,109 @@
+/**
+ * 작성자: KYD
+ * 기능:
+ * 프로세스 설명: 프로세스 복잡시 노션링크 첨부권장
+ */
+"use client";
+import Image from "next/image";
+import React, { useState } from "react";
+import GithubIcon from "@public/assets/svg/github.svg";
+import NotionIcon from "@public/assets/svg/notion.svg";
+import Link from "next/link";
+
+interface Iprofile {}
+
+const Profile: React.FC<Iprofile> = () => {
+  //SECTION HOOK호출 영역
+  const [rotation, setRotation] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
+  //!SECTION HOOK호출 영역
+
+  //SECTION 상태값 영역
+
+  //!SECTION 상태값 영역
+
+  //SECTION 메서드 영역
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { clientX, clientY, currentTarget } = e;
+    const { left, top, width, height } = currentTarget.getBoundingClientRect();
+
+    const x = -(clientY - top - height / 2) / 25;
+    const y = (clientX - left - width / 2) / 25;
+    console.log(x, y);
+
+    setRotation({ x: x * 4, y: y * 4 });
+  };
+
+  const handleMouseLeave = () => {
+    setRotation({ x: 0, y: 0 });
+  };
+  //!SECTION 메서드 영역
+
+  return (
+    <div
+      className="flex h-full w-full items-center justify-center [perspective:1000px]"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div
+        style={{
+          transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+        }}
+        className="animate-change-scale flex h-[300px] w-[200px] transform items-center justify-center [transform-style:preserve-3d]"
+      >
+        {/* 앞면카드 */}
+        <div className="animate-card-front relative flex h-full w-full items-center justify-center rounded-sm border-2 border-yellow bg-secondary [transform-style:preserve-3d] [backface-visibility:hidden]">
+          <figure className="absolute top-5 h-36 w-36 rounded-full border-2 border-yellow bg-border [transform:translateZ(20px)]">
+            <Image
+              src="/assets/blog/authors/youngduck.png"
+              alt="/assets/blog/authors/youngduck.png"
+              fill
+              priority={true}
+              sizes="(max-width:144px)"
+              className="rounded-full object-cover"
+            />
+          </figure>
+          <p className="absolute top-[180px] text-sm [transform:translateZ(30px)]">
+            김영덕
+          </p>
+          <p className="absolute top-[200px] text-sm [transform:translateZ(30px)]">
+            Frontend Developer
+          </p>
+          <div className="absolute top-[240px] flex w-full items-center justify-center [transform-style:preserve-3d]">
+            <Link
+              href="https://github.com/youngduck"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute left-[55px] text-gray-400 [transform:translateZ(30px)] hover:text-black"
+            >
+              <GithubIcon width={20} height={20} />
+            </Link>
+            <Link
+              href="https://dev-youngduck.notion.site/ec16c2874ca74ea5b023b8e7ef2384e5?pvs=4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute left-[85px] text-gray-400 [transform:translateZ(28px)] hover:text-black"
+            >
+              <NotionIcon width={20} height={20} />
+            </Link>
+          </div>
+        </div>
+        {/* 뒷면카드 */}
+        <div className="animate-card-back absolute h-full w-full rounded-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <Image
+            src="/assets/blog/posts/test.png"
+            alt="/assets/blog/posts/test.png"
+            fill
+            priority={true}
+            sizes="(max-width:200px)"
+            className="rounded-sm border-2 border-yellow"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Profile;

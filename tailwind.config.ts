@@ -9,6 +9,9 @@ const config = {
       center: true,
       padding: "2rem",
     },
+    backgroundImage: {
+      "header-bg": "url('/assets/blog/posts/test3.png')",
+    },
     screens: {
       sm: "375px",
       md: "870px",
@@ -16,6 +19,9 @@ const config = {
       pcHover: {
         raw: "(hover: hover) and (pointer: fine)",
       },
+    },
+    backgroundSize: {
+      contain: "contain",
     },
     extend: {
       colors: {
@@ -73,10 +79,25 @@ const config = {
           from: { opacity: "0", transform: "translateY(-10px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        cardFront: {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
+        cardBack: {
+          "0%": { transform: "rotateY(180deg)" },
+          "100%": { transform: "rotateY(540deg)" },
+        },
+        changeScale: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         "fade-up": "fadeUp .5s ease-in-out",
         "fade-down": "fadeDown .5s ease-in-out",
+        "card-front": "cardFront 2s 1 linear",
+        "card-back": "cardBack 2s 1 linear",
+        "change-scale": "changeScale 2s 1 cubic-bezier(0.25, 0.1, 0.25, 1.0)",
       },
       fontFamily: {
         KCC: ["KCC"],
