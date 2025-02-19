@@ -9,9 +9,6 @@ const config = {
       center: true,
       padding: "2rem",
     },
-    backgroundImage: {
-      "header-bg": "url('/assets/blog/posts/test3.png')",
-    },
     screens: {
       sm: "375px",
       md: "870px",
@@ -20,10 +17,13 @@ const config = {
         raw: "(hover: hover) and (pointer: fine)",
       },
     },
-    backgroundSize: {
-      contain: "contain",
-    },
     extend: {
+      backgroundSize: {
+        contain: "contain",
+      },
+      backgroundImage: {
+        "header-bg": "url('/assets/blog/posts/test3.png')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
