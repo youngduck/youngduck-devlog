@@ -12,9 +12,9 @@
 
 @layer base {
   :root {
-    --background: 30 5% 100%;
+    --background: 30 5% 99%;
     --foreground: 240 10% 3.9%;
-    --secondary: 30 5% 95%;
+    --secondary: 30 5% 100%;
     --secondary-foreground: 240 5.9% 10%;
     --border: 240 5.9% 85%;
     --input: 240 5.9% 90%;
