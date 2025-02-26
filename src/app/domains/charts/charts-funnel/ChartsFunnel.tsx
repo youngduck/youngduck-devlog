@@ -17,6 +17,7 @@ const ChartsFunnel: React.FC<IChartsFunnel> = () => {
   //SECTION HOOK호출 영역
   const { step, nextStep, prevStep } = useFunnel({
     steps: ["areaChart", "lineChart", "barChart"],
+    mode: "loop",
   });
 
   //!SECTION HOOK호출 영역
@@ -29,35 +30,27 @@ const ChartsFunnel: React.FC<IChartsFunnel> = () => {
 
   //!SECTION 메서드 영역
 
-  if (step === "areaChart") {
-    return (
+  return (
+    <div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between">
+          <button onClick={prevStep}>이전</button>
+          <button onClick={nextStep}>다음</button>
+        </div>
+      </div>
       <Funnel step={step}>
         <Funnel.Step name="areaChart">
           <AreaChart />
-          <button onClick={prevStep}>이전</button>
-          <button onClick={nextStep}>다음</button>
+        </Funnel.Step>
+        <Funnel.Step name="lineChart">
+          <div>라인차트</div>
+        </Funnel.Step>
+        <Funnel.Step name="barChart">
+          <div>barChart</div>
         </Funnel.Step>
       </Funnel>
-    );
-  }
-  if (step === "lineChart") {
-    return (
-      <div>
-        하하
-        <button onClick={prevStep}>이전</button>
-        <button onClick={nextStep}>다음</button>
-      </div>
-    );
-  }
-  if (step === "barChart") {
-    return (
-      <div>
-        호호
-        <button onClick={prevStep}>이전</button>
-        <button onClick={nextStep}>다음</button>
-      </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default ChartsFunnel;

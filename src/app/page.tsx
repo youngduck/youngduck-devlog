@@ -26,10 +26,7 @@ export default async function Home() {
             </p>
           </div>
         </GridBoxWrapper>
-        <GridBoxWrapper
-          title="최근 스크랩한 게시글"
-          className="border-2 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3"
-        >
+        <GridBoxWrapper className="border-2 lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3">
           <ChartsFunnel />
         </GridBoxWrapper>
         <GridBoxWrapper
