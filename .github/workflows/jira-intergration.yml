@@ -17,7 +17,7 @@ jobs:
       - name: Create JIRA Issue
         uses: atlassian/gajira-create@master
         with:
-          project: YOUR_PROJECT_KEY
+          project: YD
           issuetype: Task
           summary: "PR: ${{ github.event.pull_request.title }}"
           description: |
