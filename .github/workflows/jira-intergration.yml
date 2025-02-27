@@ -1,0 +1,33 @@
+name: JIRA Integration
+on:
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  jira-integration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JIRA Login
+        uses: atlassian/gajira-login@master
+        env:
+          JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+
+      - name: Create JIRA Issue
+        uses: atlassian/gajira-create@master
+        with:
+          project: YD
+          issuetype: Task
+          summary: "PR: ${{ github.event.pull_request.title }}"
+          description: |
+            PR URL: ${{ github.event.pull_request.html_url }}
+            Author: ${{ github.event.pull_request.user.login }}
+            Branch: ${{ github.event.pull_request.head.ref }}
+
+      - name: Update JIRA Issue
+        if: github.event.action == 'closed'
+        uses: atlassian/gajira-transition@master
+        with:
+          issue: ${{ steps.create.outputs.issue }}
+          transition: "Done"
