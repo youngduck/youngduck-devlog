@@ -24,6 +24,7 @@ const page: React.FC<Params> = ({ params }) => {
               date={item.date}
               excerpt={item.excerpt}
               category={item.category}
+              domain="blog"
             />
           ))}
         </div>
