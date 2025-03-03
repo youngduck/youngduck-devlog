@@ -11,9 +11,10 @@ type IPostCards = {
     slug: string;
     category: string;
   }[];
+  domain: "blog" | "algorithms";
 };
 
-const PostCards: React.FC<IPostCards> = ({ posts }) => {
+const PostCards: React.FC<IPostCards> = ({ posts, domain }) => {
   return (
     <div className="flex flex-wrap justify-center border-b-2 pb-6 lg:w-[1200px] lg:justify-normal">
       {posts.map((item, idx) => (
@@ -25,6 +26,7 @@ const PostCards: React.FC<IPostCards> = ({ posts }) => {
           date={item.date}
           excerpt={item.excerpt}
           category={item.category}
+          domain={domain}
         />
       ))}
     </div>

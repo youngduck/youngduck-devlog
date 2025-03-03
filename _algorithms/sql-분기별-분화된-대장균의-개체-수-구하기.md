@@ -3,7 +3,7 @@ title: "[프로그래머스 LV.2] - SQL: 분기별 분화된 대장균의 개체
 excerpt: "분기별 분화된 대장균의 개체 수 구하기 문제풀이"
 coverImage: "/assets/blog/posts/mysql/cover.png"
 date: "2024-06-07T10:25:00"
-category: "DataBase"
+category: "SQL"
 ogImage:
   url: "/assets/blog/posts/db/cover.png"
 ---

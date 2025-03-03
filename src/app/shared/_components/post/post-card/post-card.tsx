@@ -8,6 +8,18 @@ type IPostCard = {
   excerpt: string;
   slug: string;
   category: string;
+  domain: "blog" | "algorithms";
+};
+
+const getDomainUrl = (domain: string) => {
+  switch (domain) {
+    case "blog":
+      return "posts";
+    case "algorithms":
+      return "algorithms/ps";
+    default:
+      return "posts";
+  }
 };
 
 const PostCard: React.FC<IPostCard> = ({
@@ -17,10 +29,13 @@ const PostCard: React.FC<IPostCard> = ({
   date,
   excerpt,
   category,
+  domain,
 }) => {
+  const domainUrl = getDomainUrl(domain);
+
   return (
     <div className="group relative m-3 box-border h-[350px] w-[296px] transform animate-fade-up rounded-lg border-2 bg-background p-4 font-[KCC] duration-500 pcHover:hover:scale-105">
-      <a href={`/posts/${slug}`}>
+      <a href={`/${domainUrl}/${slug}`}>
         <div className="relative h-[180px] w-[260px] rounded-lg">
           <Image
             src={coverImage}

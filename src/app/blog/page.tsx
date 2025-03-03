@@ -14,7 +14,7 @@ const page: React.FC<Params> = ({ params }) => {
     <main className="mx-auto h-auto w-full lg:w-[1200px]">
       <div className="flex flex-col items-center justify-center">
         <TagNavbar />
-        <PostCards posts={posts} />
+        <PostCards posts={posts} domain="blog" />
       </div>
     </main>
   );

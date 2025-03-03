@@ -1,14 +1,23 @@
-import { getAllCategoriesID, getFilteredPosts } from "@/lib/api";
-import TagNavbar from "@layout/tag-navbar";
+/**
+ * 작성자: KYD
+ * 기능: 알고리즘 풀이 카테고리별 조회 페이지 SERVER SIDE 렌더링
+ * 프로세스 설명: 프로세스 복잡시 노션링크 첨부권장
+ */
+import { getFilteredAlgorithms } from "@/app/api/algorithms/api";
 import PostCard from "@/app/shared/_components/post/post-card/post-card";
-interface Params {
+import React from "react";
+import TagNavbar from "@/app/algorithms/components/tag-navbar/tag-navbar";
+
+interface Ipage {
   params: {
     slug: string;
   };
 }
 
-const page: React.FC<Params> = ({ params }) => {
-  const filteredData = getFilteredPosts(params.slug);
+const page: React.FC<Ipage> = ({ params }) => {
+  //SECTION HOOK호출 영역
+  const filteredData = getFilteredAlgorithms(params.slug);
+  //!SECTION HOOK호출 영역
 
   return (
     <main className="mx-auto lg:w-[1200px]">
@@ -24,21 +33,13 @@ const page: React.FC<Params> = ({ params }) => {
               date={item.date}
               excerpt={item.excerpt}
               category={item.category}
-              domain="blog"
+              domain="algorithms"
             />
           ))}
         </div>
       </div>
     </main>
   );
-};
-
-export const generateStaticParams = async () => {
-  const categoryIDs = getAllCategoriesID();
-
-  return categoryIDs.map((categoryID) => ({
-    slug: categoryID,
-  }));
 };
 
 export default page;
