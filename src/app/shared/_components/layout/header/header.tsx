@@ -60,14 +60,9 @@ const Header = () => {
                   About
                 </span>
               </Link>
-              <Link href="/project">
+              <Link href="/algorithms">
                 <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
-                  Project
-                </span>
-              </Link>
-              <Link href="/ps">
-                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
-                  PS
+                  Algorithms
                 </span>
               </Link>
             </nav>
