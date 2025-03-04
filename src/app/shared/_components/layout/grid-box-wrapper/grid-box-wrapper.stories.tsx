@@ -45,6 +45,7 @@ export const BoxInPostCards: Story = {
         date="2024-01-01"
         excerpt="포스트 내용 미리보기"
         category="포스트 카테고리"
+        domain="blog"
       />
     ),
   },

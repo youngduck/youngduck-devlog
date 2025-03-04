@@ -21,6 +21,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
             date={item.date}
             excerpt={item.excerpt}
             category={item.category}
+            domain="blog"
           />
         ))}
       </div>
