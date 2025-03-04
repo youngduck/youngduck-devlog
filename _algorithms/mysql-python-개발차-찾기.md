@@ -3,7 +3,7 @@ title: "[프로그래머스 LV.1] - MySQL: Python 개발자 찾기"
 excerpt: "Python 개발자 찾기 문제풀이"
 coverImage: "/assets/blog/posts/mysql/cover.png"
 date: "2024-05-13T19:15:00"
-category: "DataBase"
+category: "SQL"
 ogImage:
   url: "/assets/blog/posts/mysql/cover.png"
 ---

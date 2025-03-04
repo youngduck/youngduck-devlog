@@ -3,7 +3,7 @@ title: "[프로그래머스 LV.1] - SQL: 상위 n개 레코드"
 excerpt: "상위 n개 레코드 문제풀이 입니다."
 coverImage: "/assets/blog/posts/db/cover.png"
 date: "2024-05-13T19:56:00"
-category: "DataBase"
+category: "SQL"
 ogImage:
   url: "/assets/blog/posts/db/cover.png"
 ---
