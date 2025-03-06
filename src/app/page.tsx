@@ -30,7 +30,7 @@ export default async function Home() {
         </GridBoxWrapper>
         <GridBoxWrapper
           title="최근 스크랩한 게시글"
-          className="h-[500px] border-2 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:h-auto"
+          className="border-2 sm:h-[350px] lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:h-auto"
         >
           <ScrapItem />
         </GridBoxWrapper>
