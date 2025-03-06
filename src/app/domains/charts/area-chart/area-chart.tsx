@@ -45,8 +45,8 @@ const AreaChart: React.FC<IAreaChart> = () => {
         position: "top" as const,
       },
       title: {
-        display: true,
-        text: "하하",
+        display: false,
+        text: "",
       },
       devicePixelRatio: 5,
     },

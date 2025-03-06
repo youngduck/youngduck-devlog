@@ -13,13 +13,12 @@ export default async function Home() {
         </GridBoxWrapper>
         <GridBoxWrapper className="border-transparent bg-transparent lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2">
           <div className="text-[18px]">
-            <p>안녕하세요</p>
+            <p>안녕하세요!</p>
             <p>
               <strong className="text-yellow">UX</strong>,&nbsp;
               <strong className="text-yellow">DX</strong>,&nbsp;
-              <strong className="text-yellow">TDD</strong>,&nbsp;
-              <strong className="text-yellow">최적화</strong>에 관심이
-              많습니다만
+              <strong className="text-yellow">최적화</strong>에 관심이 많은
+              프론트엔드 개발자 김영덕입니다.
             </p>
             <p>
               Trade Off를 고려하며 좋은 코드를 작성하기위해 항상 노력합니다.
@@ -31,7 +30,7 @@ export default async function Home() {
         </GridBoxWrapper>
         <GridBoxWrapper
           title="최근 스크랩한 게시글"
-          className="h-[500px] border-2 lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:h-auto"
+          className="border-2 sm:h-[350px] lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3 lg:h-auto"
         >
           <ScrapItem />
         </GridBoxWrapper>
