@@ -31,7 +31,6 @@ const Profile: React.FC<Iprofile> = () => {
 
     const x = -(clientY - top - height / 2) / 25;
     const y = (clientX - left - width / 2) / 25;
-    console.log(x, y);
 
     setRotation({ x: x * 4, y: y * 4 });
   };
@@ -51,10 +50,10 @@ const Profile: React.FC<Iprofile> = () => {
         style={{
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
         }}
-        className="animate-change-scale flex h-[300px] w-[200px] transform items-center justify-center [transform-style:preserve-3d]"
+        className="flex h-[300px] w-[200px] transform animate-change-scale items-center justify-center [transform-style:preserve-3d]"
       >
         {/* 앞면카드 */}
-        <div className="animate-card-front relative flex h-full w-full items-center justify-center rounded-sm border-2 border-yellow bg-secondary [transform-style:preserve-3d] [backface-visibility:hidden]">
+        <div className="relative flex h-full w-full animate-card-front items-center justify-center rounded-sm border-2 border-yellow bg-secondary [transform-style:preserve-3d] [backface-visibility:hidden]">
           <figure className="absolute top-5 h-36 w-36 rounded-full border-2 border-yellow bg-border [transform:translateZ(20px)]">
             <Image
               src="/assets/blog/authors/youngduck.png"
@@ -91,7 +90,7 @@ const Profile: React.FC<Iprofile> = () => {
           </div>
         </div>
         {/* 뒷면카드 */}
-        <div className="animate-card-back absolute h-full w-full rounded-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
+        <div className="absolute h-full w-full animate-card-back rounded-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <Image
             src="/assets/blog/posts/test.png"
             alt="/assets/blog/posts/test.png"
