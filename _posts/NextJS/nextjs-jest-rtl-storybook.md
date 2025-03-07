@@ -3,7 +3,6 @@ title: "[NextJS] ESLint, Prettier, Recoil, React-Query, Storybook, Jest 설정 -
 excerpt: "NextJS의 Jest, React-Test-Library, Storybook을 세팅하는 글입니다."
 coverImage: "/assets/blog/posts/nextjs-jest-rtl-storybook/cover.png"
 date: "2024-03-30T21:38:00"
-category: "NextJS"
 ogImage:
   url: "/assets/blog/posts/nextjs-jest-rtl-storybook/cover.png"
 ---

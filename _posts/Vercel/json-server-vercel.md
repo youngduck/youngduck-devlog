@@ -3,7 +3,6 @@ title: "Vercel에서 목서버 사용하기"
 excerpt: "json-server를 배포단에서도 사용할 수 있는 유용한 템플릿을 소개합니다."
 coverImage: "/assets/blog/posts/json-server-vercel/cover.jpg"
 date: "2024-03-19"
-category: "Vercel"
 ogImage:
   url: "/assets/blog/posts/json-server-vercel/cover.jpg"
 ---

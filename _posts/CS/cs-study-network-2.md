@@ -3,7 +3,6 @@ title: "네트워크 2편"
 excerpt: "네트워크 대역폭, TCP/UDP, 에 대해 공부합니다."
 coverImage: "/assets/blog/posts/cs-study/cover.png"
 date: "2024-10-07"
-category: "Computer Science"
 ogImage:
   url: "/assets/blog/posts/cs-study/cover.png"
 ---

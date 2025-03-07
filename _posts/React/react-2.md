@@ -3,7 +3,6 @@ title: "useEffect 없이 예측 가능한 코드 작성하기"
 excerpt: "useEffect 지옥에서 탈출해 예측 가능한 코드를 작성합시다."
 coverImage: "/assets/blog/posts/react/react-2/cover.png"
 date: "2025-02-25T23:36:00"
-category: "React"
 ogImage:
   url: "/assets/blog/posts/react/react-2/cover.png"
 ---

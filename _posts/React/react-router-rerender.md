@@ -3,7 +3,6 @@ title: "라우터속 컴포넌트는 언제 리렌더링이 일어날까요?"
 excerpt: "선언적컴포넌트에 State를 할당하다 발견한 문제점에 대해 공유합니다."
 coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png"
 date: "2024-12-24T18:35:00"
-category: "React"
 ogImage:
   url: "/assets/blog/posts/react/react-router-rerender/cover.png"
 ---

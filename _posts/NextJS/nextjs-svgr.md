@@ -3,7 +3,6 @@ title: "[NextJS] SVG파일 React Component로 사용하기"
 excerpt: "SVGR을 사용해 SVG 쉽게 관리하는 방법에 대해 소개합니다."
 coverImage: "/assets/blog/posts/nextjs-svgr/cover.png"
 date: "2024-03-25"
-category: "NextJS"
 ogImage:
   url: "/assets/blog/posts/nextjs-svgr/cover.png"
 ---

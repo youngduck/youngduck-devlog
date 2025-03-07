@@ -3,7 +3,6 @@ title: "AWS CI/CD 용어정리"
 excerpt: "AWS로 CI/CD를 구축하며 배운 용어정리글 입니다."
 coverImage: "/assets/blog/posts/aws-cicd-words/cover.png"
 date: "2024-06-19T18:07:00"
-category: "AWS"
 ogImage:
   url: "/assets/blog/posts/aws-cicd-words/cover.png"
 ---
