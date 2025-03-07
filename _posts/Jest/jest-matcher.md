@@ -3,7 +3,6 @@ title: "[Jest] Matchers 함수정리"
 excerpt: "Jest의 Matchers를 활용한 예제 모음집입니다."
 coverImage: "/assets/blog/posts/jest/cover.png"
 date: "2024-04-01T21:29:00"
-category: "Jest"
 ogImage:
   url: "/assets/blog/posts/jest/cover.png"
 ---

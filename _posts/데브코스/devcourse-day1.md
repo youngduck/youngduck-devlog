@@ -3,7 +3,6 @@ title: "타입스크립트로 함께하는 웹 풀 사이클 개발 Day 1"
 excerpt: "마크다운과 버전관리시스템(VCS)"
 coverImage: "/assets/blog/posts/devcourse/cover.png"
 date: "2024-04-08T19:15:00"
-category: "프로그래머스 데브코스"
 ogImage:
   url: "/assets/blog/posts/devcourse/cover.png"
 ---

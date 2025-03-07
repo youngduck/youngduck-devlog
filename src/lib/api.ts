@@ -1,40 +1,78 @@
 import { Post } from "../interfaces/posts";
 import fs from "fs";
 import matter from "gray-matter";
-import { join } from "path";
+import path, { join } from "path";
 import RSS from "rss";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  const getAllFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
+    const files = fs.readdirSync(dirPath);
+
+    files.forEach((file) => {
+      const filePath = path.join(dirPath, file);
+      if (fs.statSync(filePath).isDirectory()) {
+        arrayOfFiles = getAllFiles(filePath, arrayOfFiles);
+      } else {
+        const relativePath = path.relative(postsDirectory, filePath);
+        arrayOfFiles.push(relativePath);
+      }
+    });
+
+    return arrayOfFiles;
+  };
+  return getAllFiles(postsDirectory);
 }
 
 export function getPostBySlug(slug: string) {
-  const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(decodeURIComponent(fullPath), "utf8");
+  // 1. 모든 파일 목록 가져오기
+  const allFiles = getPostSlugs();
+
+  // 2. URL 디코딩 처리
+  const decodedSlug = decodeURIComponent(slug);
+
+  // 3. slug와 일치하는 파일 찾기 (파일명만 비교)
+  const targetFile = allFiles.find((file) => {
+    const fileName = path.basename(file, ".md");
+    return fileName === decodedSlug;
+  });
+
+  // 3-1 파일이 없는 경우 예외 처리
+  if (!targetFile) {
+    console.error(`File not found: ${decodedSlug}`);
+    return null; // 에러 던지는 대신 null 반환하여 컴포넌트에서 처리
+  }
+
+  // 4. 파일 읽기
+  const fullPath = join(postsDirectory, targetFile);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return { ...data, slug: realSlug, content } as Post;
+  // 5. 카테고리는 상위 폴더명으로 설정
+  const category = path.dirname(targetFile);
+
+  return {
+    ...data,
+    slug: decodedSlug, // 디코딩된 slug 사용
+    category: category === "." ? "ETC" : category,
+    content,
+  } as Post;
 }
 
 export function getAllPosts(): Post[] {
   const slugs = getPostSlugs();
   const posts = slugs
-    .map((slug) => getPostBySlug(slug))
+    .map((slug) => getPostBySlug(path.basename(slug, ".md")))
+    .filter((post): post is Post => post !== null)
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
 
 export function getFilteredPosts(filterWord: string): Post[] {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-
-  let filteredPost = posts.filter(
-    (post) => post.category === decodeURIComponent(filterWord)
+  const posts = getAllPosts();
+  const filteredPost = posts.filter(
+    (post) => post.category === decodeURIComponent(filterWord),
   );
   return filteredPost;
 }

@@ -16,10 +16,10 @@ interface Params {
 
 const Page: React.FC<Params> = async ({ params }) => {
   const post = getPostBySlug(params.slug);
-  const { title, category, date, coverImage, content } = post;
   if (!post) {
     return notFound();
   }
+  const { title, category, date, coverImage, content } = post;
 
   return (
     <>

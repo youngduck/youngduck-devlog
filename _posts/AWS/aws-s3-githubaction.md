@@ -3,7 +3,6 @@ title: "AWS S3, Github Action 으로 CI/CD 구축하기"
 excerpt: "Github action yaml 작성방법 편"
 coverImage: "/assets/blog/posts/aws-s3-githubaction/cover.png"
 date: "2024-03-20"
-category: "AWS"
 ogImage:
   url: "/assets/blog/posts/aws-s3-githubaction/cover.png"
 ---

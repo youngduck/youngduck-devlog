@@ -3,7 +3,6 @@ title: "[Jest] 비동기함수 테스트 하기"
 excerpt: "Jest에서 비동기함수를 테스트하는 방법에 대한 글입니다."
 coverImage: "/assets/blog/posts/jest/cover.png"
 date: "2024-04-03T16:37:00"
-category: "Jest"
 ogImage:
   url: "/assets/blog/posts/jest/cover.png"
 ---

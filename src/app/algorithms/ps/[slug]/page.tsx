@@ -22,10 +22,10 @@ interface Params {
 const page: React.FC<Params> = ({ params }) => {
   //SECTION HOOK호출 영역
   const post = getPostBySlug(params.slug);
-  const { title, category, date, coverImage, content } = post;
   if (!post) {
     return notFound();
   }
+  const { title, category, date, coverImage, content } = post;
   //!SECTION HOOK호출 영역
 
   return (

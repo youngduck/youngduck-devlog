@@ -3,7 +3,6 @@ title: "VSCode Snippets으로 사내 코드 표준화하기"
 excerpt: "VSCode Snippets을 활용해 사내 코드 표준화를 자동화하고, Extension으로 배포한 경험을 공유합니다."
 coverImage: "/assets/blog/posts/vscode-snippet-extension/cover.gif"
 date: "2024-12-13T18:35:00"
-category: "VSCode"
 ogImage:
   url: "/assets/blog/posts/vscode-snippet-extension/cover.gif"
 ---
