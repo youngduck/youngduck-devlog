@@ -4,7 +4,7 @@ name: "Chromatic and GitHub Pages Deployment"
 # Event for the workflow
 on:
   push:
-    branches: ["main", "feat/*"] # main과 feat/ 로 시작하는 브랜치
+    branches: ["main", "YD-**"] # main과 YD로 시작하는 브랜치
   pull_request:
     branches: ["main"] # main으로 가는 PR
   # ↓ 수동 실행 옵션 추가 가능
