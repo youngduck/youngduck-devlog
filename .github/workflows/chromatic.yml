@@ -1,24 +1,49 @@
 # Workflow name
-name: "Chromatic Deployment"
+name: "Chromatic and GitHub Pages Deployment"
 
 # Event for the workflow
-on: push
+on:
+  push:
+    branches: ["main", "feat/*"] # main과 feat/ 로 시작하는 브랜치
+  pull_request:
+    branches: ["main"] # main으로 가는 PR
+  # ↓ 수동 실행 옵션 추가 가능
+  workflow_dispatch:
 
 # List of jobs
 jobs:
-  chromatic:
-    name: "Run Chromatic"
+  deploy:
     runs-on: ubuntu-latest
-    # Job steps
+    permissions: # 권한 설정
+      contents: write
+    concurrency: # 동시 실행 제한
+      group: ${{ github.workflow }}
+      cancel-in-progress: true # 명시한 group 안에서 이전에 실행한 작업 존재시 취소
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: npm install
-        #👇 Adds Chromatic as a step in the workflow
-      - uses: chromaui/action@latest
-        # Options required for Chromatic's GitHub Action
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy to Chromatic
+        uses: chromaui/action@latest
+        with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static # Storybook 빌드 결과물 경로
+          publish_branch: gh-pages # GitHub Pages용 브랜치
