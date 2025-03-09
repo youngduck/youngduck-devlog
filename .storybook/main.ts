@@ -19,9 +19,11 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   webpackFinal: async (config) => {
-    if (!config.module || !config.module.rules) {
+    if (!config.module || !config.module.rules || !config.output) {
       return config;
     }
+
+    config.output.publicPath = "https://youngduck.github.io/youngduck-devlog/";
 
     config.module.rules = [
       ...config.module.rules.map((rule) => {
