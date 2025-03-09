@@ -7,8 +7,6 @@ const theme = create({
   // 브랜드
   brandTitle: "YD-DEVLOG",
   brandUrl: "https://youngduck-devlog.vercel.app/",
-  brandImage:
-    "https://youngduck.github.io/youngduck-devlog/assets/logo/logo.png",
   brandTarget: "_blank",
 });
 
