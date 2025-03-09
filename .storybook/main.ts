@@ -18,12 +18,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  managerHead: (head) =>
+    `${head}<base href="https://youngduck.github.io/youngduck-devlog/">`,
   webpackFinal: async (config) => {
-    if (!config.module || !config.module.rules || !config.output) {
+    if (!config.module || !config.module.rules) {
       return config;
     }
-
-    config.output.publicPath = "https://youngduck.github.io/youngduck-devlog/";
 
     config.module.rules = [
       ...config.module.rules.map((rule) => {
