@@ -9,6 +9,7 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o storybook-static",
+    "storybook:start": "npm run build-storybook && cd storybook-static && http-server -p 6006",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
@@ -64,6 +65,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "eslint-plugin-storybook": "^0.11.1",
+    "http-server": "^14.1.1",
     "postcss": "^8",
     "postcss-nesting": "^13.0.1",
     "prettier": "^3.4.2",
