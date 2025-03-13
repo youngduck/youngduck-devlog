@@ -1,18 +1,23 @@
+"use client";
 import { DarkModeToggle } from "../dark-mode-toggle";
 import Link from "next/link";
 import HeaderPercentBar from "./header-percent/header-percent-bar";
 import Image from "next/image";
 import RssFeedButton from "@layout/rss-feed-button/rss-feed-button";
 import ListButton from "../list-button/list-button";
+import { useState } from "react";
+import HeaderMobileMenu from "./header-mobile-menu/header-mobile-menu";
 
 const Header = () => {
+  const [mobileMenuToggle, setMobileMenuToggle] = useState<boolean>(false);
+
   return (
     <>
       <header className="sticky top-[0px] z-10 mx-auto w-full transform animate-fade-down justify-between bg-background p-0 pt-[0px] lg:w-full">
-        <div className="mx-auto flex h-[60px] w-full items-center justify-between md:w-[870px] lg:w-[1200px]">
+        <div className="relative mx-auto flex h-[60px] w-full items-center justify-between sm:px-2 md:w-[870px] md:px-0 lg:w-[1200px]">
           <div className="flex items-center">
             <Link href="/">
-              <div className="flex h-[60px] w-[250px] items-center justify-center md:bg-secondary">
+              <div className="flex h-[60px] items-center justify-center sm:w-[200px] md:w-[250px] md:bg-secondary">
                 <div className="relative h-[40px] w-[200px]">
                   <Image
                     src="/assets/logo/logo.png"
@@ -44,10 +49,13 @@ const Header = () => {
             </nav>
           </div>
           <div className="flex">
-            <ListButton />
+            <ListButton
+              onClick={() => setMobileMenuToggle((prevState) => !prevState)}
+            />
             <RssFeedButton />
             <DarkModeToggle />
           </div>
+          {mobileMenuToggle && <HeaderMobileMenu />}
         </div>
         <HeaderPercentBar />
       </header>
