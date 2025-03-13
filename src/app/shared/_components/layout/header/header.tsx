@@ -1,35 +1,11 @@
-"use client";
-import React, { useEffect, useState } from "react";
 import { DarkModeToggle } from "../dark-mode-toggle";
 import Link from "next/link";
+import HeaderPercentBar from "./header-percent/header-percent-bar";
 import Image from "next/image";
-import ListButton from "@layout/list-button/list-button";
 import RssFeedButton from "@layout/rss-feed-button/rss-feed-button";
+import ListButton from "../list-button/list-button";
 
 const Header = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  useEffect(() => {
-    const calculateScrollPercent = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-      return (scrollTop / docHeight) * 100;
-    };
-
-    const handleScroll = () => {
-      setScrollPosition(calculateScrollPercent());
-    };
-
-    // 컴포넌트가 마운트 될 때,새로고침 될 떄 초기 스크롤 퍼센티지 설정
-    setScrollPosition(calculateScrollPercent());
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
       <header className="sticky top-[0px] z-10 mx-auto w-full transform animate-fade-down justify-between bg-background p-0 pt-[0px] lg:w-full">
@@ -68,16 +44,12 @@ const Header = () => {
             </nav>
           </div>
           <div className="flex">
+            <ListButton />
             <RssFeedButton />
             <DarkModeToggle />
           </div>
         </div>
-        <div className="h-[3px] w-full bg-gray-300">
-          <div
-            className="h-full bg-gradient-to-r from-yellow to-[#8C6306]"
-            style={{ width: `${scrollPosition}%` }}
-          ></div>
-        </div>
+        <HeaderPercentBar />
       </header>
     </>
   );

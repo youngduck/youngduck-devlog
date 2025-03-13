@@ -23,11 +23,11 @@ export const Desktop: Story = {
   },
 };
 
-export const Ipad11Pro: Story = {
+export const Ipad12Pro: Story = {
   parameters: {
     layout: "fullscreen",
     viewport: {
-      defaultViewport: "ipad11p",
+      defaultViewport: "ipad12p",
     },
   },
 };
