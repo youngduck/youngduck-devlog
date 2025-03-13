@@ -14,7 +14,7 @@ type IPostCard = {
 const getDomainUrl = (domain: string) => {
   switch (domain) {
     case "blog":
-      return "posts";
+      return "blog/posts";
     case "algorithms":
       return "algorithms/ps";
     default:
