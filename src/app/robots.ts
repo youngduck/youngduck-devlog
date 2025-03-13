@@ -5,7 +5,7 @@ const Robots = (): MetadataRoute.Robots => {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/private/",
+      disallow: "/api/",
     },
     sitemap: "https://youngduck-devlog.vercel.app/sitemap.xml",
   };
