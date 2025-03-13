@@ -2,7 +2,7 @@ import React from "react";
 import { getPostBySlug, getAllPosts } from "@/lib/api";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { CMS_NAME } from "../../../lib/constants";
+import { CMS_NAME } from "../../../../lib/constants";
 import PostTitle from "@/app/shared/_components/post/post-title";
 import PostBody from "@/app/shared/_components/post/post-body/post-body";
 import Toc from "@/app/shared/_components/post/toc";
