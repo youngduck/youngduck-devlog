@@ -95,7 +95,7 @@ export const FullContentPad: Story = {
   },
   parameters: {
     viewport: {
-      defaultViewport: "ipad11p",
+      defaultViewport: "ipad12p",
     },
   },
 };
