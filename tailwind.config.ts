@@ -10,7 +10,7 @@ const config = {
       padding: "2rem",
     },
     screens: {
-      sm: "375px",
+      sm: "345px",
       md: "870px",
       lg: "1280px",
       pcHover: {
