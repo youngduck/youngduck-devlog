@@ -1,13 +1,8 @@
-import { getAllCategoriesID, getAllPosts, getFilteredPosts } from "@/lib/api";
+import { getAllPosts } from "@/lib/api";
 import TagNavbar from "@layout/tag-navbar";
 import PostCards from "@/app/shared/_components/post/post-cards/post-cards";
-interface Params {
-  params: {
-    slug: string;
-  };
-}
 
-const page: React.FC<Params> = ({ params }) => {
+const page = () => {
   const posts = getAllPosts();
 
   return (
