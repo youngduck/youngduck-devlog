@@ -36,11 +36,11 @@ const Header = () => {
                   Blog
                 </span>
               </Link>
-              <Link href="/about">
+              {/* <Link href="/about">
                 <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
                   About
                 </span>
-              </Link>
+              </Link> */}
               <Link href="/algorithms">
                 <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
                   Algorithms
