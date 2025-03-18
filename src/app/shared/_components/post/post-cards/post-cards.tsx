@@ -16,7 +16,7 @@ type IPostCards = {
 
 const PostCards: React.FC<IPostCards> = ({ posts, domain }) => {
   return (
-    <div className="flex flex-wrap justify-center border-b-2 pb-6 lg:w-[1200px] lg:justify-normal">
+    <div className="md:w-container-md lg:w-container-lg flex flex-wrap justify-center gap-5 border-b-2 pb-6 sm:w-full md:justify-normal md:gap-[7.5px] lg:justify-normal lg:gap-5">
       {posts.map((item, idx) => (
         <PostCard
           key={idx}

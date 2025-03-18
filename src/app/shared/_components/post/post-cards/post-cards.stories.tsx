@@ -54,13 +54,13 @@ export const Desktop: Story = {
   },
 };
 
-export const Ipad11Pro: Story = {
+export const Ipad12Pro: Story = {
   args: {
     posts: commonPosts, // 필요한 만큼만 사용
   },
   parameters: {
     viewport: {
-      defaultViewport: "ipad11p",
+      defaultViewport: "ipad12p",
     },
   },
 };

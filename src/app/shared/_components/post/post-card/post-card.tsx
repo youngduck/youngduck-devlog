@@ -34,15 +34,15 @@ const PostCard: React.FC<IPostCard> = ({
   const domainUrl = getDomainUrl(domain);
 
   return (
-    <div className="group relative m-3 box-border h-[350px] w-[296px] transform animate-fade-up rounded-lg border-2 bg-background p-4 font-[KCC] duration-500 pcHover:hover:scale-105">
+    <div className="group relative box-border h-[350px] w-[285px] transform animate-fade-up rounded-lg border-[3px] bg-background p-4 font-[KCC] duration-500 pcHover:hover:scale-105">
       <a href={`/${domainUrl}/${slug}`}>
-        <div className="relative h-[180px] w-[260px] rounded-lg">
+        <div className="relative h-[180px] w-[249px] rounded-lg">
           <Image
             src={coverImage}
             alt={coverImage}
             fill
             priority={true}
-            sizes="(max-width: 296px)"
+            sizes="(max-width: 285px)"
             className="rounded-lg object-cover"
           />
         </div>
@@ -57,7 +57,7 @@ const PostCard: React.FC<IPostCard> = ({
         <p className="font-display max-w-sm text-xl font-bold leading-tight">
           <span className="text-dd dark:text-gray-200">{title}</span>
         </p>
-        <div className="invisible absolute left-[50%] top-[50%] box-border h-[350px] w-[296px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-black p-4 text-white opacity-0 pcHover:group-hover:visible pcHover:group-hover:opacity-70">
+        <div className="invisible absolute left-[50%] top-[50%] box-border h-[350px] w-[285px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-black p-4 text-white opacity-0 pcHover:group-hover:visible pcHover:group-hover:opacity-70">
           <p>{excerpt}</p>
         </div>
       </a>

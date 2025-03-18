@@ -18,8 +18,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
-  managerHead: (head) =>
-    `${head}<base href="https://youngduck.github.io/youngduck-devlog/">`,
   webpackFinal: async (config) => {
     if (!config.module || !config.module.rules) {
       return config;

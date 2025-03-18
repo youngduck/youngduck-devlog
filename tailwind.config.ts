@@ -10,7 +10,7 @@ const config = {
       padding: "2rem",
     },
     screens: {
-      sm: "375px",
+      sm: "345px",
       md: "870px",
       lg: "1280px",
       pcHover: {
@@ -23,6 +23,11 @@ const config = {
       },
       backgroundImage: {
         "header-bg": "url('/assets/blog/posts/test3.png')",
+      },
+      maxWidth: {
+        "container-sm": "var(--container-sm)",
+        "container-md": "var(--container-md)",
+        "container-lg": "var(--container-lg)",
       },
       colors: {
         border: "hsl(var(--border))",

@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react";
-import About from "./page";
+import Home from "./page";
 import { ThemeProvider } from "@/app/shared/_components/provider/theme-provider";
 import Header from "@layout/header/header";
 import Footer from "@/app/shared/_components/layout/footer";
 
-const meta: Meta<typeof About> = {
-  title: "pages/About",
-  component: About,
+const meta: Meta<typeof Home> = {
+  title: "pages/Home",
+  component: Home,
   decorators: [
     (Story) => (
       <ThemeProvider
@@ -25,7 +25,7 @@ const meta: Meta<typeof About> = {
 
 export default meta;
 
-type Story = StoryObj<typeof About>;
+type Story = StoryObj<typeof Home>;
 
 export const Desktop: Story = {
   parameters: {

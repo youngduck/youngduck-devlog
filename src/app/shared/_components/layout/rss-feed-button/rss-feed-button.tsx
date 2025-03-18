@@ -7,7 +7,7 @@ const RssFeedButton = () => {
       <Button
         variant="link"
         size="icon"
-        className="mr-2 border-2 border-yellow bg-background"
+        className="mr-2 border-2 border-yellow bg-background sm:hidden md:flex"
       >
         <RssFeedIcon width={20} height={20} />
       </Button>

@@ -12,14 +12,18 @@
 
 @layer base {
   :root {
-    --background: 30 5% 99%;
+    --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
-    --secondary: 30 5% 100%;
+    --secondary: 0 0% 97%;
     --secondary-foreground: 240 5.9% 10%;
     --border: 240 5.9% 85%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;
+
+    --container-sm: 345px;
+    --container-md: 870px;
+    --container-lg: 1200px;
   }
 
   .dark {
