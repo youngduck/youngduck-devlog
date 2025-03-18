@@ -42,7 +42,9 @@ export default async function Home() {
           <div className="my-[20px] block w-full transform animate-fade-up border-y-[3px] p-3 font-[KCC] duration-500 md:w-[870px] lg:w-[1200px]">
             <ul className="flex flex-wrap justify-between">
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
-                <span className="text-xl">최근 Blog</span>
+                <Link href="/blog">
+                  <span className="text-xl">최근 작성한 Blog 콘텐츠</span>
+                </Link>
               </li>
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/blog">
@@ -59,7 +61,9 @@ export default async function Home() {
           <div className="my-[20px] block w-full transform animate-fade-up border-y-[3px] p-3 font-[KCC] duration-500 md:w-[870px] lg:w-[1200px]">
             <ul className="flex flex-wrap justify-between">
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
-                <span className="text-xl">최근 알고리즘</span>
+                <Link href="/algorithms">
+                  <span className="text-xl">최근 작성한 알고리즘 풀이</span>
+                </Link>
               </li>
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/algorithms">
