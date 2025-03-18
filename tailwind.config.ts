@@ -24,6 +24,11 @@ const config = {
       backgroundImage: {
         "header-bg": "url('/assets/blog/posts/test3.png')",
       },
+      maxWidth: {
+        "container-sm": "var(--container-sm)",
+        "container-md": "var(--container-md)",
+        "container-lg": "var(--container-lg)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

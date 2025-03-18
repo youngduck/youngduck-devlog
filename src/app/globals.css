@@ -20,6 +20,10 @@
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
     --radius: 0.5rem;
+
+    --container-sm: 345px;
+    --container-md: 870px;
+    --container-lg: 1200px;
   }
 
   .dark {

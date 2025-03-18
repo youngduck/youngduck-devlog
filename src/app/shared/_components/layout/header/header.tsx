@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <>
       <header className="sticky top-[0px] z-10 mx-auto w-full transform animate-fade-down justify-between bg-background p-0 pt-[0px] lg:w-full">
-        <div className="relative mx-auto flex h-[60px] w-full items-center justify-between sm:px-2 md:w-[870px] md:px-0 lg:w-[1200px]">
+        <div className="md:max-w-container-md lg:max-w-container-lg relative mx-auto flex h-[60px] w-full items-center justify-between sm:px-2 md:px-0">
           <div className="flex items-center">
             <Link href="/">
               <div className="flex h-[60px] items-center justify-center sm:w-[200px] md:w-[250px] md:bg-secondary">

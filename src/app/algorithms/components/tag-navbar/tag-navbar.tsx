@@ -11,7 +11,7 @@ const TagNavbar = async () => {
   };
 
   return (
-    <nav className="my-[30px] block w-full transform animate-fade-up border-y-2 p-3 font-[KCC] duration-500 md:w-[870px] lg:w-[1200px]">
+    <nav className="md:w-container-md lg:w-container-lg my-[30px] block w-full transform animate-fade-up border-y-2 p-3 font-[KCC] duration-500">
       <ul className="flex flex-wrap">
         {categories.map((item: [string, number], idx: number) => (
           <Link key={idx} href={getNavigateUrl(item[0])}>

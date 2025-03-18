@@ -8,7 +8,7 @@ const CustomLottie = dynamic(
 
 const NotFound = () => {
   return (
-    <main className="mx-auto h-auto lg:w-[1200px]">
+    <main className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto">
       <div className="flex flex-col items-center justify-center border-b-2">
         <h1 className="font-[KCC] text-[40px] text-purple-500">
           존재 하지 않는 페이지 입니다.

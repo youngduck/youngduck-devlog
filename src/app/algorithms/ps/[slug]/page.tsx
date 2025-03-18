@@ -29,8 +29,8 @@ const page: React.FC<Params> = ({ params }) => {
   //!SECTION HOOK호출 영역
 
   return (
-    <>
-      <main className="mx-auto flex w-full px-2 lg:w-[1200px]">
+    <div className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
+      <main className="mx-auto flex h-auto w-full px-2 lg:w-[1200px]">
         <article className="w-full lg:w-[860px] lg:pr-[100px]">
           <PostTitle
             title={title}
@@ -43,7 +43,7 @@ const page: React.FC<Params> = ({ params }) => {
         <Toc />
       </main>
       <Giscus />
-    </>
+    </div>
   );
 };
 

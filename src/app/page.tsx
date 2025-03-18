@@ -12,7 +12,7 @@ export default async function Home() {
   const algorithms = getAllAlgorithms();
 
   return (
-    <main className="mx-auto h-auto w-full transform animate-fade-up duration-500 md:w-[870px] lg:w-[1200px]">
+    <main className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full transform animate-fade-up duration-500">
       {/* 첫 번째 행 */}
       <div className="grid w-full gap-[20px] sm:grid-cols-1 sm:grid-rows-1 md:grid-cols-[250px_600px] md:grid-rows-[110px_350px_350px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_350px]">
         <GridBoxWrapper className="rounded-t-none border-t-0 bg-contain sm:h-[350px] md:col-[1/2] md:row-[1/3] md:h-auto lg:col-[1/2] lg:row-[1/3] lg:h-auto">
@@ -37,9 +37,9 @@ export default async function Home() {
           <ScrapItem />
         </GridBoxWrapper>
       </div>
-      <div className="mx-auto h-auto w-full md:w-[870px] lg:w-[1200px]">
+      <div className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
         <div className="flex flex-col items-center justify-center">
-          <div className="my-[20px] block w-full transform animate-fade-up border-y-[3px] p-3 font-[KCC] duration-500 md:w-[870px] lg:w-[1200px]">
+          <div className="md:w-container-md lg:w-container-lg my-[20px] block w-full transform animate-fade-up border-y-[3px] p-3 font-[KCC] duration-500">
             <ul className="flex flex-wrap justify-between">
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/blog">
@@ -56,9 +56,9 @@ export default async function Home() {
           <PostCards posts={posts.slice(0, 4)} domain="blog" />
         </div>
       </div>
-      <div className="mx-auto h-auto w-full md:w-[870px] lg:w-[1200px]">
+      <div className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
         <div className="flex flex-col items-center justify-center">
-          <div className="my-[20px] block w-full transform animate-fade-up border-y-[3px] p-3 font-[KCC] duration-500 md:w-[870px] lg:w-[1200px]">
+          <div className="md:w-container-md lg:w-container-lg my-[20px] block w-full transform animate-fade-up border-y-[3px] p-3 font-[KCC] duration-500">
             <ul className="flex flex-wrap justify-between">
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/algorithms">

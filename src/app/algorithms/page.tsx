@@ -11,12 +11,10 @@ import TagNavbar from "@/app/algorithms/components/tag-navbar/tag-navbar";
 interface Ipage {}
 
 const page: React.FC<Ipage> = () => {
-  //SECTION HOOK호출 영역
   const algorithms = getAllAlgorithms();
-  //!SECTION HOOK호출 영역
 
   return (
-    <main className="mx-auto h-auto w-full lg:w-[1200px]">
+    <main className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
       <div className="flex flex-col items-center justify-center">
         <TagNavbar />
         <PostCards posts={algorithms} domain="algorithms" />

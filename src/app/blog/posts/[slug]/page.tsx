@@ -23,7 +23,7 @@ const Page: React.FC<Params> = async ({ params }) => {
 
   return (
     <>
-      <main className="mx-auto flex w-full px-2 lg:w-[1200px]">
+      <main className="lg:w-container-lg mx-auto flex w-full px-2">
         <article className="w-full lg:w-[860px] lg:pr-[100px]">
           <PostTitle
             title={title}
