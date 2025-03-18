@@ -33,7 +33,7 @@ const GridBoxWrapper: React.FC<GridBoxWrapperProps> = ({
             height: titleHeight,
           }}
         >
-          <div className="text-md">{title}</div>
+          <div className="text-xl font-bold">{title}</div>
           <div>{option}</div>
         </div>
       )}
