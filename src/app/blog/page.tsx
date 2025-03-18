@@ -1,5 +1,5 @@
 import { getAllPosts } from "@/lib/api";
-import TagNavbar from "@layout/tag-navbar";
+import TagNavbar from "@/app/home/components/tag-navbar/tag-navbar";
 import PostCards from "@/app/shared/_components/post/post-cards/post-cards";
 
 const page = () => {

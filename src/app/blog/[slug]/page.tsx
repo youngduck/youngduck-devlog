@@ -1,5 +1,5 @@
 import { getAllCategoriesID, getFilteredPosts } from "@/lib/api";
-import TagNavbar from "@layout/tag-navbar";
+import TagNavbar from "@/app/home/components/tag-navbar/tag-navbar";
 import PostCard from "@/app/shared/_components/post/post-card/post-card";
 interface Params {
   params: {
