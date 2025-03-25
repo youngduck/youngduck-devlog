@@ -8,13 +8,10 @@ import PostBody from "@/app/shared/_components/post/post-body/post-body";
 import Toc from "@/app/shared/_components/post/toc";
 import Giscus from "@/app/shared/_components/post/post-comment";
 
-interface Params {
-  params: {
-    slug: string;
-  };
-}
+type Params = Promise<{ slug: string }>;
 
-const Page: React.FC<Params> = async ({ params }) => {
+const Page = async (props: { params: Params }) => {
+  const params = await props.params;
   const post = getPostBySlug(params.slug);
   if (!post) {
     return notFound();
@@ -40,7 +37,10 @@ const Page: React.FC<Params> = async ({ params }) => {
   );
 };
 
-export function generateMetadata({ params }: Params): Metadata {
+export async function generateMetadata(props: {
+  params: Params;
+}): Promise<Metadata> {
+  const params = await props.params;
   const post = getPostBySlug(params.slug);
 
   if (!post) {
