@@ -8,17 +8,19 @@ import React from "react";
 import TagNavbar from "@/app/algorithms/components/tag-navbar/tag-navbar";
 import PostCards from "@/app/shared/_components/post/post-cards/post-cards";
 
-interface Ipage {
-  params: {
-    slug: string;
-  };
-}
+// params가 Promise 타입임
+type Params = Promise<{ slug: string }>;
 
-const page: React.FC<Ipage> = ({ params }) => {
-  const filteredData = getFilteredAlgorithms(params.slug);
+// 비동기 페이지 컴포넌트에서 타입 사용
+const page = async (props: { params: Params }) => {
+  // params 값을 await로 꺼내야 함
+  const params = await props.params;
+  const slug = params.slug;
+
+  const filteredData = getFilteredAlgorithms(slug);
 
   return (
-    <main className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
+    <main className="mx-auto h-auto w-full md:max-w-container-md lg:max-w-container-lg">
       <div className="flex flex-col items-center justify-center">
         <TagNavbar />
         <PostCards posts={filteredData} domain="algorithms" />

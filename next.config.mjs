@@ -15,15 +15,25 @@ const pwaConfig = withPWA({
 const nextConfig = pwaConfig({
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.svg$/,
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
 
     return config;
   },
-  // experimental: {
-  //   serverActions: true,
-  // },
+  experimental: {
+    // serverActions: true,
+    turbo: {
+      rules:{
+        '*.svg': {
+            loaders: ["@svgr/webpack"],
+            as: "*.tsx",
+          },
+        },
+      
+    },
+  },
   env: {
     NOTION_TOKEN: process.env.NOTION_TOKEN,
     NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,

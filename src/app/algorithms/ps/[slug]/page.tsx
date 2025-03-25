@@ -13,14 +13,11 @@ import Giscus from "@/app/shared/_components/post/post-comment";
 import { Metadata } from "next";
 import { getAllAlgorithms, getPostBySlug } from "@/app/api/algorithms/api";
 
-interface Params {
-  params: {
-    slug: string;
-  };
-}
+type Params = Promise<{ slug: string }>;
 
-const page: React.FC<Params> = ({ params }) => {
+const page = async (props: { params: Params }) => {
   //SECTION HOOK호출 영역
+  const params = await props.params;
   const post = getPostBySlug(params.slug);
   if (!post) {
     return notFound();
@@ -29,7 +26,7 @@ const page: React.FC<Params> = ({ params }) => {
   //!SECTION HOOK호출 영역
 
   return (
-    <div className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
+    <div className="mx-auto h-auto w-full md:max-w-container-md lg:max-w-container-lg">
       <main className="mx-auto flex h-auto w-full px-2 lg:w-[1200px]">
         <article className="w-full lg:w-[860px] lg:pr-[100px]">
           <PostTitle
@@ -47,7 +44,10 @@ const page: React.FC<Params> = ({ params }) => {
   );
 };
 
-export function generateMetadata({ params }: Params): Metadata {
+export async function generateMetadata(props: {
+  params: Params;
+}): Promise<Metadata> {
+  const params = await props.params;
   const post = getPostBySlug(params.slug);
 
   if (!post) {
