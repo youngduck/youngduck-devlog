@@ -7,9 +7,9 @@
 
 import { useState } from "react";
 import AreaChart from "../area-chart/area-chart";
-import useFunnel from "@/app/shared/funnel/hooks/useFunnel";
-import Funnel from "@/app/shared/funnel/components/funnel";
-import Step from "@/app/shared/funnel/components/step/components/step";
+import useFunnel from "@/app/shared/_components/funnel/hooks/useFunnel";
+import Funnel from "@/app/shared/_components/funnel/components/funnel";
+import Step from "@/app/shared/_components/funnel/components/step/components/step";
 
 interface IChartsFunnel {}
 

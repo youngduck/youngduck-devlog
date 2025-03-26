@@ -1,4 +1,4 @@
-import { NOTION_API_ERROR_MESSAGES } from "@/app/shared/constants/error/error-messages";
+import { NOTION_API_ERROR_MESSAGES } from "@/app/api/scrap/constants/error/error-messages";
 
 interface NotionProperty {
   title: {
