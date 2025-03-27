@@ -4,12 +4,16 @@ const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   features: {
     experimentalRSC: true,
+    developmentModeForBuild: true,
   },
   addons: [
     "@storybook/addon-onboarding",
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    "@storybook/addon-actions",
+    "@storybook/addon-docs",
+    "@storybook/addon-controls",
   ],
   framework: {
     name: "@storybook/nextjs",
