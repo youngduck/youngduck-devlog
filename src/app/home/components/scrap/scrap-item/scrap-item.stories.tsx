@@ -1,10 +1,11 @@
+import { http, HttpResponse } from "msw";
 import GridBoxWrapper from "../../grid-box-wrapper/grid-box-wrapper";
 import ScrapItem from "./scrap-item";
 import { Meta, StoryObj } from "@storybook/react";
-import { handlers } from "@/mocks/handlers";
+import { userEvent, within } from "@storybook/test";
 
 const meta: Meta<typeof ScrapItem> = {
-  title: "Home/Components/Scrap/ScrapItem",
+  title: "pages/Home/Components/Scrap/ScrapItem",
   component: ScrapItem,
   decorators: [
     (Story) => (
@@ -20,11 +21,6 @@ const meta: Meta<typeof ScrapItem> = {
       </main>
     ),
   ],
-  // parameters: {
-  //   msw: {
-  //     handlers: handlers,
-  //   },
-  // },
 };
 
 export default meta;
@@ -54,6 +50,74 @@ export const Mobile: Story = {
     layout: "fullscreen",
     viewport: {
       defaultViewport: "iphone6",
+    },
+  },
+};
+
+export const LinkClick: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    canvasElement.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+    const link = await canvas.findByText("모킹된 스크랩 항목 2");
+    await userEvent.click(link);
+  },
+};
+
+export const Hover: Story = {
+  parameters: {
+    chromatic: { pauseAnimationAtEnd: true },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // link 요소를 직접 찾기
+    const link = await canvas.findByText("모킹된 스크랩 항목 3");
+
+    // hover 상태 진입
+    await userEvent.hover(link);
+
+    // hover 효과를 시각적으로 확인하기 위한 지연
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    // hover 상태 해제
+    await userEvent.unhover(link);
+
+    // 상태 해제 후 지연
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+  },
+};
+
+export const NoScrapData: Story = {
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "desktop",
+    },
+    msw: {
+      handlers: [
+        http.get("http://localhost:3000/api/scrap", () => {
+          return HttpResponse.json([]);
+        }),
+      ],
+    },
+  },
+};
+
+export const Error: Story = {
+  parameters: {
+    layout: "fullscreen",
+    viewport: {
+      defaultViewport: "desktop",
+    },
+    msw: {
+      handlers: [
+        http.get("http://localhost:3000/api/scrap", () => {
+          return new HttpResponse(null, { status: 500 });
+        }),
+      ],
     },
   },
 };
