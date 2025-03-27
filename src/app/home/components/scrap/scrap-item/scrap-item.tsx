@@ -5,13 +5,14 @@
  * 아이디어: 테이블 형태, 소팅, 노션으로 링크이동?
  * TODO: 추후 노션 API 조회 갯수 최적화
  */
-import { getAllScrapList } from "@/app/api/scrap/apis";
-import { IScrapItem } from "@/app/api/scrap/apis";
+
+import { getAllScrapList, IScrapItem } from "@/app/api/scrap/apis";
+import React, { memo } from "react";
 import Link from "next/link";
 
 const ScrapItem = async () => {
   try {
-    const scrapList = await getAllScrapList();
+    const scrapList = await fetchData();
 
     if (!scrapList || scrapList.length === 0) {
       return <div>스크랩된 항목이 없습니다.</div>;
@@ -37,8 +38,20 @@ const ScrapItem = async () => {
       </>
     );
   } catch (error) {
+    console.error(error);
     return <div>데이터를 불러오는 중 오류가 발생했습니다.</div>;
   }
 };
 
-export default ScrapItem;
+export default memo(ScrapItem);
+
+const fetchData = async () => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASED_URL}/api/scrap`,
+    {
+      cache: "force-cache",
+    },
+  );
+  const data = await response.json();
+  return data;
+};
