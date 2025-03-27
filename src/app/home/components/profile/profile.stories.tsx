@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Profile from "./profile";
-import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
+import GridBoxWrapper from "@/app/home/components/grid-box-wrapper/grid-box-wrapper";
 
 const meta: Meta<typeof Profile> = {
   title: "Domains/Profile",

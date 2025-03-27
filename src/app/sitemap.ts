@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts } from "@/app/api/blog/api";
 import { getAllAlgorithms } from "@/app/api/algorithms/api";
 
 export default function sitemap(): MetadataRoute.Sitemap {

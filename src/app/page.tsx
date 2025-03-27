@@ -1,9 +1,9 @@
-import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
+import GridBoxWrapper from "@/app/home/components/grid-box-wrapper/grid-box-wrapper";
 import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
-import ChartsFunnel from "./domains/charts/charts-funnel/ChartsFunnel";
+import ChartsFunnel from "./home/components/charts/charts-funnel/ChartsFunnel";
 
-import Profile from "./domains/profile/profile";
-import { getAllPosts } from "@/lib/api";
+import Profile from "./home/components/profile/profile";
+import { getAllPosts } from "@/app/api/blog/api";
 import PostCards from "./shared/_components/post/post-cards/post-cards";
 import Link from "next/link";
 import { getAllAlgorithms } from "./api/algorithms/api";
@@ -12,7 +12,7 @@ export default async function Home() {
   const algorithms = getAllAlgorithms();
 
   return (
-    <main className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full transform animate-fade-up duration-500">
+    <main className="mx-auto h-auto w-full transform animate-fade-up duration-500 md:max-w-container-md lg:max-w-container-lg">
       {/* 첫 번째 행 */}
       <div className="grid w-full gap-[20px] sm:grid-cols-1 sm:grid-rows-1 md:grid-cols-[250px_600px] md:grid-rows-[110px_350px_350px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_350px]">
         <GridBoxWrapper className="rounded-t-none border-t-0 bg-contain sm:h-[350px] md:col-[1/2] md:row-[1/3] md:h-auto lg:col-[1/2] lg:row-[1/3] lg:h-auto">
@@ -37,7 +37,7 @@ export default async function Home() {
           <ScrapItem />
         </GridBoxWrapper>
       </div>
-      <div className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
+      <div className="mx-auto h-auto w-full md:max-w-container-md lg:max-w-container-lg">
         <div className="flex flex-col items-center justify-center">
           <div className="md:w-container-md lg:w-container-lg my-[20px] block w-full transform animate-fade-up border-y-[3px] p-3 font-[KCC] duration-500">
             <ul className="flex flex-wrap justify-between">
@@ -56,7 +56,7 @@ export default async function Home() {
           <PostCards posts={posts.slice(0, 4)} domain="blog" />
         </div>
       </div>
-      <div className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
+      <div className="mx-auto h-auto w-full md:max-w-container-md lg:max-w-container-lg">
         <div className="flex flex-col items-center justify-center">
           <div className="md:w-container-md lg:w-container-lg my-[20px] block w-full transform animate-fade-up border-y-[3px] p-3 font-[KCC] duration-500">
             <ul className="flex flex-wrap justify-between">

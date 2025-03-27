@@ -5,7 +5,7 @@
  */
 import React from "react";
 import PostBody from "@/app/shared/_components/post/post-body/post-body";
-import GridBoxWrapper from "@layout/grid-box-wrapper/grid-box-wrapper";
+import GridBoxWrapper from "@/app/home/components/grid-box-wrapper/grid-box-wrapper";
 interface Ipage {}
 
 const page: React.FC<Ipage> = () => {
@@ -23,7 +23,7 @@ const page: React.FC<Ipage> = () => {
   //!SECTION 메서드 영역
 
   return (
-    <main className="md:max-w-container-md lg:max-w-container-lg mx-auto h-auto w-full">
+    <main className="mx-auto h-auto w-full md:max-w-container-md lg:max-w-container-lg">
       <div className="grid w-full grid-cols-1 grid-rows-1 gap-[20px] lg:h-[480px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_350px]">
         <GridBoxWrapper className="rounded-t-none border-t-0 bg-contain lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3">
           목차, 인쇄

@@ -5,8 +5,8 @@
  * 아이디어: 테이블 형태, 소팅, 노션으로 링크이동?
  * TODO: 추후 노션 API 조회 갯수 최적화
  */
-import { getAllScrapList } from "@/app/home/apis/scrap-apis";
-import { IScrapItem } from "@/app/home/apis/scrap-apis";
+import { getAllScrapList } from "@/app/api/scrap/apis";
+import { IScrapItem } from "@/app/api/scrap/apis";
 import Link from "next/link";
 
 const ScrapItem = async () => {

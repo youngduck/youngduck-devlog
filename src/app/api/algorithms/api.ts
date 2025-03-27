@@ -1,4 +1,4 @@
-import { Post } from "../../../interfaces/posts";
+import { Post } from "../../shared/_components/post/interfaces/posts";
 import fs from "fs";
 import matter from "gray-matter";
 import path, { join } from "path";
