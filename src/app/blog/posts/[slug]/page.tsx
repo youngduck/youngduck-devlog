@@ -1,5 +1,5 @@
 import React from "react";
-import { getPostBySlug, getAllPosts } from "@/lib/api";
+import { getPostBySlug, getAllPosts } from "@/app/api/blog/api";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { CMS_NAME } from "../../../../lib/constants";

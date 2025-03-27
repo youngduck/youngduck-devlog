@@ -1,4 +1,4 @@
-import { getAllCategoriesID, getFilteredPosts } from "@/lib/api";
+import { getAllCategoriesID, getFilteredPosts } from "@/app/api/blog/api";
 import TagNavbar from "@/app/blog/components/tag-navbar/tag-navbar";
 import PostCards from "@/app/shared/_components/post/post-cards/post-cards";
 

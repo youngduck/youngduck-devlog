@@ -4,7 +4,7 @@
  * 프로세스 설명: 프로세스 복잡시 노션링크 첨부권장
  */
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/shared/_components/layout/button/button";
 import { List } from "lucide-react";
 
 interface IListButton {

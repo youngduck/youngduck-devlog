@@ -1,4 +1,4 @@
-import { generateRSS } from "@/lib/api";
+import { generateRSS } from "@/app/api/blog/api";
 
 export const GET = async () => {
   const feedXml = generateRSS();

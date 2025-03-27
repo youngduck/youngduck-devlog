@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/shared/_components/layout/button/button";
 import RssFeedIcon from "@public/assets/svg/rssFeedIcon.svg";
 
 const RssFeedButton = () => {

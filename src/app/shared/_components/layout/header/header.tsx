@@ -1,10 +1,10 @@
 "use client";
-import { DarkModeToggle } from "../dark-mode-toggle";
+import { DarkModeToggleButton } from "../button/dark-mode-toggle-button/dark-mode-toggle-button";
 import Link from "next/link";
 import HeaderPercentBar from "./header-percent/header-percent-bar";
 import Image from "next/image";
-import RssFeedButton from "@layout/rss-feed-button/rss-feed-button";
-import ListButton from "../list-button/list-button";
+import RssFeedButton from "@/app/shared/_components/layout/button/rss-feed-button/rss-feed-button";
+import ListButton from "../button/list-button/list-button";
 import { useState } from "react";
 import HeaderMobileMenu from "./header-mobile-menu/header-mobile-menu";
 
@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <>
       <header className="sticky top-[0px] z-10 mx-auto w-full transform animate-fade-down justify-between bg-background p-0 pt-[0px] lg:w-full">
-        <div className="md:max-w-container-md lg:max-w-container-lg relative mx-auto flex h-[60px] w-full items-center justify-between sm:px-2 md:px-0">
+        <div className="relative mx-auto flex h-[60px] w-full items-center justify-between sm:px-2 md:max-w-container-md md:px-0 lg:max-w-container-lg">
           <div className="flex items-center">
             <Link href="/">
               <div className="flex h-[60px] items-center justify-center sm:w-[200px] md:w-[250px] md:bg-secondary">
@@ -53,7 +53,7 @@ const Header = () => {
               onClick={() => setMobileMenuToggle((prevState) => !prevState)}
             />
             <RssFeedButton />
-            <DarkModeToggle />
+            <DarkModeToggleButton />
           </div>
           {mobileMenuToggle && <HeaderMobileMenu />}
         </div>

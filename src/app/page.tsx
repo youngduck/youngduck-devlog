@@ -1,9 +1,9 @@
 import GridBoxWrapper from "@/app/home/components/grid-box-wrapper/grid-box-wrapper";
 import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
-import ChartsFunnel from "./domains/charts/charts-funnel/ChartsFunnel";
+import ChartsFunnel from "./home/components/charts/charts-funnel/ChartsFunnel";
 
-import Profile from "./domains/profile/profile";
-import { getAllPosts } from "@/lib/api";
+import Profile from "./home/components/profile/profile";
+import { getAllPosts } from "@/app/api/blog/api";
 import PostCards from "./shared/_components/post/post-cards/post-cards";
 import Link from "next/link";
 import { getAllAlgorithms } from "./api/algorithms/api";

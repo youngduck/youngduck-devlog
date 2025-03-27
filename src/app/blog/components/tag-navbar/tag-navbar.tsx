@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllCategoriesArray } from "@/lib/api";
+import { getAllCategoriesArray } from "@/app/api/blog/api";
 
 const TagNavbar = async () => {
   const categories = await getAllCategoriesArray();
