@@ -6,7 +6,7 @@
  * TODO: 추후 노션 API 조회 갯수 최적화
  */
 
-import { getAllScrapList, IScrapItem } from "@/app/api/scrap/apis";
+import { IScrapItem } from "@/app/api/scrap/apis";
 import React, { memo } from "react";
 import Link from "next/link";
 
