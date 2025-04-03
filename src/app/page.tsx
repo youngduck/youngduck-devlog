@@ -5,12 +5,10 @@ import ChartsFunnel from "./home/components/charts/charts-funnel/ChartsFunnel";
 import Profile from "./home/components/profile/profile";
 import PostCards from "./shared/_components/post/post-cards/post-cards";
 import Link from "next/link";
+import { Post } from "./shared/_components/post/interfaces/posts";
 export default async function Home() {
-  // 두 API를 병렬로 호출
-  const [posts, algorithms] = await Promise.all([
-    fetchBlogData(),
-    fetchAlgorithmsData(),
-  ]);
+  const posts = await fetchBlogData();
+  const algorithms = await fetchAlgorithmsData();
 
   return (
     <main className="mx-auto h-auto w-full transform animate-fade-up duration-500 md:max-w-container-md lg:max-w-container-lg">
@@ -81,23 +79,33 @@ export default async function Home() {
 }
 
 const fetchBlogData = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASED_URL}/api/blog`,
-    {
-      cache: "force-cache",
-    },
-  );
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASED_URL}/api/blog`,
+      {
+        cache: "force-cache",
+      },
+    );
+    const data: Post[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    return [];
+  }
 };
 
 const fetchAlgorithmsData = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BASED_URL}/api/algorithms`,
-    {
-      cache: "force-cache",
-    },
-  );
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASED_URL}/api/algorithms`,
+      {
+        cache: "force-cache",
+      },
+    );
+    const data: Post[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching algorithms data:", error);
+    return [];
+  }
 };
