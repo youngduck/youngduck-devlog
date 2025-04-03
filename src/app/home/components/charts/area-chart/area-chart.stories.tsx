@@ -1,5 +1,4 @@
 import GridBoxWrapper from "../../grid-box-wrapper/grid-box-wrapper";
-import ChartsFunnel from "../charts-funnel/ChartsFunnel";
 import AreaChart from "./area-chart";
 import { Meta, StoryObj } from "@storybook/react";
 
