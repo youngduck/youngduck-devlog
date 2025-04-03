@@ -1,5 +1,5 @@
 # Workflow name
-name: "Chromatic and GitHub Pages Deployment"
+name: "Chromatic Deployment"
 
 # Event for the workflow
 on:
@@ -14,11 +14,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions: # 권한 설정
-      contents: write
-    concurrency: # 동시 실행 제한
-      group: ${{ github.workflow }}
-      cancel-in-progress: true # 명시한 group 안에서 이전에 실행한 작업 존재시 취소
     steps:
       - uses: actions/checkout@v4
         with:
@@ -33,17 +28,26 @@ jobs:
         run: npm install
 
       - name: Deploy to Chromatic
+        id: chromatic
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Storybook
-        run: npm run build-storybook
+      # Chromatic URL을 GitHub 환경 변수로 저장
+      - name: Get Chromatic URL
+        run: echo "CHROMATIC_URL=${{ steps.chromatic.outputs.storybookUrl }}" >> $GITHUB_ENV
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./storybook-static # Storybook 빌드 결과물 경로
-          publish_branch: gh-pages # GitHub Pages용 브랜치
+      # README.md 파일 업데이트 (선택사항)
+      - name: Update README with new Chromatic URL
+        run: |
+          sed -i "s|https://youngduck.github.io/youngduck-devlog/|${{ env.CHROMATIC_URL }}|g" README.md
+
+      # 변경사항 커밋 (선택사항)
+      - name: Commit README changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "docs: update Storybook URL in README" || echo "No changes to commit"
+          git push

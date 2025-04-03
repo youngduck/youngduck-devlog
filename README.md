@@ -2,7 +2,7 @@
 
 안녕하세요! 프론트엔드 개발자 김영덕의 기술 블로그입니다.
 
-<a href="https://youngduck.github.io/youngduck-devlog/" target="_blank">
+<a href="[CHROMATIC_URL]" target="_blank">
   <img src="https://github.com/user-attachments/assets/539b2f90-1c72-43ac-83fc-ad0d4a6fc0f5" alt="image" style="width:50px;"/>
   <div>스토리북</div>
 </a>

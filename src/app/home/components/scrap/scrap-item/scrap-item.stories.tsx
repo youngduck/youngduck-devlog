@@ -98,7 +98,7 @@ export const NoScrapData: Story = {
     },
     msw: {
       handlers: [
-        http.get("http://localhost:3000/api/scrap", () => {
+        http.get("*/api/scrap*", () => {
           return HttpResponse.json([]);
         }),
       ],
@@ -114,7 +114,7 @@ export const Error: Story = {
     },
     msw: {
       handlers: [
-        http.get("http://localhost:3000/api/scrap", () => {
+        http.get("*/api/scrap*", () => {
           return new HttpResponse(null, { status: 500 });
         }),
       ],
