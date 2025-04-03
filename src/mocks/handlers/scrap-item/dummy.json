@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "name": "모킹된 스크랩 항목 1",
+    "link": "https://example.com/scrap1",
+    "tags": ["React", "Next.js"]
+  },
+  {
+    "id": "2",
+    "name": "모킹된 스크랩 항목 2",
+    "link": "https://example.com/scrap2",
+    "tags": ["TypeScript", "MSW"]
+  },
+  {
+    "id": "3",
+    "name": "모킹된 스크랩 항목 3",
+    "link": "https://example.com/scrap3",
+    "tags": ["Storybook", "Testing"]
+  },
+  {
+    "id": "4",
+    "name": "모킹된 스크랩 항목 4",
+    "link": "https://example.com/scrap4",
+    "tags": ["Storybook", "Testing"]
+  },
+  {
+    "id": "5",
+    "name": "모킹된 스크랩 항목 굉장히 긴 스크랩 제목 길이 가나다라",
+    "link": "https://example.com/scrap5",
+    "tags": ["Storybook", "Testing"]
+  },
+  {
+    "id": "6",
+    "name": "모킹된 스크랩 항목 굉장히 긴 스크랩 제목 길이 가나다라",
+    "link": "https://example.com/scrap5",
+    "tags": ["Storybook", "Testing", "React", "Next.js", "TypeScript", "MSW"]
+  }
+]

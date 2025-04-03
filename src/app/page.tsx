@@ -3,13 +3,14 @@ import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
 import ChartsFunnel from "./home/components/charts/charts-funnel/ChartsFunnel";
 
 import Profile from "./home/components/profile/profile";
-import { getAllPosts } from "@/app/api/blog/api";
 import PostCards from "./shared/_components/post/post-cards/post-cards";
 import Link from "next/link";
-import { getAllAlgorithms } from "./api/algorithms/api";
 export default async function Home() {
-  const posts = getAllPosts();
-  const algorithms = getAllAlgorithms();
+  // 두 API를 병렬로 호출
+  const [posts, algorithms] = await Promise.all([
+    fetchBlogData(),
+    fetchAlgorithmsData(),
+  ]);
 
   return (
     <main className="mx-auto h-auto w-full transform animate-fade-up duration-500 md:max-w-container-md lg:max-w-container-lg">
@@ -78,3 +79,25 @@ export default async function Home() {
     </main>
   );
 }
+
+const fetchBlogData = async () => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASED_URL}/api/blog`,
+    {
+      cache: "force-cache",
+    },
+  );
+  const data = await response.json();
+  return data;
+};
+
+const fetchAlgorithmsData = async () => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BASED_URL}/api/algorithms`,
+    {
+      cache: "force-cache",
+    },
+  );
+  const data = await response.json();
+  return data;
+};

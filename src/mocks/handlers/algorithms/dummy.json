@@ -1,0 +1,26 @@
+[
+  {
+    "title": "[투포인터,Map] - Longest Substring Without Repeating Characters",
+    "excerpt": "",
+    "coverImage": "/assets/algorithms/JS-리트코드/cover.png",
+    "date": "2025-03-18T01:41:00",
+    "ogImage": {
+      "url": "/assets/algorithms/JS-리트코드/cover.png"
+    },
+    "slug": "leet-3",
+    "category": "JS-리트코드",
+    "content": "\r\n## 문제\r\n\r\n&nbsp;\r\n문자열 s가 주어졌을 때, 중복되는 문자가 없는 가장 긴 부분 문자열의 길이를 반환하세요.\r\n&nbsp;\r\n예를 들어:\r\ns = \"abcabcbb\"\r\n가장 긴 중복 없는 부분 문자열은 \"abc\"로 길이는 3입니다.\r\n&nbsp;\r\ns = \"bbbbb\"\r\n가장 긴 중복 없는 부분 문자열은 \"b\"로 길이는 1입니다.\r\n&nbsp;\r\ns = \"pwwkew\"\r\n가장 긴 중복 없는 부분 문자열은 \"wke\"로 길이는 3입니다.\r\n\"pwke\"는 부분 문자열이 아닌 부분 수열이므로 정답이 될 수 없습니다.\r\n&nbsp;\r\n\r\n&nbsp;\r\n[원문](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)\r\n\r\n## 풀이\r\n\r\n```javascript\r\n/**\r\n * @param {string} s\r\n * @return {number}\r\n */\r\nvar lengthOfLongestSubstring = function (s) {\r\n  //투포인터 + 해쉬맵 풀이\r\n  let left = 0;\r\n  let right = 0;\r\n  let max = 0;\r\n  let map = new Map();\r\n\r\n  //그리디로 풀기에는 s의길이가 10^4\r\n  //right 포인터가 끝까지 가면 종료\r\n  while (right \u003C s.length) {\r\n    //right 포인터가 가리키는 문자가 해쉬맵에 없으면 추가\r\n    if (!map.has(s[right])) {\r\n      map.set(s[right], 1);\r\n      right += 1;\r\n    } else {\r\n      //right 포인터가 가리키는 문자가 해쉬맵에 있으면 제거\r\n      map.delete(s[left]);\r\n      left += 1;\r\n    }\r\n    //max 값 계속 갱신\r\n    max = Math.max(max, right - left);\r\n  }\r\n  return max;\r\n};\r\n```\r\n"
+  },
+  {
+    "title": "[정렬] - 백준11651 좌표 정렬하기 2",
+    "excerpt": "",
+    "coverImage": "/assets/algorithms/JS-백준/cover.png",
+    "date": "2025-03-10T20:51:00",
+    "ogImage": {
+      "url": "/assets/algorithms/JS-백준/cover.png"
+    },
+    "slug": "boj-11651",
+    "category": "JS-백준",
+    "content": "\r\n## 문제\r\n\r\n| 시간 제한 | 메모리 제한 |\r\n| --------- | ----------- |\r\n| 1 초      | 256 MB      |\r\n\r\n2차원 평면 위의 점 N개가 주어진다. 좌표를 y좌표가 증가하는 순으로, y좌표가 같으면 x좌표가 증가하는 순서로 정렬한 다음 출력하는 프로그램을 작성하시오.\r\n\r\n## 입력\r\n\r\n첫째 줄에 X가 주어진다. X는 64보다 작거나 같은 자연수이다.\r\n\r\n## 출력\r\n\r\n첫째 줄부터 N개의 줄에 점을 정렬한 결과를 출력한다.\r\n\r\n- 문제출처 : https://www.acmicpc.net/problem/11651\r\n\r\n## 내 풀이\r\n\r\n```javascript\r\nconst fs = require(\"fs\");\r\nconst filePath =\r\n  process.platform === \"linux\" ? \"/dev/stdin\" : \"./Z_Test/input.txt\";\r\nlet input = fs.readFileSync(filePath).toString().trim().split(\"\\n\");\r\n\r\n//입력값 N, 이차원배열 arr 생성\r\nconst N = +input[0];\r\n\r\n// 2차원 좌표를 Y오름차순, X오름차순으로\r\nconst arr = input.slice(1).map((item) =\u003E item.split(\" \").map((item) =\u003E +item));\r\n// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort\r\narr.sort((a, b) =\u003E {\r\n  // Y좌표가 같을때 X좌표를 오름차순으로 처리, Y좌표가 다를때는 기존의 return a-b 활용하여 동일하게 오름차순처리\r\n  if (a[1] !== b[1]) {\r\n    return a[1] - b[1];\r\n  } else {\r\n    return a[0] - b[0];\r\n  }\r\n});\r\n\r\narr.map((item) =\u003E console.log(`${item[0]} ${item[1]}`));\r\n```\r\n"
+  }
+]
