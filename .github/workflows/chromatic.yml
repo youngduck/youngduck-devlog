@@ -33,21 +33,3 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Chromatic URL을 GitHub 환경 변수로 저장
-      - name: Get Chromatic URL
-        run: echo "CHROMATIC_URL=${{ steps.chromatic.outputs.storybookUrl }}" >> $GITHUB_ENV
-
-      # README.md 파일 업데이트 (선택사항)
-      - name: Update README with new Chromatic URL
-        run: |
-          sed -i "s|https://youngduck.github.io/youngduck-devlog/|${{ env.CHROMATIC_URL }}|g" README.md
-
-      # 변경사항 커밋 (선택사항)
-      - name: Commit README changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add README.md
-          git commit -m "docs: update Storybook URL in README" || echo "No changes to commit"
-          git push
