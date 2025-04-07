@@ -83,7 +83,7 @@ const fetchBlogData = async () => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASED_URL}/api/blog`,
       {
-        cache: "force-cache",
+        cache: "no-store",
       },
     );
     const data: Post[] = await response.json();
@@ -99,7 +99,7 @@ const fetchAlgorithmsData = async () => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASED_URL}/api/algorithms`,
       {
-        cache: "force-cache",
+        cache: "no-store",
       },
     );
     const data: Post[] = await response.json();
