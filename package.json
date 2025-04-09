@@ -16,6 +16,7 @@
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@radix-ui/react-slot": "^1.0.2",
     "chart.js": "^4.4.7",
     "class-variance-authority": "^0.7.0",
