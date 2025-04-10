@@ -1,7 +1,13 @@
 "use client";
 /**
  * 작성자: KYD
- * 기능:
+ * 기능: SVG ANIMATION GSAP으로 구현
+ * 시나리오: 1. 오리가 순차적으로 그려짐 (0-3초)
+ *          2. 오리 엄지척 후 별 등장
+ *          3. 별 바깥쪽으로 이동
+ *          4. 5초 대기 후 초기화
+ *          5. 반복
+
  * 프로세스 설명: 프로세스 복잡시 노션링크 첨부권장
  */
 import { useRef } from "react";
@@ -9,9 +15,7 @@ import Duck from "@public/assets/svg/duck.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-interface ISvgProfile {}
-
-const SvgProfile: React.FC<ISvgProfile> = () => {
+const SvgProfile = () => {
   //SECTION HOOK호출 영역
   const duckRef = useRef<SVGSVGElement>(null);
 
@@ -19,33 +23,29 @@ const SvgProfile: React.FC<ISvgProfile> = () => {
     () => {
       if (duckRef.current) {
         const duckElement = duckRef.current;
-        console.log("duckElement", duckElement);
 
-        // SVG 요소 선택 - 실제 SVG 구조에 맞게 수정
+        // SVG 요소 선택 - 실제 SVG 구조에 맞게 수정,
+        // TODO: SVG에 class명을 지정해서 값으로 가져오는것이 안되는 이슈 존재.
         const paths = duckElement.querySelectorAll("path");
-        // const head = paths[0]; // 첫 번째 path
-        // const mouseTop = paths[1]; // 두 번째 path
-        // const mouseBottom = paths[2]; // 세 번째 path
-        // const handThumbUp = paths[3]; // 네 번째 path
-        // const handDefault = paths[4]; // 다섯 번째 path
-        // // 콧주름
-        // const noseWrinkle = paths[5];
 
-        const [head, mouseTop, mouseBottom, handDefault, noseWrinkle] = paths;
+        const [
+          head,
+          mouseTop,
+          mouseBottom,
+          handThumbUp,
+          noseWrinkle,
 
-        // 타원과 원 요소 선택
-        const ellipses = duckElement.querySelectorAll("ellipse");
-        const leftEye = ellipses[0]; // 첫 번째 ellipse
-        const rightEye = ellipses[1]; // 두 번째 ellipse
+          star1,
+          star2,
+          star3,
+          closeLeftEye,
+          closeRightEye,
+        ] = paths;
+        const [leftOpenEye, rightOpenEye] =
+          duckElement.querySelectorAll("ellipse");
 
-        const circles = duckElement.querySelectorAll("circle");
-        const leftNostril = circles[0]; // 첫 번째 circle
-        const rightNostril = circles[1]; // 두 번째 circle
-
-        // 별 요소 (나머지 path들)
-        const star1 = paths[6]; // 여섯 번째 path
-        const star2 = paths[7]; // 일곱 번째 path
-        const star3 = paths[8]; // 여덟 번째 path
+        const [leftNostril, rightNostril] =
+          duckElement.querySelectorAll("circle");
 
         // 초기 상태 설정 - 모든 요소 숨김
         gsap.set(
@@ -53,11 +53,14 @@ const SvgProfile: React.FC<ISvgProfile> = () => {
             head,
             mouseTop,
             mouseBottom,
-            handDefault,
-            leftEye,
-            rightEye,
+            handThumbUp,
+            leftOpenEye,
+            rightOpenEye,
+            closeLeftEye,
+            closeRightEye,
             leftNostril,
             rightNostril,
+            noseWrinkle,
             star1,
             star2,
             star3,
@@ -68,19 +71,79 @@ const SvgProfile: React.FC<ISvgProfile> = () => {
           },
         );
 
-        // 5초 시나리오 타임라인 생성
+        // 메인 타임라인 생성
         const timeline = gsap.timeline({
           repeat: -1,
           repeatDelay: 1,
+          // onRepeat: () => {
+          //   // 메인 타임라인이 반복될 때 눈 깜빡임도 재시작
+          //   // blinkTimeline.restart();
+          // },
         });
 
-        // 1. 오리가 순차적으로 그려짐 (0-3초)
-        timeline.to([head, leftEye, rightEye, leftNostril, rightNostril], {
-          opacity: 1,
-          scale: 1,
-          duration: 0.5,
-          ease: "power1.inOut",
+        // 눈 깜빡임 타임라인
+        const blinkTimeline = gsap.timeline({
+          repeat: -1,
+          repeatDelay: 1,
+          paused: true, // 처음에는 정지 상태로 생성
         });
+
+        // 눈 깜빡임 애니메이션
+        blinkTimeline
+          .to([leftOpenEye, rightOpenEye], {
+            opacity: 0,
+            duration: 0.1,
+            ease: "none",
+          })
+          .to(
+            [closeLeftEye, closeRightEye],
+            {
+              opacity: 1,
+              duration: 0.1,
+              ease: "none",
+            },
+            "<",
+          ) // 동시에 실행
+          .to(
+            [closeLeftEye, closeRightEye],
+            {
+              opacity: 0,
+              duration: 0.1,
+              ease: "none",
+            },
+            "+=0.1",
+          )
+          .to(
+            [leftOpenEye, rightOpenEye],
+            {
+              opacity: 1,
+              duration: 0.1,
+              ease: "none",
+            },
+            "<",
+          ); // 동시에 실행
+
+        // 메인 애니메이션에서 오리가 나타나는 부분
+        timeline.to(
+          [
+            head,
+            leftOpenEye,
+            rightOpenEye,
+            leftNostril,
+            rightNostril,
+            noseWrinkle,
+          ],
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: "power1.inOut",
+            onComplete: () => {
+              // 오리가 나타난 후 눈 깜빡임 시작
+              blinkTimeline.play();
+            },
+          },
+        );
 
         timeline.to(
           [mouseTop, mouseBottom],
@@ -90,113 +153,62 @@ const SvgProfile: React.FC<ISvgProfile> = () => {
             duration: 0.5,
             ease: "power1.inOut",
           },
-          "+=0.2",
+          ">",
         );
 
         timeline.to(
-          handDefault,
+          handThumbUp,
           {
             opacity: 1,
             scale: 1,
             duration: 0.5,
             ease: "power1.inOut",
           },
-          "+=0.2",
+          ">",
         );
 
-        // 2. 기본 손이 사라지고 엄지 손으로 변경 (3-4초)
-        timeline.to(
-          handDefault,
-          {
-            opacity: 0,
-            scale: 1,
-            duration: 0.5,
-            ease: "power1.inOut",
-          },
-          "+=0.5",
-        );
+        // 3개의 별들이 바깥으로 퍼지면서 등장
+        timeline
+          .set(
+            [star1, star2, star3],
+            {
+              opacity: 1,
+              scale: 1,
+            },
+            "-=0.3",
+          )
+          .to(
+            [star1, star2, star3],
+            {
+              opacity: 1,
+              scale: 1,
+              x: (i) => [+10, -10, +5][i],
+              y: (i) => [-15, -5, +10][i],
+              rotation: (i) => [0, 0, 0][i],
+              transformOrigin: "center",
+              duration: 0.8,
+              ease: "power1.out",
+            },
+            "<",
+          );
 
-        // 3. 별이 순차적으로 등장 (4-5초)
-        timeline.to(
-          star1,
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.3,
-            ease: "power1.inOut",
-          },
-          "+=0.2",
-        );
+        // 2초간 유지
+        timeline.to({}, { duration: 0.5 }); // 5초 대기
 
-        timeline.to(
-          star2,
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.3,
-            ease: "power1.inOut",
-          },
-          "+=0.1",
-        );
-
-        timeline.to(
-          star3,
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.3,
-            ease: "power1.inOut",
-          },
-          "+=0.1",
-        );
-
-        // 별들이 바깥쪽으로 이동
-        timeline.to(
-          star1,
-          {
-            x: -10,
-            y: -10,
-            duration: 0.5,
-            ease: "power1.inOut",
-          },
-          "+=0.1",
-        );
-
-        timeline.to(
-          star2,
-          {
-            x: -15,
-            y: 0,
-            duration: 0.5,
-            ease: "power1.inOut",
-          },
-          "-=0.3",
-        );
-
-        timeline.to(
-          star3,
-          {
-            x: -5,
-            y: -15,
-            duration: 0.5,
-            ease: "power1.inOut",
-          },
-          "-=0.3",
-        );
-        // 잠시 유지 후 모든 요소 초기화
-        timeline.to({}, { duration: 1 }); // 1초 대기
-
-        // 모든 요소 초기화
+        // 초기화 부분에서 눈 깜빡임도 멈춤
         timeline.to(
           [
             head,
             mouseTop,
             mouseBottom,
-            handDefault,
-            leftEye,
-            rightEye,
+            handThumbUp,
+            leftOpenEye,
+            rightOpenEye,
+            closeLeftEye,
+            closeRightEye,
             leftNostril,
             rightNostril,
+            noseWrinkle,
             star1,
             star2,
             star3,
@@ -204,8 +216,11 @@ const SvgProfile: React.FC<ISvgProfile> = () => {
           {
             opacity: 0,
             duration: 0.5,
-            stagger: 0.1,
             ease: "power1.inOut",
+            onStart: () => {
+              // 초기화가 시작될 때 눈 깜빡임 정지
+              blinkTimeline.pause();
+            },
           },
         );
       }
@@ -222,11 +237,7 @@ const SvgProfile: React.FC<ISvgProfile> = () => {
 
   //!SECTION 메서드 영역
 
-  return (
-    <>
-      <Duck ref={duckRef} />
-    </>
-  );
+  return <Duck ref={duckRef} />;
 };
 
 export default SvgProfile;
