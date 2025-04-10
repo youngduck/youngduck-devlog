@@ -15,7 +15,17 @@ import Duck from "@public/assets/svg/duck.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-const SvgProfile = () => {
+interface SvgProfileProps {
+  width?: number;
+  height?: number;
+  className?: string;
+}
+
+const SvgProfile = ({
+  width = 100,
+  height = 100,
+  className = "",
+}: SvgProfileProps) => {
   //SECTION HOOK호출 영역
   const duckRef = useRef<SVGSVGElement>(null);
 
@@ -237,7 +247,9 @@ const SvgProfile = () => {
 
   //!SECTION 메서드 영역
 
-  return <Duck ref={duckRef} />;
+  return (
+    <Duck ref={duckRef} width={width} height={height} className={className} />
+  );
 };
 
 export default SvgProfile;
