@@ -30,7 +30,7 @@ export default async function Home() {
           <ChartsFunnel />
         </GridBoxWrapper>
         <GridBoxWrapper
-          title="최근 스크랩한 게시글"
+          // title="최근 스크랩한 게시글"
           className="border-2 sm:h-[350px] md:col-[1/3] md:row-[3/4] md:h-auto lg:col-[3/4] lg:row-[2/3] lg:h-auto"
         >
           <ScrapItem />
