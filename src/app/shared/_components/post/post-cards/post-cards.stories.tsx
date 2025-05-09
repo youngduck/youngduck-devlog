@@ -15,7 +15,7 @@ type Story = StoryObj<typeof PostCards>;
 // 공통 mock 데이터 정의
 const commonPosts = [
   {
-    title: "Post Title1",
+    title: "굉장히 길게작성한 title제목의 경우 잘리는 현상이 발생하는지 테스트",
     slug: "post-slug",
     coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png",
     date: "2024-01-01",
@@ -27,15 +27,17 @@ const commonPosts = [
     slug: "post-slug",
     coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png",
     date: "2024-01-01",
-    excerpt: "Post Excerpt",
+    excerpt:
+      "굉장히 길게 작성된 excerpt의 길이 잘리는 현상이 발생하는지 테스트",
     category: "Category",
   },
   {
-    title: "Post Title3",
+    title: "굉장히 길게작성한 title제목의 경우 잘리는 현상이 발생하는지 테스트",
     slug: "post-slug",
     coverImage: "/assets/blog/posts/react/react-router-rerender/cover.png",
     date: "2024-01-01",
-    excerpt: "Post Excerpt",
+    excerpt:
+      "굉장히 길게 작성된 excerpt의 길이 잘리는 현상이 발생하는지 테스트",
     category: "Category",
   },
   {
