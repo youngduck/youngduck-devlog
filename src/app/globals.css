@@ -10,6 +10,8 @@
   font-style: normal;
 }
 
+@import url("https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css");
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -36,8 +38,12 @@
     --ring: 240 4.9% 83.9%;
   }
 
+  .WANTED-SANS {
+    font-family: "Wanted Sans Variable", sans-serif;
+  }
+
   * {
-    @apply m-0 box-border border-border p-0 font-KCC;
+    @apply m-0 box-border border-border p-0 font-WANTED-SANS;
   }
 
   body {

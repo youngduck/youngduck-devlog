@@ -106,6 +106,7 @@ const config = {
       },
       fontFamily: {
         KCC: ["KCC"],
+        "WANTED-SANS": ["Wanted Sans Variable"],
       },
     },
   },
