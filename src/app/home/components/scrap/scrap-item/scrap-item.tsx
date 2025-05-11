@@ -12,14 +12,16 @@ import Link from "next/link";
 
 // 헤더 컴포넌트 분리
 const ScrapHeader = () => (
-  <div className={`flex h-[45px] w-full items-center justify-between`}>
-    <div className="text-xl font-bold">최근 스크랩한 게시글</div>
+  <div className={`h-auto w-full pb-2`}>
+    <div className="text-xl font-bold italic pcHover:hover:scale-105">
+      Scrap Contents
+    </div>
   </div>
 );
 
 // 스크랩 목록 컴포넌트 분리
 const ScrapList = ({ scrapList }: { scrapList: IScrapItem[] }) => (
-  <div className="h-[calc(100%-45px)] w-full overflow-y-auto">
+  <div className="h-[calc(100%-40px)] w-full overflow-y-auto">
     {scrapList.map((item: IScrapItem, index: number) => (
       <Link
         href={item.link}
