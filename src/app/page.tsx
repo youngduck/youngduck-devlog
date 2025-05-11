@@ -42,12 +42,12 @@ export default async function Home() {
             <ul className="flex flex-wrap justify-between">
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/blog">
-                  <span className="text-xl">최근 작성한 Blog 콘텐츠</span>
+                  <span className="text-xl">Blog Contents</span>
                 </Link>
               </li>
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/blog">
-                  <span className="text-xl">더보기</span>
+                  <span className="text-xl">more</span>
                 </Link>
               </li>
             </ul>
@@ -61,12 +61,12 @@ export default async function Home() {
             <ul className="flex flex-wrap justify-between">
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/algorithms">
-                  <span className="text-xl">최근 작성한 알고리즘 풀이</span>
+                  <span className="text-xl">Algorithm Contents</span>
                 </Link>
               </li>
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/algorithms">
-                  <span className="text-xl">더보기</span>
+                  <span className="text-xl">more</span>
                 </Link>
               </li>
             </ul>
