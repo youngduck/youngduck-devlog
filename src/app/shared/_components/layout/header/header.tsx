@@ -7,6 +7,7 @@ import RssFeedButton from "@/app/shared/_components/layout/button/rss-feed-butto
 import ListButton from "../button/list-button/list-button";
 import { useState } from "react";
 import HeaderMobileMenu from "./header-mobile-menu/header-mobile-menu";
+import SvgProfile from "@/app/home/components/svg-profile/svg-profile";
 
 const Header = () => {
   const [mobileMenuToggle, setMobileMenuToggle] = useState<boolean>(false);
@@ -18,15 +19,18 @@ const Header = () => {
           <div className="flex items-center">
             <Link href="/">
               <div className="flex h-[60px] items-center justify-center sm:w-[200px] md:w-[250px] md:bg-secondary">
-                <div className="relative h-[40px] w-[200px]">
-                  <Image
-                    src="/assets/logo/logo.png"
-                    alt="/assets/logo/logo.png"
-                    fill
-                    priority={true}
-                    sizes="(max-width:192px)"
-                    className="object-cover"
-                  />
+                <div className="flex h-[40px] w-[200px] items-center justify-between">
+                  <SvgProfile width={40} height={40} />
+                  <div className="relative h-[40px] w-[144px]">
+                    <Image
+                      src="/assets/logo/logo.png"
+                      alt="/assets/logo/logo.png"
+                      fill
+                      priority={true}
+                      sizes="(max-width: 144px)"
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
               </div>
             </Link>
