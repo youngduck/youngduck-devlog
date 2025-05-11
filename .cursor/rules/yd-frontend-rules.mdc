@@ -7,27 +7,26 @@ alwaysApply: true
 description: Always
 globs: *.ts,*.tsx
 ---
-'typing "rule is detected" before your answer' 
+'typing "yd-frontend-rules 적용된 답변" before your answer' 
 
-# Frontend Design Guideline
+# 프론트엔드 설계 가이드라인
 
-This document summarizes key frontend design principles and rules, showcasing
-recommended patterns. Follow these guidelines when writing frontend code.
+이 문서는 핵심 프론트엔드 설계 원칙과 규칙을 요약하고, 권장 패턴을 보여줍니다. 프론트엔드 코드 작성 시 이 가이드라인을 따르세요.
 
-# Readability
+# 가독성
 
-Improving the clarity and ease of understanding code.
+코드의 명확성과 이해하기 쉬운 정도를 향상시킵니다.
 
-## Naming Magic Numbers
+## 매직 넘버에 이름 붙이기
 
-**Rule:** Replace magic numbers with named constants for clarity.
+**Rule:** 명확성을 위해 매직 넘버를 명명된 상수로 대체하세요.
 
 **Reasoning:**
 
-- Improves clarity by giving semantic meaning to unexplained values.
-- Enhances maintainability.
+- 설명되지 않은 값에 의미를 부여하여 명확성을 향상시킵니다.
+- 유지보수성을 향상시킵니다.
 
-#### Recommended Pattern:
+#### 권장 패턴:
 
 ```typescript
 const ANIMATION_DELAY_MS = 300;
@@ -39,18 +38,18 @@ async function onLikeClick() {
 }
 ```
 
-## Abstracting Implementation Details
+## 구현 세부사항 추상화
 
-**Rule:** Abstract complex logic/interactions into dedicated components/HOCs.
+**Rule:** 복잡한 로직/상호작용을 전용 컴포넌트/HOC로 추상화하세요.
 
 **Reasoning:**
 
-- Reduces cognitive load by separating concerns.
-- Improves readability, testability, and maintainability of components.
+- 관심사를 분리하여 인지 부하를 줄입니다.
+- 컴포넌트의 가독성, 테스트 가능성 및 유지보수성을 향상시킵니다.
 
-#### Recommended Pattern 1: Auth Guard
+#### 권장 패턴 1: 인증 가드
 
-(Login check abstracted to a wrapper/guard component)
+(로그인 확인이 래퍼/가드 컴포넌트로 추상화됨)
 
 ```tsx
 // App structure
@@ -84,9 +83,9 @@ function LoginStartPage() {
 }
 ```
 
-#### Recommended Pattern 2: Dedicated Interaction Component
+#### 권장 패턴 2: 전용 상호작용 컴포넌트
 
-(Dialog logic abstracted into a dedicated `InviteButton` component)
+(대화 상자 로직이 전용 InviteButton 컴포넌트로 추상화됨)
 
 ```tsx
 export function FriendInvitation() {
@@ -120,19 +119,18 @@ function InviteButton({ name }) {
 }
 ```
 
-## Separating Code Paths for Conditional Rendering
+## 조건부 렌더링을 위한 코드 경로 분리
 
-**Rule:** Separate significantly different conditional UI/logic into distinct
-components.
+**Rule:** 크게 다른 조건부 UI/로직을 별도의 컴포넌트로 분리하세요.
 
 **Reasoning:**
 
-- Improves readability by avoiding complex conditionals within one component.
-- Ensures each specialized component has a clear, single responsibility.
+- 하나의 컴포넌트 내에서 복잡한 조건문을 피하여 가독성을 향상시킵니다.
+- 각 전문 컴포넌트가 명확하고 단일한 책임을 갖도록 합니다.
 
-#### Recommended Pattern:
+#### 권장 패턴:
 
-(Separate components for each role)
+(각 역할에 대한 별도 컴포넌트)
 
 ```tsx
 function SubmitButton() {
@@ -157,19 +155,18 @@ function AdminSubmitButton() {
 }
 ```
 
-## Simplifying Complex Ternary Operators
+## 복잡한 삼항 연산자 단순화
 
-**Rule:** Replace complex/nested ternaries with `if`/`else` or IIFEs for
-readability.
+**Rule:** 가독성을 위해 복잡하거나 중첩된 삼항 연산자를 if/else 또는 IIFE로 대체하세요.
 
 **Reasoning:**
 
-- Makes conditional logic easier to follow quickly.
-- Improves overall code maintainability.
+- 조건부 로직을 빠르게 따라가기 쉽게 만듭니다.
+- 전반적인 코드 유지보수성을 향상시킵니다.
 
-#### Recommended Pattern:
+#### 권장 패턴:
 
-(Using an IIFE with `if` statements)
+(if 문을 사용한 IIFE)
 
 ```typescript
 const status = (() => {
@@ -180,17 +177,16 @@ const status = (() => {
 })();
 ```
 
-## Reducing Eye Movement (Colocating Simple Logic)
+## 시선 이동 줄이기 (간단한 로직 함께 배치)
 
-**Rule:** Colocate simple, localized logic or use inline definitions to reduce
-context switching.
+**Rule:** 컨텍스트 전환을 줄이기 위해 간단하고 지역화된 로직을 함께 배치하거나 인라인 정의를 사용하세요.
 
 **Reasoning:**
 
-- Allows top-to-bottom reading and faster comprehension.
-- Reduces cognitive load from context switching (eye movement).
+- 위에서 아래로 읽기와 빠른 이해를 가능하게 합니다.
+- 컨텍스트 전환(시선 이동)에서 오는 인지 부하를 줄입니다.
 
-#### Recommended Pattern A: Inline `switch`
+#### 권장 패턴 A: 인라인 switch
 
 ```tsx
 function Page() {
@@ -218,7 +214,7 @@ function Page() {
 }
 ```
 
-#### Recommended Pattern B: Colocated simple policy object
+#### 권장 패턴 B: 함께 배치된 간단한 정책 객체
 
 ```tsx
 function Page() {
@@ -241,18 +237,18 @@ function Page() {
 }
 ```
 
-## Naming Complex Conditions
+## 복잡한 조건에 이름 붙이기
 
-**Rule:** Assign complex boolean conditions to named variables.
+**Rule:** 복잡한 부울 조건을 명명된 변수에 할당하세요.
 
 **Reasoning:**
 
-- Makes the _meaning_ of the condition explicit.
-- Improves readability and self-documentation by reducing cognitive load.
+- 조건의 의미를 명확하게 만듭니다.
+- 인지 부하를 줄여 가독성과 자체 문서화를 향상시킵니다.
 
-#### Recommended Pattern:
+#### 권장 패턴:
 
-(Conditions assigned to named variables)
+(명명된 변수에 할당된 조건)
 
 ```typescript
 const matchedProducts = products.filter((product) => {
@@ -271,23 +267,22 @@ const matchedProducts = products.filter((product) => {
 });
 ```
 
-**Guidance:** Name conditions when the logic is complex, reused, or needs unit
-testing. Avoid naming very simple, single-use conditions.
+**Guidance:** 로직이 복잡하거나, 재사용되거나, 단위 테스트가 필요한 경우 조건에 이름을 붙이세요. 매우 간단하고 일회용 조건에는 이름을 붙이지 마세요.
 
-# Predictability
+# 예측 가능성
 
-Ensuring code behaves as expected based on its name, parameters, and context.
+코드가 이름, 매개변수 및 컨텍스트를 기반으로 예상대로 동작하도록 보장합니다.
 
-## Standardizing Return Types
+## 반환 타입 표준화
 
-**Rule:** Use consistent return types for similar functions/hooks.
+**Rule:** 유사한 함수/훅에 대해 일관된 반환 타입을 사용하세요.
 
 **Reasoning:**
 
-- Improves code predictability; developers can anticipate return value shapes.
-- Reduces confusion and potential errors from inconsistent types.
+- 코드 예측 가능성을 향상시킵니다; 개발자가 반환 값 형태를 예상할 수 있습니다.
+- 일관되지 않은 타입으로 인한 혼란과 잠재적 오류를 줄입니다.
 
-#### Recommended Pattern 1: API Hooks (React Query)
+#### 권장 패턴 1: API 훅 (React Query)
 
 ```typescript
 // Always return the Query object
@@ -309,9 +304,9 @@ function useServerTime(): UseQueryResult<Date, Error> {
 }
 ```
 
-#### Recommended Pattern 2: Validation Functions
+#### 권장 패턴 2: 유효성 검사 함수
 
-(Using a consistent type, ideally a Discriminated Union)
+(일관된 타입 사용, 이상적으로는 Discriminated Union)
 
 ```typescript
 type ValidationResult = { ok: true } | { ok: false; reason: string };
@@ -338,7 +333,7 @@ if (!nameValidation.ok) {
 }
 ```
 
-## Revealing Hidden Logic (Single Responsibility)
+## 숨겨진 로직 드러내기 (단일 책임)
 
 **Rule:** Avoid hidden side effects; functions should only perform actions
 implied by their signature (SRP).
@@ -346,7 +341,7 @@ implied by their signature (SRP).
 **Reasoning:**
 
 - Leads to predictable behavior without unintended side effects.
-- Creates more robust, testable code through separation of concerns (SRP).
+- 관심사 분리(SRP)를 통해 더 강력하고 테스트 가능한 코드를 만듭니다.
 
 #### Recommended Pattern:
 
@@ -365,18 +360,16 @@ async function handleUpdateClick() {
 }
 ```
 
-## Using Unique and Descriptive Names (Avoiding Ambiguity)
+## 고유하고 설명적인 이름 사용 (모호성 피하기)
 
-**Rule:** Use unique, descriptive names for custom wrappers/functions to avoid
-ambiguity.
+**Rule:** 모호성을 피하기 위해 사용자 정의 래퍼/함수에 고유하고 설명적인 이름을 사용하세요.
 
 **Reasoning:**
 
-- Avoids ambiguity and enhances predictability.
-- Allows developers to understand specific actions (e.g., adding auth) directly
-  from the name.
+- 모호성을 피하고 예측 가능성을 향상시킵니다.
+- 개발자가 이름에서 직접 특정 작업(예: 인증 추가)을 이해할 수 있게 합니다.
 
-#### Recommended Pattern:
+#### 권장 패턴:
 
 ```typescript
 // In httpService.ts - Clearer module name
@@ -401,21 +394,20 @@ export async function fetchUser() {
 }
 ```
 
-# Cohesion
+# 응집성
 
-Keeping related code together and ensuring modules have a well-defined, single
-purpose.
+관련 코드를 함께 유지하고 모듈이 잘 정의된 단일 목적을 갖도록 보장합니다.
 
-## Considering Form Cohesion
+## 폼 응집성 고려
 
-**Rule:** Choose field-level or form-level cohesion based on form requirements.
+**Rule:** 폼 요구사항에 기반하여 필드 수준 또는 폼 수준 응집성을 선택하세요.
 
 **Reasoning:**
 
-- Balances field independence (field-level) vs. form unity (form-level).
-- Ensures related form logic is appropriately grouped based on requirements.
+- 필드 독립성(필드 수준)과 폼 통일성(폼 수준) 사이의 균형을 맞춥니다.
+- 요구사항에 기반하여 관련 폼 로직이 적절하게 그룹화되도록 합니다.
 
-#### Recommended Pattern (Field-Level Example):
+#### 권장 패턴 (필드 수준 예시):
 
 ```tsx
 // Each field uses its own `validate` function
@@ -464,7 +456,7 @@ export function Form() {
 }
 ```
 
-#### Recommended Pattern (Form-Level Example):
+#### 권장 패턴 (폼 수준 예시):
 
 ```tsx
 // A single schema defines validation for the whole form
@@ -511,16 +503,16 @@ export function Form() {
 or reusable fields. Choose **form-level** for related fields, wizard forms, or
 interdependent validation.
 
-## Organizing Code by Feature/Domain
+## 기능/도메인별 코드 구성
 
-**Rule:** Organize directories by feature/domain, not just by code type.
+**Rule:** 코드 유형뿐만 아니라 기능/도메인별로 디렉토리를 구성하세요.
 
 **Reasoning:**
 
-- Increases cohesion by keeping related files together.
-- Simplifies feature understanding, development, maintenance, and deletion.
+- 관련 파일을 함께 유지하여 응집성을 높입니다.
+- 기능 이해, 개발, 유지보수 및 삭제를 단순화합니다.
 
-#### Recommended Pattern:
+#### 권장 패턴:
 
 (Organized by feature/domain)
 
@@ -698,3 +690,73 @@ function ItemEditModal({ open, items, recommendedItems, onConfirm, onClose }) {
 // The intermediate ItemEditBody component is eliminated, reducing coupling.
 
 ```
+
+// ... existing code ...
+// The intermediate ItemEditBody component is eliminated, reducing coupling.
+
+```
+
+## React.FC 사용 자제하기
+
+**Rule:** React.FC 타입 대신 명시적인 props 타입 정의를 사용합니다.
+
+**Reasoning:**
+
+- React.FC는 children을 암시적으로 포함하여 의도하지 않은 props 허용 문제가 있습니다.
+- TypeScript의 제네릭 문법 지원에 제한이 있습니다.
+- React 18 이후부터는 사용을 권장하지 않습니다.
+
+#### 안티패턴 (사용하지 말 것):
+
+```tsx
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+}
+
+// 안티패턴: React.FC 사용
+const Button: React.FC<ButtonProps> = ({ text, onClick, children }) => {
+  return (
+    <button onClick={onClick}>
+      {text}
+      {children} {/* children이 필요하지 않더라도 암시적으로 사용 가능 */}
+    </button>
+  );
+};
+```
+
+#### 권장 패턴:
+
+```tsx
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+  children?: React.ReactNode; // 필요한 경우에만 명시적으로 선언
+}
+
+// 권장: 함수형 컴포넌트에 props 타입을 직접 명시
+const Button = ({ text, onClick, children }: ButtonProps) => {
+  return (
+    <button onClick={onClick}>
+      {text}
+      {children}
+    </button>
+  );
+};
+
+// 제네릭 컴포넌트의 경우 더 명확하게 타입 정의 가능
+function List<T>({ items, renderItem }: { 
+  items: T[]; 
+  renderItem: (item: T) => React.ReactNode;
+}) {
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>{renderItem(item)}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+**참고:** React 18 이후부터는 컴포넌트 타입을 정의할 때 React.FC 대신 명시적인 props 타입 정의를 선호합니다. 이는 타입의 명확성과 의도를 더 잘 드러내며, 불필요한 children props를 방지할 수 있습니다.
