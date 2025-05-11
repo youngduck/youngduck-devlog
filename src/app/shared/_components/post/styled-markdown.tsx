@@ -188,14 +188,21 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
   alt,
 }) => {
   return (
-    <Image
-      src={src || ""}
-      alt={alt || ""}
-      priority={true}
-      width={860}
-      height={0}
-      className="my-4 h-auto max-h-[1000px] w-full object-cover"
-    />
+    <figure className="my-4 w-full">
+      <Image
+        src={src || ""}
+        alt={alt || ""}
+        priority={true}
+        width={860}
+        height={0}
+        className="h-auto max-h-[1000px] w-full object-cover"
+      />
+      {alt && (
+        <figcaption className="mt-2 text-center text-sm text-gray-500">
+          {alt}
+        </figcaption>
+      )}
+    </figure>
   );
 };
 export const Table: React.FC<{ children: React.ReactNode }> = ({
