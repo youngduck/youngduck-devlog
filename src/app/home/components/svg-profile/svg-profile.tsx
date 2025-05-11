@@ -44,7 +44,6 @@ const SvgProfile = ({
           mouseBottom,
           handThumbUp,
           noseWrinkle,
-
           star1,
           star2,
           star3,
@@ -202,8 +201,8 @@ const SvgProfile = ({
             "<",
           );
 
-        // 2초간 유지
-        timeline.to({}, { duration: 0.5 }); // 5초 대기
+        // 4.5초간 유지
+        timeline.to({}, { duration: 4.5 }); // 4.5초 대기
 
         // 초기화 부분에서 눈 깜빡임도 멈춤
         timeline.to(
