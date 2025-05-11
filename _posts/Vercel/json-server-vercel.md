@@ -13,7 +13,7 @@ ogImage:
 
 ## 적용방법
 
-![Untitled](/assets/blog/posts/json-server-vercel/1.png)
+![](/assets/blog/posts/json-server-vercel/1.png)
 
 - https://github.com/kitloong/json-server-vercel
 - 해당 github 템플릿 소스 클론, use this template 클릭
@@ -21,7 +21,7 @@ ogImage:
 - Vercel 로그인
 - Add new New Project
 
-![Untitled](/assets/blog/posts/json-server-vercel/2.png)
+![](/assets/blog/posts/json-server-vercel/2.png)
 
 - json-server-vercel 레포지토리 등록
 - [example](https://json-server-in.vercel.app/)
@@ -29,5 +29,5 @@ ogImage:
 ### **주의사항**
 
 - json-server-vercel 사용시 return값이 달라지기 때문에 주의할 필요가 있다.
-  ![Untitled](/assets/blog/posts/json-server-vercel/3.png)
-  ![Untitled](/assets/blog/posts/json-server-vercel/4.png)
+  ![](/assets/blog/posts/json-server-vercel/3.png)
+  ![](/assets/blog/posts/json-server-vercel/4.png)

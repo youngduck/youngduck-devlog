@@ -31,10 +31,10 @@ yarn add --dev @svgr/webpack
 
 next.config.js 에 다음과 같은 코드를 추가해줍니다.
 
-![Untitled](/assets/blog/posts/nextjs-svgr/1.png)
+![](/assets/blog/posts/nextjs-svgr/1.png)
 
 ## 3. 사용하기
 
-![Untitled](/assets/blog/posts/nextjs-svgr/2.png)
+![](/assets/blog/posts/nextjs-svgr/2.png)
 
 SVGR을 사용하면 속성값만 주어서 svg 크기, 색깔등을 쉽게 변경할 수 있습니다.

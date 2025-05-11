@@ -19,7 +19,7 @@ yaml 키값 입력을 위해서는 AWS S3, Iam등을 미리 만들어 키를 발
 
 ## 1. github action 파일 생성
 
-![Untitled](/assets/blog/posts/aws-s3-githubaction/1.png)
+![](/assets/blog/posts/aws-s3-githubaction/1.png)
 
 - 루트폴더에 .github> workflows> front-build.yaml 파일 생성
 - 파일명은 자유롭게 설정하셔도 됩니다.
@@ -92,7 +92,7 @@ steps:
 
 - Security탭 - Actions 이동 - New repository secret 클릭
 
-![Untitled](/assets/blog/posts/aws-s3-githubaction/2.png)
+![](/assets/blog/posts/aws-s3-githubaction/2.png)
 
 - 이후 아래의 aws 값들을 넣어줍니다.
 
