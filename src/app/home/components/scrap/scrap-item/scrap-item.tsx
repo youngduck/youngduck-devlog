@@ -12,10 +12,17 @@ import Link from "next/link";
 
 // 헤더 컴포넌트 분리
 const ScrapHeader = () => (
-  <div className={`h-auto w-full pb-2`}>
-    <div className="text-xl font-bold italic pcHover:hover:scale-105">
-      Scrap Contents
-    </div>
+  <div className={`inline-block h-auto w-full pb-2`}>
+    <ul className="flex flex-wrap justify-between">
+      <li className="mx-0 font-bold italic pcHover:hover:scale-105">
+        <Link
+          href="https://dev-youngduck.notion.site/Scrap-List-18163698869f80069053db560e082004?pvs=4"
+          target="_blank"
+        >
+          <span className="text-xl">Scrap Contents</span>
+        </Link>
+      </li>
+    </ul>
   </div>
 );
 
