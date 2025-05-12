@@ -1,17 +1,11 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import Image from "next/image";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   coldarkCold,
-  a11yDark,
-  atomDark,
-  pojoaque,
-  oneDark,
-  oneLight,
-  xonokai,
-  coy,
+  darcula,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Clipboard from "@public/assets/svg/clipboard.svg";
 import CheckIcon from "@public/assets/svg/CheckIcon.svg";
@@ -70,10 +64,7 @@ export const Pre: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <pre
-      className="my-3 max-w-[860px] rounded-lg border-2 border-yellow"
-      {...rest}
-    >
+    <pre className="my-3 max-w-[860px]" {...rest}>
       {children}
     </pre>
   );
@@ -146,19 +137,25 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
     setTimeout(() => setCopied(false), 300);
   };
 
+  const { resolvedTheme } = useTheme();
+
+  const theme = resolvedTheme === "dark" ? darcula : coldarkCold;
+
   return (
     <div className="relative">
       {match ? (
         <>
+          {/* <div className="h-10 rounded-none border-b-2 border-yellow bg-black">
+            {match[1]}
+          </div> */}
           <SyntaxHighlighter
-            className="mb-[150px] transition duration-300 hover:cursor-pointer"
             language={match[1]}
-            customStyle={{
-              margin: "0px",
-              backgroundColor: "blue",
-            }}
-            style={pojoaque}
+            style={theme}
             PreTag="div"
+            customStyle={{
+              borderRadius: "none",
+              margin: 0,
+            }}
           >
             {String(children).replace(/\n$/, "")}
           </SyntaxHighlighter>
@@ -170,7 +167,7 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
       )}
 
       <button
-        className="absolute right-0 top-0 rounded px-2 py-1 text-white transition duration-300 hover:bg-gray-700"
+        className="absolute right-2 top-2 rounded text-white transition duration-300 hover:bg-gray-700"
         onClick={copyToClipboard}
       >
         {copied ? (
