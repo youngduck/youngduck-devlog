@@ -40,20 +40,20 @@ const PostCard: React.FC<IPostCard> = ({
   const domainUrl = getDomainUrl(domain);
 
   return (
-    <div className="group relative box-border h-[410px] w-[285px] transform animate-fade-up rounded-lg border-[3px] bg-background p-4 font-[KCC] duration-500 pcHover:hover:scale-105">
+    <div className="group relative box-border h-[410px] w-[285px] transform animate-fade-up rounded-lg border-[3px] bg-background p-4 font-[KCC] duration-500">
       <a href={`/${domainUrl}/${slug}`} className="flex h-full flex-col">
-        <div className="relative h-[180px] w-[249px] flex-shrink-0 rounded-lg">
+        <div className="relative h-[180px] w-[249px] flex-shrink-0 overflow-hidden rounded-lg">
           <Image
             src={coverImage}
             alt={coverImage}
             fill
             priority={true}
-            sizes="(max-width: 285px)"
-            className="rounded-lg object-cover"
+            sizes="(max-width: 249px)"
+            className="rounded-lg object-cover transition-transform duration-300 ease-in-out pcHover:group-hover:scale-105"
           />
         </div>
 
-        <div className="my-3 flex-shrink-0">
+        <div className="my-2 flex-shrink-0">
           <span className="mr-2 whitespace-normal break-normal text-sm font-bold capitalize text-yellow">
             # {category}
           </span>
@@ -63,18 +63,14 @@ const PostCard: React.FC<IPostCard> = ({
         </div>
 
         {/* title은 정확히 2줄, 넘치면 말줄임표 */}
-        <h2 className="line-clamp-3 w-full text-xl font-bold leading-tight text-gray-200">
+        <p className="line-clamp-3 w-full text-[20px] text-xl font-bold leading-tight">
           {title}
-        </h2>
-
-        {/* excerpt도 정확히 2줄, 넘치면 말줄임표 */}
-        <p className="mt-1 line-clamp-2 max-h-[48px] w-full text-base text-[#939fb2]">
-          {excerpt}
         </p>
 
-        {/* <div className="invisible absolute left-[50%] top-[50%] box-border h-[410px] w-[285px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-black p-4 text-white opacity-0 pcHover:group-hover:visible pcHover:group-hover:opacity-70">
-          <p>{excerpt}</p>
-        </div> */}
+        {/* excerpt도 정확히 2줄, 넘치면 말줄임표 */}
+        <p className="mt-1 line-clamp-2 w-full text-base text-[#939fb2]">
+          {excerpt}
+        </p>
       </a>
     </div>
   );
