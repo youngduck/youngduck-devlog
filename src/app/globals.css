@@ -12,6 +12,22 @@
 
 @import url("https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css");
 
+/* 모든 스크롤바에 적용 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -51,6 +67,7 @@
     /* width */
     ::-webkit-scrollbar {
       width: 5px;
+      height: 5px;
     }
 
     /* Track */

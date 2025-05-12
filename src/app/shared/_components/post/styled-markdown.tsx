@@ -205,21 +205,17 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
     </figure>
   );
 };
-export const Table: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  return (
-    <table className="my-10 w-full border-collapse items-center bg-transparent">
-      {children}
-    </table>
-  );
-};
+export const Table = ({ children }: { children: React.ReactNode }) => (
+  <div className="my-10 max-w-[860px] overflow-x-auto sm:w-full">
+    <table className="w-full border-collapse bg-transparent">{children}</table>
+  </div>
+);
 
 export const TableHeader: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <th className="whitespace-nowrap border-l-0 border-r-0 bg-[#282a36] py-3 text-center align-middle text-xs font-semibold uppercase text-white">
+    <th className="min-w-[150px] whitespace-nowrap border-l-0 border-r-0 bg-[#282a36] py-3 text-center align-middle text-xs font-semibold uppercase text-white">
       {children}
     </th>
   );
@@ -229,11 +225,13 @@ export const TableRow: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <tr className="text-white odd:bg-gray-600 even:bg-[#282a36]">{children}</tr>
+    <tr className="min-w-[150px] text-white odd:bg-gray-600 even:bg-[#282a36]">
+      {children}
+    </tr>
   );
 };
 export const TableData: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  return <td className="p-2 text-center">{children}</td>;
+  return <td className="min-w-[150px] p-2 text-center">{children}</td>;
 };
