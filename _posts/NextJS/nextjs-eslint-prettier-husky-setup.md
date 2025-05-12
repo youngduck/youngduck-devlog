@@ -15,7 +15,7 @@ ogImage:
 npx create-next-app@latest
 ```
 
-![Untitled](/assets/blog/posts/nextjs-eslint-prettier-husky/1.png)
+![](/assets/blog/posts/nextjs-eslint-prettier-husky/1.png)
 
 ## 2. ESLint (airbnb 방식) 설정
 
@@ -154,7 +154,7 @@ npx lint-staged # 추가
 
 ### 실행화면
 
-![Untitled](/assets/blog/posts/nextjs-eslint-prettier-husky/3.png)
+![](/assets/blog/posts/nextjs-eslint-prettier-husky/3.png)
 git commit을 실행하게되면 eslint,prettier가 체크되는 모습
 
 ### Result 공유

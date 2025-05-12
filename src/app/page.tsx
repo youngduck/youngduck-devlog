@@ -30,7 +30,7 @@ export default async function Home() {
           <ChartsFunnel />
         </GridBoxWrapper>
         <GridBoxWrapper
-          title="최근 스크랩한 게시글"
+          // title="최근 스크랩한 게시글"
           className="border-2 sm:h-[350px] md:col-[1/3] md:row-[3/4] md:h-auto lg:col-[3/4] lg:row-[2/3] lg:h-auto"
         >
           <ScrapItem />
@@ -42,17 +42,17 @@ export default async function Home() {
             <ul className="flex flex-wrap justify-between">
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/blog">
-                  <span className="text-xl">최근 작성한 Blog 콘텐츠</span>
+                  <span className="text-xl">Blog Contents</span>
                 </Link>
               </li>
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/blog">
-                  <span className="text-xl">더보기</span>
+                  <span className="text-xl">more</span>
                 </Link>
               </li>
             </ul>
           </div>
-          <PostCards posts={posts.slice(0, 4)} domain="blog" />
+          <PostCards posts={posts.slice(0, 12)} domain="blog" />
         </div>
       </div>
       <div className="mx-auto h-auto w-full md:max-w-container-md lg:max-w-container-lg">
@@ -61,17 +61,17 @@ export default async function Home() {
             <ul className="flex flex-wrap justify-between">
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/algorithms">
-                  <span className="text-xl">최근 작성한 알고리즘 풀이</span>
+                  <span className="text-xl">Algorithm Contents</span>
                 </Link>
               </li>
               <li className="mx-2 font-bold italic pcHover:hover:scale-105">
                 <Link href="/algorithms">
-                  <span className="text-xl">더보기</span>
+                  <span className="text-xl">more</span>
                 </Link>
               </li>
             </ul>
           </div>
-          <PostCards posts={algorithms.slice(0, 4)} domain="algorithms" />
+          <PostCards posts={algorithms.slice(0, 12)} domain="algorithms" />
         </div>
       </div>
     </main>

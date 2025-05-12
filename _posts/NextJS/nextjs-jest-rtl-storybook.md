@@ -70,7 +70,7 @@ export default createJestConfig(config);
 
 ### eslint cr 에러
 
-![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/1.png)
+![](/assets/blog/posts/nextjs-jest-rtl-storybook/1.png)
 
 해당 이슈(Delete ␍ eslint prettier/prettier)는 문장의끝 end line sequence에 대한 양식이 지켜지지 않아서 나타난다고 합니다.
 
@@ -91,7 +91,7 @@ rules: {
 
 저같은 경우는 test폴더를 따로만들지않고 직관적이게 하나의 폴더에 두는 편입니다. (~~TMI~~)
 
-![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/2.png)
+![](/assets/blog/posts/nextjs-jest-rtl-storybook/2.png)
 
 ```tsx
 //dashboard/index.tsx
@@ -124,7 +124,7 @@ describe("Dashboard", () => {
 });
 ```
 
-![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/3.png)
+![](/assets/blog/posts/nextjs-jest-rtl-storybook/3.png)
 
 ## 3. Storybook 설치하기
 
@@ -134,16 +134,16 @@ npx storybook@latest init
 
 스토리북 설치는 해당명령어만 입력하면 알아서 프로젝트의 프레임워크를 파악해서 설치해줍니다. (~~Jest도 분발합시다~~)
 
-![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/4.png)
+![](/assets/blog/posts/nextjs-jest-rtl-storybook/4.png)
 
 - main.ts - 전반적인설정
 - preview.ts - 미리보기화면에 대한 설정
 
-![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/5.png)
+![](/assets/blog/posts/nextjs-jest-rtl-storybook/5.png)
 
 - src폴더의 stories안에서 index.stories.ts 양식으로 사용합니다.
 
-![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/6.png)
+![](/assets/blog/posts/nextjs-jest-rtl-storybook/6.png)
 
 - storybook 은 6006번 포트를 사용합니다.
 - build-storybook을 통해 원격 서버에 배포하기도 합니다.
@@ -154,7 +154,7 @@ npx storybook@latest init
 
 (like "--ignore-pattern '!<relative/path/to/filename>'”) to ovveride
 
-![Untitled](/assets/blog/posts/nextjs-jest-rtl-storybook/7.png)
+![](/assets/blog/posts/nextjs-jest-rtl-storybook/7.png)
 
 ### 해결방법
 

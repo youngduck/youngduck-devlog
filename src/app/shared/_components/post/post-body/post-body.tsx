@@ -12,13 +12,25 @@ type MarkdownPostProps = {
 };
 
 const PostBody: React.FC<MarkdownPostProps> = ({ content }) => {
+  // 단락을 처리하는 컴포넌트: 이미지가 있으면 div, 없으면 p로 렌더링
+  const ParagraphRenderer = ({ children, ...rest }: any) => {
+    const hasImage = rest.node.children[0].tagName === "img";
+
+    if (hasImage) {
+      return <div {...rest}>{children}</div>;
+    }
+
+    // 이미지가 없으면 기본 p 태그로 렌더링
+    return <styled.P {...rest}>{children}</styled.P>;
+  };
+
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm, remarkBreaks]}
       rehypePlugins={[rehypeRaw, rehypeSlug]}
       className="transform animate-fade-up font-[KCC] duration-500"
       components={{
-        p: ({ children, ...rest }) => <styled.P {...rest}>{children}</styled.P>,
+        p: ParagraphRenderer,
         a: ({ children, ...rest }) => <styled.A {...rest}>{children}</styled.A>,
         ol: ({ children, ...rest }) => (
           <styled.Ol {...rest}>{children}</styled.Ol>

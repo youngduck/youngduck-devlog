@@ -1,17 +1,11 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import Image from "next/image";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   coldarkCold,
-  a11yDark,
-  atomDark,
-  pojoaque,
-  oneDark,
-  oneLight,
-  xonokai,
-  coy,
+  darcula,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Clipboard from "@public/assets/svg/clipboard.svg";
 import CheckIcon from "@public/assets/svg/CheckIcon.svg";
@@ -70,10 +64,7 @@ export const Pre: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <pre
-      className="my-3 max-w-[860px] rounded-lg border-2 border-yellow"
-      {...rest}
-    >
+    <pre className="my-3 max-w-[860px]" {...rest}>
       {children}
     </pre>
   );
@@ -146,19 +137,25 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
     setTimeout(() => setCopied(false), 300);
   };
 
+  const { resolvedTheme } = useTheme();
+
+  const theme = resolvedTheme === "dark" ? darcula : coldarkCold;
+
   return (
     <div className="relative">
       {match ? (
         <>
+          {/* <div className="h-10 rounded-none border-b-2 border-yellow bg-black">
+            {match[1]}
+          </div> */}
           <SyntaxHighlighter
-            className="mb-[150px] transition duration-300 hover:cursor-pointer"
             language={match[1]}
-            customStyle={{
-              margin: "0px",
-              backgroundColor: "blue",
-            }}
-            style={pojoaque}
+            style={theme}
             PreTag="div"
+            customStyle={{
+              borderRadius: "none",
+              margin: 0,
+            }}
           >
             {String(children).replace(/\n$/, "")}
           </SyntaxHighlighter>
@@ -170,7 +167,7 @@ export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
       )}
 
       <button
-        className="absolute right-0 top-0 rounded px-2 py-1 text-white transition duration-300 hover:bg-gray-700"
+        className="absolute right-2 top-2 rounded text-white transition duration-300 hover:bg-gray-700"
         onClick={copyToClipboard}
       >
         {copied ? (
@@ -188,31 +185,34 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
   alt,
 }) => {
   return (
-    <Image
-      src={src || ""}
-      alt={alt || ""}
-      priority={true}
-      width={860}
-      height={0}
-      className="my-4 h-auto max-h-[1000px] w-full object-cover"
-    />
+    <figure className="my-4 w-full">
+      <Image
+        src={src || ""}
+        alt={alt || ""}
+        priority={true}
+        width={860}
+        height={0}
+        className="h-auto max-h-[1000px] w-full object-cover"
+      />
+      {alt && (
+        <figcaption className="mt-2 text-center text-sm text-gray-500">
+          {alt}
+        </figcaption>
+      )}
+    </figure>
   );
 };
-export const Table: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  return (
-    <table className="my-10 w-full border-collapse items-center bg-transparent">
-      {children}
-    </table>
-  );
-};
+export const Table = ({ children }: { children: React.ReactNode }) => (
+  <div className="my-10 max-w-[860px] overflow-x-auto sm:w-full">
+    <table className="w-full border-collapse bg-transparent">{children}</table>
+  </div>
+);
 
 export const TableHeader: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <th className="whitespace-nowrap border-l-0 border-r-0 bg-[#282a36] py-3 text-center align-middle text-xs font-semibold uppercase text-white">
+    <th className="min-w-[150px] whitespace-nowrap border-l-0 border-r-0 bg-[#282a36] py-3 text-center align-middle text-xs font-semibold uppercase text-white">
       {children}
     </th>
   );
@@ -222,11 +222,13 @@ export const TableRow: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <tr className="text-white odd:bg-gray-600 even:bg-[#282a36]">{children}</tr>
+    <tr className="min-w-[150px] text-white odd:bg-gray-600 even:bg-[#282a36]">
+      {children}
+    </tr>
   );
 };
 export const TableData: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  return <td className="p-2 text-center">{children}</td>;
+  return <td className="min-w-[150px] p-2 text-center">{children}</td>;
 };

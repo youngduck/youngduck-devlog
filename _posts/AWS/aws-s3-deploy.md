@@ -41,43 +41,43 @@ ogImage:
 
 1. 사용자생성 - 이름입력
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/1.png)
+![](/assets/blog/posts/aws-s3-deploy/1.png)
 
 1. 권한정책 - AmazonS3FullAccess, CloudFrontFullAccess 체크 - 생성된 csv 다운로드
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/2.png)
+![](/assets/blog/posts/aws-s3-deploy/2.png)
 
 ## 2. S3 버킷 만들기
 
 1. 버킷만들기 - 이름입력 - ACL활성화 - 모든퍼블릭 엑세스차단 체크버튼 해제! - 현재설정으로 인해~ 부분만 체크 - 버킷만들기
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/3.png)
+![](/assets/blog/posts/aws-s3-deploy/3.png)
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/4.png)
+![](/assets/blog/posts/aws-s3-deploy/4.png)
 
 1. 생성한 버킷의 속성탭으로 이동
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/5.png)
+![](/assets/blog/posts/aws-s3-deploy/5.png)
 
 정적웹사이트 호스팅탭 - 편집 이동 - 활성화 체크 - 인덱스문서, 오류문서 index.html로 설정해주고 저장.
 
 1. 생성한 버킷의 권한탭으로 이동
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/6.png)
+![](/assets/blog/posts/aws-s3-deploy/6.png)
 
 버킷정책 탭 - 편집 - 정책 생성기
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/7.png)
+![](/assets/blog/posts/aws-s3-deploy/7.png)
 
 Step 1 : S3 Bucket Policy 체크
 
 Step 2 : Effect = Allow, Principal = _, Actions = GetObject , ARN = 정책탭의 버킷 ARN을 그대로 가져와서 /_ 를 붙여줍니다
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/8.png)
+![](/assets/blog/posts/aws-s3-deploy/8.png)
 
 generate policy후 생성된 json 복사 - 버킷 정책탭에가서 붙여넣기
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/9.png)
+![](/assets/blog/posts/aws-s3-deploy/9.png)
 
 여기서 해당 버킷에들어가서 빌드파일 업로드 해도됩니다.
 
@@ -106,11 +106,11 @@ output format : json
 
 aws s3 sync ./build s3://[S3 버킷 이름] --profile=[IAM 사용자 이름]
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/10.png)
+![](/assets/blog/posts/aws-s3-deploy/10.png)
 
 ## 4. CloudFront 설정
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/11.png)
+![](/assets/blog/posts/aws-s3-deploy/11.png)
 
 Origin domain = 만든 버킷 도메인 입력
 
@@ -122,9 +122,9 @@ Origin domain = 만든 버킷 도메인 입력
 
 ## 4. Route53 설정
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/12.png)
+![](/assets/blog/posts/aws-s3-deploy/12.png)
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/13.png)
+![](/assets/blog/posts/aws-s3-deploy/13.png)
 
 호스팅 영역생성 - 도메인이름(저는 가비아에서 구매한 도메인입력했습니다)
 
@@ -132,21 +132,21 @@ Origin domain = 만든 버킷 도메인 입력
 
 대체 도메인에 도메인 입력 - 인증서요청(aws certificate manager로 이동합니다)
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/14.png)
+![](/assets/blog/posts/aws-s3-deploy/14.png)
 
 도메인입력 - 요청
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/15.png)
+![](/assets/blog/posts/aws-s3-deploy/15.png)
 
 검증대기중인 도메인탭에서 Route 53에서 레코드 생성을 선택에서 CNAME생성해야한다
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/16.png)
+![](/assets/blog/posts/aws-s3-deploy/16.png)
 
 30분정도 기다리면 검증대기중에서 발급됨으로 변경된다고 한다.(1시간이지나도 안되는 상황 - [가비아 도메인 연결안해놓고 삽질…](https://velog.io/@whljm1003/AWS-S3%EB%B0%B0%ED%8F%AC%EB%B6%80%ED%84%B0-HTTPS%EC%A0%81%EC%9A%A9%EA%B9%8C%EC%A7%80-2))
 
 발급완료 이후 - CloudFront로 이동해서 SSL인증서 선택 - 기본값 루트객체 index.html 설정 후 배포
 
-![Untitled](/assets/blog/posts/aws-s3-deploy/17.png)
+![](/assets/blog/posts/aws-s3-deploy/17.png)
 
 cloudFront 무효화탭 이동후 무효화 생성 경로 /\* 등록
 

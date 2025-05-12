@@ -49,7 +49,7 @@ VSCode 좌측의 Marketplace를 선택하고 Reactjs code snippets 검색, (제�
 
 저의 경우는 postman을 따로 띄어서 api 통신을 테스트 하기보다는 thunder client를 통해 vscode 자체에서 api 호출을 테스트하는 편입니다.
 
-![Untitled](/assets/blog/posts/vscode-setting-1/1.png)
+![](/assets/blog/posts/vscode-setting-1/1.png)
 
 2023-08-18일부로 **유료화**가 되었다고 합니다. (혼자 테스트 하기에는 아직 유용할 것 같습니다.)
 
@@ -59,17 +59,17 @@ VSCode 좌측의 Marketplace를 선택하고 Reactjs code snippets 검색, (제�
 
 Source Control 탭의 Download Git for windows를 클릭하여 git을 설치해 줍니다.
 
-![Untitled](/assets/blog/posts/vscode-setting-1/2.png)
+![](/assets/blog/posts/vscode-setting-1/2.png)
 
 운영체제 맞는 Setup을 설치해 줍니다.
 
-![Untitled](/assets/blog/posts/vscode-setting-1/3.png)
+![](/assets/blog/posts/vscode-setting-1/3.png)
 
 Git 설치 완료후 Git Bash도 설치하겠냐는 질문에 체크 해주면 세팅끝!
 
 ### Git bash 기본 터미널 설정
 
-![Untitled](/assets/blog/posts/vscode-setting-1/4.png)
+![](/assets/blog/posts/vscode-setting-1/4.png)
 
 1. 설정 창 열기: Ctrl + ,
 2. terminal.integrated.defaultprofile.windows 입력 후 Windows 기본 터미널 프로필을 Git Bash로 설정

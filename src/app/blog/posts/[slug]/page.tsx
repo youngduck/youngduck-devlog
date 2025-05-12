@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { CMS_NAME } from "../../../../lib/constants";
 import PostTitle from "@/app/shared/_components/post/post-title";
 import PostBody from "@/app/shared/_components/post/post-body/post-body";
-import Toc from "@/app/shared/_components/post/toc";
+import PostToc from "@/app/shared/_components/post/post-toc/post-toc";
 import Giscus from "@/app/shared/_components/post/post-comment";
 
 type Params = Promise<{ slug: string }>;
@@ -30,7 +30,7 @@ const Page = async (props: { params: Params }) => {
           />
           <PostBody content={content} />
         </article>
-        <Toc />
+        <PostToc />
       </main>
       <Giscus />
     </>

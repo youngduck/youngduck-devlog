@@ -11,40 +11,17 @@
 interface GridBoxWrapperProps {
   children: React.ReactNode;
   className: string;
-  title?: string;
-  option?: React.ReactNode;
 }
 
 const GridBoxWrapper: React.FC<GridBoxWrapperProps> = ({
   children,
   className,
-  title,
-  option,
 }) => {
-  const titleHeight = title ? "30px" : "0px";
   return (
     <section
       className={`h-full w-full rounded-md border-[3px] bg-secondary p-2 ${className}`}
     >
-      {title && (
-        <div
-          className={`flex w-full items-center justify-between`}
-          style={{
-            height: titleHeight,
-          }}
-        >
-          <div className="text-xl font-bold">{title}</div>
-          <div>{option}</div>
-        </div>
-      )}
-      <div
-        className={`w-full overflow-y-auto`}
-        style={{
-          height: `calc(100% - ${titleHeight})`,
-        }}
-      >
-        {children}
-      </div>
+      {children}
     </section>
   );
 };

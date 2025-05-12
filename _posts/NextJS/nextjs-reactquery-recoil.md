@@ -172,4 +172,4 @@ export default Home;
 
 ## 실행 결과
 
-![Untitled](/assets/blog/posts/nextjs-reactquery-recoil/1.png)
+![](/assets/blog/posts/nextjs-reactquery-recoil/1.png)

@@ -36,17 +36,17 @@ const Header = () => {
             </Link>
             <nav className="hidden items-center md:flex">
               <Link href="/blog">
-                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] pl-[30px] font-KCC text-[20px] text-transparent">
+                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] pl-[30px] text-[20px] font-medium text-transparent">
                   Blog
                 </span>
               </Link>
               {/* <Link href="/about">
-                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
+                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] text-[20px] text-transparent">
                   About
                 </span>
               </Link> */}
               <Link href="/algorithms">
-                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] font-KCC text-[20px] text-transparent">
+                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] text-[20px] font-medium text-transparent">
                   Algorithms
                 </span>
               </Link>

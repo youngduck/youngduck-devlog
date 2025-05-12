@@ -11,10 +11,7 @@ const meta: Meta<typeof ScrapItem> = {
     (Story) => (
       <main className="mx-auto h-auto w-full transform animate-fade-up duration-500 md:max-w-container-md lg:max-w-container-lg">
         <div className="grid w-full grid-cols-1 grid-rows-1 gap-[20px] md:grid-cols-[250px_600px] md:grid-rows-[110px_350px_350px] lg:h-[480px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_350px]">
-          <GridBoxWrapper
-            title="최근 스크랩한 게시글"
-            className="border-2 sm:h-[350px] md:col-[1/3] md:row-[3/4] md:h-auto lg:col-[3/4] lg:row-[2/3] lg:h-auto"
-          >
+          <GridBoxWrapper className="border-2 sm:h-[350px] md:col-[1/3] md:row-[3/4] md:h-auto lg:col-[3/4] lg:row-[2/3] lg:h-auto">
             <Story />
           </GridBoxWrapper>
         </div>
