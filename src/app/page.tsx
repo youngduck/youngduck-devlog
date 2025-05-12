@@ -52,7 +52,7 @@ export default async function Home() {
               </li>
             </ul>
           </div>
-          <PostCards posts={posts.slice(0, 4)} domain="blog" />
+          <PostCards posts={posts.slice(0, 12)} domain="blog" />
         </div>
       </div>
       <div className="mx-auto h-auto w-full md:max-w-container-md lg:max-w-container-lg">
@@ -71,7 +71,7 @@ export default async function Home() {
               </li>
             </ul>
           </div>
-          <PostCards posts={algorithms.slice(0, 4)} domain="algorithms" />
+          <PostCards posts={algorithms.slice(0, 12)} domain="algorithms" />
         </div>
       </div>
     </main>
