@@ -1,6 +1,6 @@
 ---
-title: "[투포인터] - TWO SUM"
-excerpt: ""
+title: "[리트코드] TWO SUM 자바스크립트 풀이"
+excerpt: "알고리즘 재활훈련 - 투포인터"
 coverImage: "/assets/algorithms/JS-리트코드/cover.png"
 date: "2025-02-11T19:56:00"
 ogImage:

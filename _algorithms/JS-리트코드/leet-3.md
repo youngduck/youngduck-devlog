@@ -1,6 +1,6 @@
 ---
-title: "[투포인터,Map] - Longest Substring Without Repeating Characters"
-excerpt: ""
+title: "[리트코드] - Longest Substring Without Repeating Characters 자바스크립트 풀이"
+excerpt: "알고리즘 재활훈련 - 투포인터,Map"
 coverImage: "/assets/algorithms/JS-리트코드/cover.png"
 date: "2025-03-18T01:41:00"
 ogImage:
