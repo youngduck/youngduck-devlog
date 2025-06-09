@@ -1,6 +1,6 @@
 ---
-title: "[연결리스트] - Add Two Numbers"
-excerpt: ""
+title: "[백준] Add Two Numbers 자바스크립트 풀이"
+excerpt: "알고리즘 재활훈련 - 연결리스트"
 coverImage: "/assets/algorithms/JS-리트코드/cover.png"
 date: "2025-02-24T19:56:00"
 ogImage:
