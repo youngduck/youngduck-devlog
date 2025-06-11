@@ -9,7 +9,10 @@ import { Post } from "./shared/_components/post/interfaces/posts";
 export default async function Home() {
   const posts = await fetchBlogData();
   const algorithms = await fetchAlgorithmsData();
-
+  console.log(
+    "process.env.NEXT_PUBLIC_SENTRY_DSN",
+    process.env.NEXT_PUBLIC_SENTRY_DSN,
+  );
   return (
     <main className="mx-auto h-auto w-full transform animate-fade-up duration-500 md:max-w-container-md lg:max-w-container-lg">
       {/* 첫 번째 행 */}

@@ -57,6 +57,13 @@ const Header = () => {
               onClick={() => setMobileMenuToggle((prevState) => !prevState)}
             />
             <RssFeedButton />
+            <div
+              onClick={() => {
+                throw new Error("배포에러테스트");
+              }}
+            >
+              버그
+            </div>
             <DarkModeToggleButton />
           </div>
           {mobileMenuToggle && <HeaderMobileMenu />}
