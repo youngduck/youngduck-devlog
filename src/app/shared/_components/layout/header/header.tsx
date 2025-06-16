@@ -59,7 +59,7 @@ const Header = () => {
             <RssFeedButton />
             <div
               onClick={() => {
-                throw new Error("배포에러테스트");
+                throw new Error("배포에러617테스트");
               }}
             >
               버그
