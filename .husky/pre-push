@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Next.js 빌드 시작..."
+npm run build || { echo "❌ Next.js 빌드 실패!"; exit 1; }
+
+echo "🔍 Storybook 빌드 시작..."
+npm run build-storybook || { echo "❌ Storybook 빌드 실패!"; exit 1; }
+
+echo "🔍 Chromatic 빌드 시작..."
+npm run chromatic || { echo "❌ Chromatic 빌드 실패!"; exit 1; }
+
+echo "✅ 모든 빌드 성공! Push 진행"

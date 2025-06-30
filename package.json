@@ -13,7 +13,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o storybook-static",
     "storybook:start": "npm run build-storybook && cd storybook-static && http-server -p 6006",
-    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
+    "chromatic": "npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%",
+    "prepare": "husky"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -73,6 +74,8 @@
     "eslint-config-next": "15.2.3",
     "eslint-plugin-storybook": "^0.11.1",
     "http-server": "^14.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "msw-storybook-addon": "^2.0.4",
     "postcss": "^8",
     "postcss-nesting": "^13.0.1",
@@ -86,5 +89,12 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "next lint --fix",
+      "prettier --write"
+    ],
+    "*.{css,md,json,yaml}": "prettier --write"
   }
 }

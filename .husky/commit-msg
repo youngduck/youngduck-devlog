@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+commit_msg_file=$1
+commit_msg=$(cat "$commit_msg_file" | grep -v "^#")
+
+# 허용된 타입 목록
+valid_types="feat|fix|refactor|style|file|!HOTFIX|posting"
+
+# 커밋 메시지 형식 검증 (타입:이슈요약)
+if ! echo "$commit_msg" | grep -qE "^($valid_types):[[:graph:][:space:]]+$"; then
+  echo "\n❌ 커밋 메시지 형식이 올바르지 않습니다."
+  echo "✔️ 올바른 형식: <타입>:이슈요약"
+  echo "✔️ 허용된 타입: feat, fix, refactor, style, file, !HOTFIX, posting"
+  echo "✔️ 예시: feat:로그인 기능 구현\n"
+  exit 1
+fi
+
+exit 0 
