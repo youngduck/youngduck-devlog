@@ -6,6 +6,7 @@
 "use client";
 
 import AreaChart from "../area-chart/area-chart";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import useFunnel from "@/app/shared/_components/funnel/hooks/useFunnel";
 import Funnel from "@/app/shared/_components/funnel/components/funnel";
 
@@ -13,7 +14,7 @@ interface IChartsFunnel {}
 
 const ChartsFunnel: React.FC<IChartsFunnel> = () => {
   //SECTION HOOK호출 영역
-  const { step, nextStep, prevStep } = useFunnel({
+  const { step, nextStep, prevStep, stepLength, currentStep } = useFunnel({
     steps: ["areaChart", "lineChart", "barChart"],
     mode: "loop",
   });
@@ -30,10 +31,22 @@ const ChartsFunnel: React.FC<IChartsFunnel> = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
-        <div className="flex items-center justify-between">
-          <button onClick={prevStep}>이전</button>
-          <button onClick={nextStep}>다음</button>
+      <div className="flex items-center justify-between border-b-2 pb-2">
+        <div className="text-xl font-bold italic pcHover:hover:scale-105">
+          YD Datas
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="text-sm text-gray-500">
+            {currentStep + 1} / {stepLength}
+          </div>
+          <div className="flex items-center justify-between">
+            <button onClick={prevStep}>
+              <ChevronLeft />
+            </button>
+            <button onClick={nextStep}>
+              <ChevronRight />
+            </button>
+          </div>
         </div>
       </div>
       <Funnel step={step}>

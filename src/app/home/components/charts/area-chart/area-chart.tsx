@@ -52,14 +52,14 @@ const AreaChart: React.FC<IAreaChart> = () => {
     responsive: true,
     layout: {
       padding: {
-        top: 20,
+        top: 10,
         bottom: 0,
       },
     },
     plugins: {
       legend: {
         position: "top" as const,
-        align: "start" as const,
+        align: "end" as const,
         labels: {
           usePointStyle: true,
           pointStyle: "rect",
@@ -100,11 +100,10 @@ const AreaChart: React.FC<IAreaChart> = () => {
     datasets: [
       {
         fill: true,
-        label: "Algorithm Contents",
+        label: "Algorithm Posts ",
         data: algorithmData,
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.3)",
-        // tension: 0.2,
       },
       {
         fill: true,
@@ -112,7 +111,6 @@ const AreaChart: React.FC<IAreaChart> = () => {
         data: blogData,
         borderColor: "hsl(42.2, 78.6%, 57.3%)",
         backgroundColor: "hsla(42.2, 78.6%, 57.3%, 0.3)",
-        // tension: 0.2,
       },
     ],
   };
