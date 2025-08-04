@@ -5,11 +5,9 @@
  */
 "use client";
 
-import { useState } from "react";
 import AreaChart from "../area-chart/area-chart";
 import useFunnel from "@/app/shared/_components/funnel/hooks/useFunnel";
 import Funnel from "@/app/shared/_components/funnel/components/funnel";
-import Step from "@/app/shared/_components/funnel/components/step/components/step";
 
 interface IChartsFunnel {}
 
@@ -43,10 +41,10 @@ const ChartsFunnel: React.FC<IChartsFunnel> = () => {
           <AreaChart />
         </Funnel.Step>
         <Funnel.Step name="lineChart">
-          <div>라인차트</div>
+          <div>준비중입니다.</div>
         </Funnel.Step>
         <Funnel.Step name="barChart">
-          <div>barChart</div>
+          <div>준비중입니다.</div>
         </Funnel.Step>
       </Funnel>
     </div>
