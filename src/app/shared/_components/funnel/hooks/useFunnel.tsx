@@ -55,7 +55,13 @@ const useFunnel = ({ steps, mode }: IUseFunnelProps) => {
     }
   };
 
-  return { step: steps[stepLevel], nextStep, prevStep };
+  return {
+    step: steps[stepLevel],
+    nextStep,
+    prevStep,
+    stepLength: steps.length,
+    currentStep: stepLevel,
+  };
 };
 
 export default useFunnel;

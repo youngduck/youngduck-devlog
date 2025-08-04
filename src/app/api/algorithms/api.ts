@@ -107,6 +107,52 @@ export function getAllCategoriesID(): string[] {
   return Array.from(categoryMap.keys());
 }
 
+export interface MonthlyStats {
+  year: number;
+  month: number;
+  count: number;
+  label: string; // "2024-01" 형태
+}
+
+export function getAlgorithmStatsByMonth(): MonthlyStats[] {
+  const posts = getAllAlgorithms();
+  const monthlyMap = new Map<string, number>();
+
+  posts.forEach((post) => {
+    if (post.date) {
+      // date 형태: "2025-07-28T09:08:00" 또는 "2025-07-31T09:25:00"
+      const date = new Date(post.date);
+      if (!isNaN(date.getTime())) {
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1; // 0-based이므로 +1
+        const key = `${year}-${month.toString().padStart(2, "0")}`;
+        const label = `${year.toString().slice(-2)}.${month.toString().padStart(2, "0")}`;
+
+        monthlyMap.set(key, (monthlyMap.get(key) || 0) + 1);
+      }
+    }
+  });
+
+  // Map을 배열로 변환하고 정렬
+  const stats: MonthlyStats[] = Array.from(monthlyMap.entries())
+    .map(([key, count]) => {
+      const [year, month] = key.split("-").map(Number);
+      const label = `${year.toString().slice(-2)}.${month.toString().padStart(2, "0")}`;
+      return {
+        year,
+        month,
+        count,
+        label,
+      };
+    })
+    .sort((a, b) => {
+      if (a.year !== b.year) return a.year - b.year;
+      return a.month - b.month;
+    });
+
+  return stats;
+}
+
 export const generateRSS2 = () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASED_URL;
 

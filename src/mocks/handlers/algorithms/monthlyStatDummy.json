@@ -1,0 +1,15 @@
+[
+  { "year": 2024, "month": 3, "count": 2, "label": "24.03" },
+  { "year": 2024, "month": 4, "count": 1, "label": "24.04" },
+  { "year": 2024, "month": 5, "count": 3, "label": "24.05" },
+  { "year": 2024, "month": 6, "count": 2, "label": "24.06" },
+  { "year": 2024, "month": 10, "count": 0, "label": "24.10" },
+  { "year": 2024, "month": 12, "count": 1, "label": "24.12" },
+  { "year": 2025, "month": 2, "count": 2, "label": "25.02" },
+  { "year": 2025, "month": 3, "count": 3, "label": "25.03" },
+  { "year": 2025, "month": 4, "count": 4, "label": "25.04" },
+  { "year": 2025, "month": 5, "count": 1, "label": "25.05" },
+  { "year": 2025, "month": 6, "count": 1, "label": "25.06" },
+  { "year": 2025, "month": 7, "count": 3, "label": "25.07" },
+  { "year": 2025, "month": 8, "count": 2, "label": "25.08" }
+]
