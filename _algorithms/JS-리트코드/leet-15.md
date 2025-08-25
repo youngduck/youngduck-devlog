@@ -1,10 +1,10 @@
 ---
 title: "[리트코드] - 3Sum 자바스크립트 풀이"
 excerpt: "Dale 리트코드 스터디 5기 2주차 - 투포인터"
-coverImage: "/assets/algorithms/JS-리트코드/cover.png"
+coverImage: "/assets/algorithms/JS-리트코드/dale-cover.png"
 date: "2025-08-02T23:13:00"
 ogImage:
-  url: "/assets/algorithms/JS-리트코드/cover.png"
+  url: "/assets/algorithms/JS-리트코드/dale-cover.png"
 ---
 
 ## 문제

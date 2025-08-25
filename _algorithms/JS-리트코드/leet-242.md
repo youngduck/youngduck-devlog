@@ -1,10 +1,10 @@
 ---
 title: "[리트코드] - Valid Anagram 자바스크립트 풀이"
 excerpt: "Dale 리트코드 스터디 5기 2주차 - 해쉬,맵"
-coverImage: "/assets/algorithms/JS-리트코드/cover.png"
+coverImage: "/assets/algorithms/JS-리트코드/dale-cover.png"
 date: "2025-07-28T09:08:00"
 ogImage:
-  url: "/assets/algorithms/JS-리트코드/cover.png"
+  url: "/assets/algorithms/JS-리트코드/dale-cover.png"
 ---
 
 ## 문제

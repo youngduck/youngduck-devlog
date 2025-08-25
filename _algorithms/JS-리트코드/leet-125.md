@@ -1,10 +1,10 @@
 ---
 title: "[리트코드] - Valid Palindrome 자바스크립트 풀이"
 excerpt: "Dale 리트코드 스터디 5기 3주차 - 문자열, 정규식"
-coverImage: "/assets/algorithms/JS-리트코드/cover.png"
+coverImage: "/assets/algorithms/JS-리트코드/dale-cover.png"
 date: "2025-08-04T10:23:00"
 ogImage:
-  url: "/assets/algorithms/JS-리트코드/cover.png"
+  url: "/assets/algorithms/JS-리트코드/dale-cover.png"
 ---
 
 ## 문제
