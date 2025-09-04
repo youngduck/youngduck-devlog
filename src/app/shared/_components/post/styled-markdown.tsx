@@ -31,7 +31,7 @@ export const P: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <p className="my-2 break-words text-lg" {...rest}>
+    <p className="break-words text-lg" {...rest}>
       {children}
     </p>
   );
