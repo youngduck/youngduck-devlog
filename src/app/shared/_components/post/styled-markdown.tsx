@@ -185,14 +185,16 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
   alt,
 }) => {
   return (
-    <figure className="my-4 w-full">
+    <figure className="my-4">
       <Image
         src={src || ""}
         alt={alt || ""}
         priority={true}
-        width={860}
+        width={0}
         height={0}
-        className="h-auto max-h-[1000px] w-full object-cover"
+        sizes="(max-width: 760px) 100vw, 760px"
+        style={{ width: "auto", height: "auto", maxWidth: "760px" }}
+        className="mx-auto max-h-[1000px]"
       />
       {alt && (
         <figcaption className="mt-2 text-center text-sm text-gray-500">

@@ -1,6 +1,6 @@
 ---
 title: "버전업그레이드를 진행하며 얻은 작은 교훈"
-excerpt: "Nextjs Route Handler를 통해 문제상황 우회하기"
+excerpt: "Sentry를 도입하며 발생한 Next.js 와 Chromatic의 버전 호환성 문제"
 coverImage: "/assets/blog/posts/devlog/devlog-3/cover.png"
 date: "2025-06-17T00:20:00"
 ogImage:
