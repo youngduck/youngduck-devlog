@@ -20,22 +20,20 @@ export default async function Home() {
         <GridBoxWrapper className="rounded-t-none border-t-0 bg-contain sm:h-[350px] md:col-[1/2] md:row-[1/3] md:h-auto lg:col-[1/2] lg:row-[1/3] lg:h-auto">
           <Profile />
         </GridBoxWrapper>
-        <GridBoxWrapper className="border-transparent bg-transparent md:col-[2/3] md:row-[1/2] lg:col-[2/3] lg:row-[1/2]">
-          <div className="text-xl italic">
-            <p>안녕하세요!</p>
-            {/* <p>시각화를 좋아하는 개발자 김영덕입니다.</p>
-            <p>
-              기록하며 성장하는 개발자가 되기위해 기술블로그를 운영중입니다.
-            </p> */}
-          </div>
+
+        <GridBoxWrapper className="flex h-full flex-col justify-center border-transparent bg-transparent text-xl font-semibold md:col-[2/3] md:row-[1/2] lg:col-[2/3] lg:row-[1/2]">
+          <p>
+            사용자와 개발자 모두를 위한&nbsp;
+            <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text text-transparent">
+              경험을 설계하는
+            </span>
+          </p>
+          <p>개발자 김영덕 입니다.</p>
         </GridBoxWrapper>
         <GridBoxWrapper className="border-2 md:col-[2/3] md:row-[2/3] lg:col-[2/3] lg:row-[2/3]">
           <ChartsFunnel />
         </GridBoxWrapper>
-        <GridBoxWrapper
-          // title="최근 스크랩한 게시글"
-          className="border-2 sm:h-[350px] md:col-[1/3] md:row-[3/4] md:h-auto lg:col-[3/4] lg:row-[2/3] lg:h-auto"
-        >
+        <GridBoxWrapper className="border-2 sm:h-[350px] md:col-[1/3] md:row-[3/4] md:h-auto lg:col-[3/4] lg:row-[2/3] lg:h-auto">
           <ScrapItem />
         </GridBoxWrapper>
       </div>
