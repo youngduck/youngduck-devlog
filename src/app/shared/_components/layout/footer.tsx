@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="space-y-2 text-yellow">
           <div className="flex flex-col items-center justify-center space-y-3 text-lg leading-6">
             <p className="text-[20px]">김영덕</p>
-            <p className="text-[14px]">Frontend Developer</p>
+            <p className="text-[14px]">Fullstack Developer</p>
             <div className="mt-5 flex justify-center space-x-5">
               <a
                 href="https://github.com/youngduck"
@@ -86,7 +86,7 @@ const Footer = () => {
             </div>
             <div>
               <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text text-[10px] text-transparent">
-                ©2024. Kim Youngduck all right reserved.
+                ©2025. Kim Youngduck all right reserved.
               </span>
             </div>
           </div>

@@ -53,7 +53,7 @@ const Profile: React.FC<Iprofile> = () => {
         className="flex h-[300px] w-[200px] transform animate-change-scale items-center justify-center [transform-style:preserve-3d]"
       >
         {/* 앞면카드 */}
-        <div className="relative flex h-full w-full animate-card-front items-center justify-center rounded-sm border-2 border-yellow bg-secondary [transform-style:preserve-3d] [backface-visibility:hidden]">
+        <div className="relative flex h-full w-full animate-card-front items-center justify-center rounded-sm border-2 border-yellow bg-secondary [backface-visibility:hidden] [transform-style:preserve-3d]">
           <figure className="absolute top-5 h-36 w-36 rounded-full border-2 border-yellow bg-border [transform:translateZ(20px)]">
             <Image
               src="/assets/blog/authors/youngduck.png"
@@ -64,13 +64,16 @@ const Profile: React.FC<Iprofile> = () => {
               className="rounded-full object-cover"
             />
           </figure>
-          <p className="absolute top-[180px] text-sm [transform:translateZ(30px)]">
+          <p className="absolute left-4 top-[180px] text-xl font-bold [transform:translateZ(40px)]">
             김영덕
           </p>
-          <p className="absolute top-[200px] text-sm [transform:translateZ(30px)]">
-            Frontend Developer
+          <p className="absolute left-4 top-[210px] text-lg [transform:translateZ(30px)]">
+            Fullstack Developer
           </p>
-          <div className="absolute top-[240px] flex w-full items-center justify-center [transform-style:preserve-3d]">
+          <p className="text-md absolute left-4 top-[240px] [transform:translateZ(35px)]">
+            React, Next, Spring
+          </p>
+          {/* <div className="absolute top-[240px] flex w-full items-center justify-center [transform-style:preserve-3d]">
             <Link
               href="https://github.com/youngduck"
               target="_blank"
@@ -87,7 +90,7 @@ const Profile: React.FC<Iprofile> = () => {
             >
               <NotionIcon width={20} height={20} />
             </Link>
-          </div>
+          </div> */}
         </div>
         {/* 뒷면카드 */}
         <div className="absolute h-full w-full animate-card-back rounded-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
