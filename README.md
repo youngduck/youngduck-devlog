@@ -1,25 +1,24 @@
 # youngduck-devlog
 
-안녕하세요! 프론트엔드 개발자 김영덕의 기술 블로그입니다.
+개발자 김영덕의 기술블로그입니다.
 
-<a href="[CHROMATIC_URL]" target="_blank">
-  <img src="https://github.com/user-attachments/assets/539b2f90-1c72-43ac-83fc-ad0d4a6fc0f5" alt="image" style="width:50px;"/>
-  <div>스토리북</div>
-</a>
+## ⭐️ 컨텐츠
 
-## 🛠 개발환경
+- `_posts/` – 디자인 시스템, 사이드프로젝트, 업무 회고, 트러블슈팅, 컨퍼런스 후기등 개발관련 포스팅
+- `_algorithms/` – 리트코드/프로그래머스/백준 알고리즘 문제 풀이
 
-- **언어**: TypeScript
-- **프레임워크**: Next.js(APP ROUTER)
-- **스타일링**: Tailwind
-- **UI 테스트**: Storybook
-- **빌드 도구**: Webpack
-- **버전 관리**: Git
-- **패키지 관리자**: npm
+## 🛠 사용 스택 & 도구
 
-## 📫 연락처
+- **프레임워크**: Next.js(App Router), React 18
+- **언어/스타일**: TypeScript, Tailwind CSS, tailwind-merge
+- **DX & 품질**: Storybook 8, Chromatic, MSW, ESLint, Prettier, Husky, lint-staged
+- **빌드/배포**: Next 15, next-pwa, Rollup 기반 라이브러리 실험
+- **모니터링**: Sentry(Next 통합)
 
-- E-mail: [dudejr5839@naver.com]()
-- Github: [https://github.com/youngduck]()
+## 📬 연락처 & 링크
 
-© 2024 김영덕. All rights reserved.
+- Email: [dudejr5839@naver.com](mailto:dudejr5839@naver.com)
+- GitHub: [github.com/youngduck](https://github.com/youngduck)
+- Chromatic: [스토리북](https://main--6763900058319587c2573609.chromatic.com/)
+
+© 2025 김영덕. All rights reserved.
