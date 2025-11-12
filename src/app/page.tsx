@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <main className="mx-auto h-auto w-full transform animate-fade-up duration-500 md:max-w-container-md lg:max-w-container-lg">
       {/* 첫 번째 행 */}
-      <div className="grid w-full gap-[20px] sm:grid-cols-1 sm:grid-rows-1 md:grid-cols-[250px_600px] md:grid-rows-[110px_350px_350px] lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_350px]">
+      <div className="grid w-full gap-[20px] px-4 sm:grid-cols-1 sm:grid-rows-1 sm:px-4 md:grid-cols-[250px_600px] md:grid-rows-[110px_350px_350px] md:px-0 lg:grid-cols-[250px_600px_310px] lg:grid-rows-[110px_350px]">
         <GridBoxWrapper className="rounded-t-none border-t-0 bg-contain sm:h-[350px] md:col-[1/2] md:row-[1/3] md:h-auto lg:col-[1/2] lg:row-[1/3] lg:h-auto">
           <Profile />
         </GridBoxWrapper>
