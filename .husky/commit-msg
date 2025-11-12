@@ -4,7 +4,7 @@ commit_msg_file=$1
 commit_msg=$(cat "$commit_msg_file" | grep -v "^#")
 
 # 허용된 타입 목록
-valid_types="feat|fix|refactor|style|file|!HOTFIX|posting"
+valid_types="feat|fix|refactor|style|file|!HOTFIX|posting|docs"
 
 # 커밋 메시지 형식 검증 (타입:이슈요약)
 if ! echo "$commit_msg" | grep -qE "^($valid_types):[[:graph:][:space:]]+$"; then

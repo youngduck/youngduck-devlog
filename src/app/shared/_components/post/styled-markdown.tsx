@@ -17,7 +17,7 @@ export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <blockquote
-      className="my-2 flex max-w-[860px] items-center gap-4 rounded-lg border-2 border-yellow p-4"
+      className="my-2 flex max-w-[860px] items-center gap-4 rounded-lg border-2 border-yellow p-2"
       {...rest}
     >
       <Bulb width={30} height={30} />
@@ -31,7 +31,7 @@ export const P: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <p className="break-words text-lg" {...rest}>
+    <p className="break-words text-[16px] leading-[28px]" {...rest}>
       {children}
     </p>
   );
@@ -42,7 +42,7 @@ export const A: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <a className="text-yellow" {...rest} target="_blank">
+    <a className="text-yellow underline" {...rest} target="_blank">
       {children}
     </a>
   );
@@ -53,7 +53,7 @@ export const Ol: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <ol className="list-decimal px-8" {...rest}>
+    <ol className="list-decimal pl-6" {...rest}>
       {children}
     </ol>
   );
@@ -86,7 +86,7 @@ export const Ul: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <ul className="list-disc px-8" {...rest}>
+    <ul className="list-disc pl-6" {...rest}>
       {children}
     </ul>
   );
@@ -97,7 +97,7 @@ export const Li: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <li className="" {...rest}>
+    <li className="my-2" {...rest}>
       {children}
     </li>
   );
@@ -108,7 +108,10 @@ export const H2: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h2 className="my-4 block pt-[60px] text-3xl font-bold" {...rest}>
+    <h2
+      className="my-4 block pt-[20px] text-2xl font-bold md:pt-[60px]"
+      {...rest}
+    >
       {children}
     </h2>
   );
@@ -118,7 +121,7 @@ export const H3: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h3 className="my-4 pt-[60px] text-2xl font-bold" {...rest}>
+    <h3 className="my-4 pt-[20px] text-xl font-bold md:pt-[60px]" {...rest}>
       {children}
     </h3>
   );
@@ -192,9 +195,8 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
         priority={true}
         width={0}
         height={0}
-        sizes="(max-width: 760px) 100vw, 760px"
-        style={{ width: "auto", height: "auto", maxWidth: "760px" }}
-        className="mx-auto max-h-[1000px]"
+        sizes="(max-width: 760px) 100%, 760px"
+        className="mx-auto w-auto"
       />
       {alt && (
         <figcaption className="mt-2 text-center text-sm text-gray-500">

@@ -20,7 +20,7 @@ const Page = async (props: { params: Params }) => {
 
   return (
     <>
-      <main className="lg:w-container-lg mx-auto flex w-full px-2">
+      <main className="lg:w-container-lg mx-auto flex w-full px-4 md:px-0">
         <article className="w-full lg:w-[860px] lg:pr-[100px]">
           <PostTitle
             title={title}
