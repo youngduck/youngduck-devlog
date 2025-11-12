@@ -42,7 +42,7 @@ export const A: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <a className="text-yellow" {...rest} target="_blank">
+    <a className="text-yellow underline" {...rest} target="_blank">
       {children}
     </a>
   );
@@ -53,7 +53,7 @@ export const Ol: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <ol className="list-decimal px-8" {...rest}>
+    <ol className="list-decimal pl-6" {...rest}>
       {children}
     </ol>
   );
@@ -86,7 +86,7 @@ export const Ul: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <ul className="list-disc px-8" {...rest}>
+    <ul className="list-disc pl-6" {...rest}>
       {children}
     </ul>
   );
@@ -97,7 +97,7 @@ export const Li: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <li className="" {...rest}>
+    <li className="my-2" {...rest}>
       {children}
     </li>
   );
@@ -196,8 +196,7 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
         width={0}
         height={0}
         sizes="(max-width: 760px) 100%, 760px"
-        style={{ width: "100%", height: "auto", maxWidth: "760px" }}
-        className="mx-auto max-h-[800px] w-full"
+        className="mx-auto w-auto"
       />
       {alt && (
         <figcaption className="mt-2 text-center text-sm text-gray-500">
