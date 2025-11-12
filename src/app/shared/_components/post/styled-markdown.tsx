@@ -192,9 +192,9 @@ export const MarkdownImage: React.FC<{ src: string; alt: string }> = ({
         priority={true}
         width={0}
         height={0}
-        sizes="(max-width: 760px) 100vw, 760px"
-        style={{ width: "auto", height: "auto", maxWidth: "760px" }}
-        className="mx-auto max-h-[1000px]"
+        sizes="(max-width: 760px) 100%, 760px"
+        style={{ width: "100%", height: "auto", maxWidth: "760px" }}
+        className="mx-auto max-h-[800px] w-full"
       />
       {alt && (
         <figcaption className="mt-2 text-center text-sm text-gray-500">
