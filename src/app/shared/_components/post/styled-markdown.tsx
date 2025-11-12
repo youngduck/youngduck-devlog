@@ -17,7 +17,7 @@ export const Blockquote: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <blockquote
-      className="my-2 flex max-w-[860px] items-center gap-4 rounded-lg border-2 border-yellow p-4"
+      className="my-2 flex max-w-[860px] items-center gap-4 rounded-lg border-2 border-yellow p-2"
       {...rest}
     >
       <Bulb width={30} height={30} />
@@ -31,7 +31,7 @@ export const P: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <p className="break-words text-lg" {...rest}>
+    <p className="break-words text-[16px] leading-[28px]" {...rest}>
       {children}
     </p>
   );
@@ -108,7 +108,10 @@ export const H2: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h2 className="my-4 block pt-[60px] text-3xl font-bold" {...rest}>
+    <h2
+      className="my-4 block pt-[20px] text-2xl font-bold md:pt-[60px]"
+      {...rest}
+    >
       {children}
     </h2>
   );
@@ -118,7 +121,7 @@ export const H3: React.FC<{ children: React.ReactNode }> = ({
   ...rest
 }) => {
   return (
-    <h3 className="my-4 pt-[60px] text-2xl font-bold" {...rest}>
+    <h3 className="my-4 pt-[20px] text-xl font-bold md:pt-[60px]" {...rest}>
       {children}
     </h3>
   );
