@@ -4,6 +4,26 @@
 
 본 프로젝트는 [시맨틱 버저닝(Semantic Versioning)](https://semver.org/lang/ko/) 규칙을 따릅니다. 버전 표기 방식은 `MAJOR.MINOR.PATCH`(예: 1.2.3)입니다.
 
+## [1.1.3] - 2025-12-02
+
+**Branch**: `YD-v1.1.3-반응형헤더컴포넌트제작`
+
+### Added 새로운 기능
+
+- feat: 반응형 헤더 추가
+
+### Changed 기존 기능의 변경사항
+
+### Deprecated 곧 지워질 기능
+
+### Removed 지금 지워진 기능
+
+### Fixed 버그 픽스
+
+### Security 취약점이 있는 경우
+
+---
+
 ## [1.1.2] - 2025-11-12
 
 **Branch**: `YD-v1.1.2-반응형디자인조정: 모바일 홈페이지화면`
