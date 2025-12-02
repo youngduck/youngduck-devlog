@@ -12,6 +12,14 @@ import SvgProfile from "@/app/home/components/svg-profile/svg-profile";
 const Header = () => {
   const [mobileMenuToggle, setMobileMenuToggle] = useState<boolean>(false);
 
+  const handleToggleMobileMenu = () => {
+    setMobileMenuToggle((prevState) => !prevState);
+  };
+
+  const handleCloseMobileMenu = () => {
+    setMobileMenuToggle(false);
+  };
+
   return (
     <>
       <header className="sticky top-[0px] z-10 mx-auto w-full transform animate-fade-down justify-between bg-background p-0 pt-[0px] lg:w-full">
@@ -40,11 +48,6 @@ const Header = () => {
                   Blog
                 </span>
               </Link>
-              {/* <Link href="/about">
-                <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] text-[20px] text-transparent">
-                  About
-                </span>
-              </Link> */}
               <Link href="/algorithms">
                 <span className="inline-block bg-gradient-to-r from-yellow to-[#8C6306] bg-clip-text px-[20px] text-[20px] font-medium text-transparent">
                   Algorithms
@@ -53,13 +56,13 @@ const Header = () => {
             </nav>
           </div>
           <div className="flex">
-            <ListButton
-              onClick={() => setMobileMenuToggle((prevState) => !prevState)}
-            />
+            <ListButton onClick={handleToggleMobileMenu} />
             <RssFeedButton />
             <DarkModeToggleButton />
           </div>
-          {mobileMenuToggle && <HeaderMobileMenu />}
+          {mobileMenuToggle && (
+            <HeaderMobileMenu onClose={handleCloseMobileMenu} />
+          )}
         </div>
         <HeaderPercentBar />
       </header>
