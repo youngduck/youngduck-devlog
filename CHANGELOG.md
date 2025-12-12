@@ -10,6 +10,8 @@
 
 ### Added 새로운 기능
 
+- docs: v1.2.1작업내용문서
+
 ### Changed 기존 기능의 변경사항
 
 ### Deprecated 곧 지워질 기능
