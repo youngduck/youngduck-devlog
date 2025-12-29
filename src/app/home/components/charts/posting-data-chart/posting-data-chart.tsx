@@ -20,7 +20,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-interface IAreaChart {}
+interface IPostingDataChart {}
 
 interface MonthlyStats {
   year: number;
@@ -29,7 +29,7 @@ interface MonthlyStats {
   label: string;
 }
 
-const AreaChart: React.FC<IAreaChart> = () => {
+const PostingDataChart: React.FC<IPostingDataChart> = () => {
   //SECTION HOOK호출 영역
   ChartJS.register(
     CategoryScale,
@@ -174,4 +174,4 @@ const AreaChart: React.FC<IAreaChart> = () => {
   );
 };
 
-export default AreaChart;
+export default PostingDataChart;

@@ -5,7 +5,7 @@
  */
 "use client";
 
-import AreaChart from "../area-chart/area-chart";
+import PostingDataChart from "../posting-data-chart/posting-data-chart";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useFunnel from "@/app/shared/_components/funnel/hooks/useFunnel";
 import Funnel from "@/app/shared/_components/funnel/components/funnel";
@@ -15,7 +15,7 @@ interface IChartsFunnel {}
 const ChartsFunnel: React.FC<IChartsFunnel> = () => {
   //SECTION HOOK호출 영역
   const { step, nextStep, prevStep, stepLength, currentStep } = useFunnel({
-    steps: ["areaChart", "lineChart", "barChart"],
+    steps: ["postingDataChart", "lineChart", "barChart"],
     mode: "loop",
   });
 
@@ -50,8 +50,8 @@ const ChartsFunnel: React.FC<IChartsFunnel> = () => {
         </div>
       </div>
       <Funnel step={step}>
-        <Funnel.Step name="areaChart">
-          <AreaChart />
+        <Funnel.Step name="postingDataChart">
+          <PostingDataChart />
         </Funnel.Step>
         <Funnel.Step name="lineChart">
           <div>준비중입니다.</div>
