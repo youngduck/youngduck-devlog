@@ -40,6 +40,7 @@ export function getPostBySlug(slug: string) {
 
   // 3-1 파일이 없는 경우 예외 처리
   if (!targetFile) {
+    // eslint-disable-next-line no-console
     console.error(`File not found: ${decodedSlug}`);
     return null; // 에러 던지는 대신 null 반환하여 컴포넌트에서 처리
   }
@@ -77,16 +78,18 @@ export function getFilteredAlgorithms(filterWord: string): Post[] {
   return filteredPost;
 }
 
-export function getAllCategoriesArray(): any {
+export function getAllCategoriesArray(): [string, number][] {
   const posts = getAllAlgorithms();
-  const categoryMap = new Map();
+  const categoryMap = new Map<string, number>();
 
   categoryMap.set("All Algorithms", posts.length);
-  posts.map((item) => {
+  posts.forEach((item) => {
     const category = item.category;
-    categoryMap.has(category)
-      ? categoryMap.set(category, categoryMap.get(category) + 1)
-      : categoryMap.set(category, 1);
+    if (categoryMap.has(category)) {
+      categoryMap.set(category, categoryMap.get(category)! + 1);
+    } else {
+      categoryMap.set(category, 1);
+    }
   });
 
   return Array.from(categoryMap.entries());
@@ -94,14 +97,16 @@ export function getAllCategoriesArray(): any {
 
 export function getAllCategoriesID(): string[] {
   const posts = getAllAlgorithms();
-  const categoryMap = new Map();
+  const categoryMap = new Map<string, number>();
 
   categoryMap.set("All Algorithms", posts.length);
-  posts.map((item) => {
+  posts.forEach((item) => {
     const category = item.category;
-    categoryMap.has(category)
-      ? categoryMap.set(category, categoryMap.get(category) + 1)
-      : categoryMap.set(category, 1);
+    if (categoryMap.has(category)) {
+      categoryMap.set(category, categoryMap.get(category)! + 1);
+    } else {
+      categoryMap.set(category, 1);
+    }
   });
 
   return Array.from(categoryMap.keys());
@@ -126,7 +131,6 @@ export function getAlgorithmStatsByMonth(): MonthlyStats[] {
         const year = date.getFullYear();
         const month = date.getMonth() + 1; // 0-based이므로 +1
         const key = `${year}-${month.toString().padStart(2, "0")}`;
-        const label = `${year.toString().slice(-2)}.${month.toString().padStart(2, "0")}`;
 
         monthlyMap.set(key, (monthlyMap.get(key) || 0) + 1);
       }
@@ -185,6 +189,7 @@ export const generateRSS2 = () => {
 
     return feed.xml();
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error("Error generating Rss feed", err);
     return null;
   }

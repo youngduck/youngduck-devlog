@@ -13,6 +13,7 @@ type MarkdownPostProps = {
 
 const PostBody: React.FC<MarkdownPostProps> = ({ content }) => {
   // 단락을 처리하는 컴포넌트: 이미지가 있으면 div, 없으면 p로 렌더링
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ParagraphRenderer = ({ children, ...rest }: any) => {
     const hasImage = rest.node.children[0].tagName === "img";
 

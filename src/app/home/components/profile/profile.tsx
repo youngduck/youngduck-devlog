@@ -5,14 +5,8 @@
  */
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
-import GithubIcon from "@public/assets/svg/github.svg";
-import NotionIcon from "@public/assets/svg/notion.svg";
-import Link from "next/link";
-
-interface Iprofile {}
-
-const Profile: React.FC<Iprofile> = () => {
+import { useState } from "react";
+const Profile = () => {
   //SECTION HOOK호출 영역
   const [rotation, setRotation] = useState<{ x: number; y: number }>({
     x: 0,

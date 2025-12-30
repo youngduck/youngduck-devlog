@@ -65,7 +65,7 @@ export async function getAllScrapList() {
       }));
 
     return mappedResults;
-  } catch (error) {
+  } catch {
     return [];
   }
 }

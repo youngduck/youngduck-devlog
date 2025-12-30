@@ -29,7 +29,7 @@ const ScrapHeader = () => (
 // 스크랩 목록 컴포넌트 분리
 const ScrapList = ({ scrapList }: { scrapList: IScrapItem[] }) => (
   <div className="h-[calc(100%-40px)] w-full overflow-y-auto">
-    {scrapList.map((item: IScrapItem, index: number) => (
+    {scrapList.map((item: IScrapItem) => (
       <Link
         href={item.link}
         target="_blank"
@@ -79,6 +79,7 @@ const ScrapItem = async () => {
       </>
     );
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     return (
       <>

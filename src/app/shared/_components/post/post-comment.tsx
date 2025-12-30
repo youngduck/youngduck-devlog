@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const Giscus = () => {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const loadGiscus = useCallback(() => {
     const script = document.createElement("script");

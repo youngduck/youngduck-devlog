@@ -2,6 +2,7 @@
 import Lottie from "react-lottie-player";
 
 interface ICustomLottie {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   animationData: any;
 }
 

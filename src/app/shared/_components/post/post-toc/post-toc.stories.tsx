@@ -1,5 +1,5 @@
 import PostToc from "./post-toc";
-import { Meta, StoryObj, Decorator } from "@storybook/react";
+import { StoryObj, Decorator } from "@storybook/react";
 const withHeadings: Decorator = (Story) => (
   <>
     <div id="storybook-headings" style={{ display: "none" }}>

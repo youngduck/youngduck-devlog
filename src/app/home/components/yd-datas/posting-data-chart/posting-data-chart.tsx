@@ -138,6 +138,7 @@ const PostingDataChart = () => {
       setAlgorithmStats(algorithmStats);
       setBlogStats(blogStats);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error("Error fetching stats:", error);
     } finally {
       setIsLoading(false);

@@ -87,6 +87,7 @@ const fetchBlogData = async () => {
     const data: Post[] = await response.json();
     return data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching blog data:", error);
     return [];
   }
@@ -103,6 +104,7 @@ const fetchAlgorithmsData = async () => {
     const data: Post[] = await response.json();
     return data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching algorithms data:", error);
     return [];
   }
