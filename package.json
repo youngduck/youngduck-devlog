@@ -1,6 +1,6 @@
 {
   "name": "yd-blog",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "private": true,
   "engines": {
     "node": ">=22.0.0"
@@ -68,10 +68,14 @@
     "@types/react-dom": "^18",
     "@types/react-syntax-highlighter": "^15.5.11",
     "@types/rss": "^0.0.32",
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/parser": "^8.51.0",
     "autoprefixer": "^10.0.1",
     "chromatic": "^11.20.2",
     "eslint": "^8",
     "eslint-config-next": "15.2.3",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-storybook": "^0.11.1",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
