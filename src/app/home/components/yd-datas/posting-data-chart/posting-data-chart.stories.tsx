@@ -3,7 +3,7 @@ import PostingDataChart from "./posting-data-chart";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof PostingDataChart> = {
-  title: "pages/Home/Components/Charts/PostingDataChart",
+  title: "pages/Home/Components/YdDatas/PostingDataChart",
   component: PostingDataChart,
   decorators: [
     (Story) => (

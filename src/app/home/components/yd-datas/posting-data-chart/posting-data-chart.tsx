@@ -20,8 +20,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-interface IPostingDataChart {}
-
 interface MonthlyStats {
   year: number;
   month: number;
@@ -29,7 +27,7 @@ interface MonthlyStats {
   label: string;
 }
 
-const PostingDataChart: React.FC<IPostingDataChart> = () => {
+const PostingDataChart = () => {
   //SECTION HOOK호출 영역
   ChartJS.register(
     CategoryScale,
