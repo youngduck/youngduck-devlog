@@ -7,9 +7,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-interface IHeaderPercentBar {}
-
-const HeaderPercentBar: React.FC<IHeaderPercentBar> = () => {
+const HeaderPercentBar = () => {
   //SECTION HOOK호출 영역
   const [scrollPosition, setScrollPosition] = useState(0);
   useEffect(() => {

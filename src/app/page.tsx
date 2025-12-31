@@ -1,6 +1,6 @@
 import GridBoxWrapper from "@/app/home/components/grid-box-wrapper/grid-box-wrapper";
 import ScrapItem from "./home/components/scrap/scrap-item/scrap-item";
-import ChartsFunnel from "./home/components/charts/charts-funnel/ChartsFunnel";
+import ChartsFunnel from "./home/components/yd-datas/charts-funnel/ChartsFunnel";
 
 import Profile from "./home/components/profile/profile";
 import PostCards from "./shared/_components/post/post-cards/post-cards";
@@ -9,10 +9,7 @@ import { Post } from "./shared/_components/post/interfaces/posts";
 export default async function Home() {
   const posts = await fetchBlogData();
   const algorithms = await fetchAlgorithmsData();
-  console.log(
-    "process.env.NEXT_PUBLIC_SENTRY_DSN",
-    process.env.NEXT_PUBLIC_SENTRY_DSN,
-  );
+
   return (
     <main className="mx-auto h-auto w-full transform animate-fade-up duration-500 md:max-w-container-md lg:max-w-container-lg">
       {/* 첫 번째 행 */}
@@ -90,6 +87,7 @@ const fetchBlogData = async () => {
     const data: Post[] = await response.json();
     return data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching blog data:", error);
     return [];
   }
@@ -106,6 +104,7 @@ const fetchAlgorithmsData = async () => {
     const data: Post[] = await response.json();
     return data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching algorithms data:", error);
     return [];
   }

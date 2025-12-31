@@ -22,11 +22,11 @@ const getDomainUrl = (domain: string) => {
   }
 };
 
-// 카드의 고정 높이 상수 정의
-const CARD_HEIGHT_PX = 350;
-const IMAGE_HEIGHT_PX = 180;
-const METADATA_HEIGHT_PX = 40; // 카테고리와 날짜를 위한 공간
-const PADDING_PX = 16 * 2; // 상하 패딩
+// 카드의 고정 높이 상수 정의 (향후 사용 예정)
+// const CARD_HEIGHT_PX = 350;
+// const IMAGE_HEIGHT_PX = 180;
+// const METADATA_HEIGHT_PX = 40; // 카테고리와 날짜를 위한 공간
+// const PADDING_PX = 16 * 2; // 상하 패딩
 
 const PostCard: React.FC<IPostCard> = ({
   title,

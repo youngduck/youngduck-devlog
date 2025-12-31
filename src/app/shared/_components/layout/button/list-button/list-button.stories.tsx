@@ -15,6 +15,7 @@ type Story = StoryObj<typeof ListButton>;
 
 export const Mobile: Story = {
   args: {
+    // eslint-disable-next-line no-console
     onClick: () => console.log("Button clicked"),
   },
   parameters: {

@@ -20,8 +20,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-interface IAreaChart {}
-
 interface MonthlyStats {
   year: number;
   month: number;
@@ -29,7 +27,7 @@ interface MonthlyStats {
   label: string;
 }
 
-const AreaChart: React.FC<IAreaChart> = () => {
+const PostingDataChart = () => {
   //SECTION HOOK호출 영역
   ChartJS.register(
     CategoryScale,
@@ -140,6 +138,7 @@ const AreaChart: React.FC<IAreaChart> = () => {
       setAlgorithmStats(algorithmStats);
       setBlogStats(blogStats);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error("Error fetching stats:", error);
     } finally {
       setIsLoading(false);
@@ -174,4 +173,4 @@ const AreaChart: React.FC<IAreaChart> = () => {
   );
 };
 
-export default AreaChart;
+export default PostingDataChart;

@@ -127,6 +127,7 @@ export const H3: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Code: React.FC<{ children: React.ReactNode; className: any }> = ({
   children,
   className,

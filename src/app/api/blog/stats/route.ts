@@ -6,6 +6,7 @@ export async function GET() {
     const stats = getBlogStatsByMonth();
     return NextResponse.json(stats);
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error fetching blog stats:", error);
     return NextResponse.json(
       { error: "Failed to fetch blog statistics" },

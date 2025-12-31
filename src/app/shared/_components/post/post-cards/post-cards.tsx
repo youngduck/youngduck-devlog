@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import PostCard from "../post-card/post-card";
 
 type IPostCards = {

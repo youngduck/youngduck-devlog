@@ -21,6 +21,7 @@ const PostToc = () => {
             (a.target as HTMLElement).offsetTop -
             (b.target as HTMLElement).offsetTop,
         );
+      // eslint-disable-next-line no-console
       console.log(visibleHeadings, "visibleHeadings");
       if (visibleHeadings.length > 0) {
         setActiveId((visibleHeadings[0].target as HTMLElement).id);

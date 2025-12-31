@@ -4,6 +4,27 @@
 
 본 프로젝트는 [시맨틱 버저닝(Semantic Versioning)](https://semver.org/lang/ko/) 규칙을 따릅니다. 버전 표기 방식은 `MAJOR.MINOR.PATCH`(예: 1.2.3)입니다.
 
+## [1.2.2] - 2025-12-29
+
+**Branch**: `YD-v1.2.2-YD-DATAS컨텐츠추가`
+
+### 추가
+
+- feat: side-proejcts컴포넌트추가
+- feat: eslint 규칙 고도화
+
+### 변경
+
+- refactor: 컴포넌트이름변경 area-chart -> posting-data-chart
+- refactor: 미사용 interafce선언 제거 및 상위폴더명변경 charts -> yd-datas
+- refactor: eslint 규칙 고도화에 따른 소스코드 대규모 수정
+
+### 수정
+
+### 제거
+
+---
+
 ## [1.2.1] - 2025-12-12
 
 **Branch**: `YD-v1.2.1-포스팅가지치기`
