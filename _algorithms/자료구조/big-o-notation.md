@@ -1,18 +1,22 @@
 ---
 title: "Big O Notation - 시간복잡도와 공간복잡도"
-excerpt: "Colt Steele의 JS 알고리즘 자료구조 마스터클래스 - Big O, 시간복잡도, 공간복잡도 핵심 정리"
+excerpt: "자료구조 복습"
 coverImage: "/assets/blog/CS기초/cover.png"
 date: "2026-03-16T00:00:00"
 ogImage:
   url: "/assets/blog/CS기초/cover.png"
 ---
 
+> Colt Steele의 JavaScript Algorithms and Data Structures Masterclass 강의를 보고 정리한 글입니다.
+
+&nbsp;
+
 ## Big O Notation이란?
 
 알고리즘의 성능을 **단일 숫자(레이블)** 로 일반화하는 방법.
 
 - 코드의 효율성을 비교하는 공통 언어
-- 입력값 `n`이 커질수록 알고리즘이 얼마나 느려지는지를 나타냄
+- 입력값 n이 커질수록 알고리즘이 얼마나 느려지는지를 나타냄
 - 정확한 연산 횟수보다 **전체적인 추세(트렌드)** 에 집중
 
 &nbsp;
@@ -169,19 +173,19 @@ function double(arr) {
 
 | 연산 | 복잡도 | 이유 |
 |------|--------|------|
-| 접근 `arr[i]` | O(1) | 인덱스로 직접 접근 |
+| 접근 arr[i] | O(1) | 인덱스로 직접 접근 |
 | 탐색 (search) | O(n) | 전체를 순회해야 함 |
-| 삽입 - 끝 `push` | O(1) | 맨 뒤에 추가 |
-| 삽입 - 앞 `unshift` | O(n) | 기존 인덱스 전부 재정렬 |
-| 삭제 - 끝 `pop` | O(1) | 맨 뒤 제거 |
-| 삭제 - 앞 `shift` | O(n) | 기존 인덱스 전부 재정렬 |
-| `concat` | O(n) | |
-| `slice` | O(n) | |
-| `splice` | O(n) | |
-| `sort` | O(n log n) | |
-| `forEach` / `map` / `filter` / `reduce` | O(n) | |
+| 삽입 - 끝 push | O(1) | 맨 뒤에 추가 |
+| 삽입 - 앞 unshift | O(n) | 기존 인덱스 전부 재정렬 |
+| 삭제 - 끝 pop | O(1) | 맨 뒤 제거 |
+| 삭제 - 앞 shift | O(n) | 기존 인덱스 전부 재정렬 |
+| concat | O(n) | |
+| slice | O(n) | |
+| splice | O(n) | |
+| sort | O(n log n) | |
+| forEach / map / filter / reduce | O(n) | |
 
-> **핵심**: 배열의 앞쪽을 건드리는 연산(`unshift`, `shift`)은 O(n)이므로 되도록 피한다.
+> **핵심**: 배열의 앞쪽을 건드리는 연산(unshift, shift)은 O(n)이므로 되도록 피한다.
 
 &nbsp;
 
@@ -197,8 +201,7 @@ function double(arr) {
 | 삭제 | O(1) |
 | 접근 | O(1) |
 | 탐색 (값 검색) | O(n) |
-| `Object.keys()` | O(n) |
-| `Object.values()` | O(n) |
-| `Object.entries()` | O(n) |
-| `hasOwnProperty` | O(1) |
-
+| Object.keys() | O(n) |
+| Object.values() | O(n) |
+| Object.entries() | O(n) |
+| hasOwnProperty | O(1) |
