@@ -1,10 +1,10 @@
 ---
 title: "Big O Notation - 시간복잡도와 공간복잡도"
-excerpt: "자료구조 복습"
-coverImage: "/assets/blog/CS기초/cover.png"
-date: "2026-03-16T00:00:00"
+excerpt: "자료구조, 알고리즘 강의내용 정리"
+coverImage: "/assets/algorithms/JS-자료구조/cover.png"
+date: "2026-03-16T10:00:00"
 ogImage:
-  url: "/assets/blog/CS기초/cover.png"
+  url: "/assets/algorithms/JS-자료구조/cover.png"
 ---
 
 > Colt Steele의 JavaScript Algorithms and Data Structures Masterclass 강의를 보고 정리한 글입니다.
@@ -71,7 +71,7 @@ function example(arr) {
 | O(2ⁿ) | 지수 | 피보나치 재귀 등 |
 | O(n!) | 팩토리얼 | 순열 탐색 등 |
 
-```
+```javascript
 O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!)
 ```
 
@@ -122,7 +122,7 @@ function printAllPairs(n) {
 
 입력값이 커질수록 **추가로 필요한 메모리** 가 얼마나 증가하는지.
 
-> 입력값 자체가 차지하는 공간은 제외 (Auxiliary Space Complexity)
+입력값 자체가 차지하는 **공간은 제외**한다.
 
 &nbsp;
 
