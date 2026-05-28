@@ -18,18 +18,14 @@ ogImage:
 
 **예시 1**
 
-```
-Input: root = [2,1,3]
-Output: true
-```
+입력: root = [2,1,3]
+출력: true
 
 **예시 2**
 
-```
-Input: root = [5,1,4,null,null,3,6]
-Output: false
+입력: root = [5,1,4,null,null,3,6]
+출력: false
 설명: 루트의 오른쪽 자식 4가 루트보다 작으므로 BST 조건 위반
-```
 
 **제약 조건**
 
