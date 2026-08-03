@@ -2,7 +2,7 @@
 title: "[SQLD] 5장. 관리구문"
 excerpt: "DML, TCL, DDL, DCL"
 coverImage: "/assets/blog/posts/mysql/cover.png"
-date: "2026-08-03T:12:00"
+date: "2026-08-03T12:00:00"
 ogImage:
   url: "/assets/blog/posts/mysql/cover.png"
 ---
