@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700&display=swap");
+
+/* ===== A4 이력서 인쇄/미리보기 스타일 ===== */
+
+/* Zen Maru Gothic (포트폴리오 YD-UI 로고 타이틀용) */
+.font-zen-maru {
+  font-family: "Zen Maru Gothic", "Wanted Sans Variable", sans-serif;
+}
+
+.resume-root {
+  /* 이력서 강조 컬러(피그마 exact). 여기 한 곳만 바꾸면 전체 톤이 바뀐다. */
+  --resume-accent: #5337c9;
+  --resume-border: #d9d9d9;
+}
+
+/* 화면(미리보기): 블로그 톤의 "데스크" 위에 흰 A4 종이 */
+.resume-viewport {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 64px;
+}
+
+/*
+ * A4 한 장. 피그마 프레임은 595×842px(A4@72dpi) 기준으로 설계됐으므로,
+ * 595px 캔버스를 그대로 만들고 210mm(=793.7px @96dpi)에 맞춰 스케일한다.
+ * => 피그마 px 값을 반올림 없이 그대로 사용 가능.
+ */
+.a4 {
+  position: relative;
+  background: #ffffff;
+  width: 210mm;
+  height: 297mm;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.a4-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 595px;
+  min-height: 842px;
+  color: #000000;
+  background: #ffffff;
+  transform: scale(1.33395); /* 793.7 / 595 */
+  transform-origin: top left;
+}
+
+/* 가로(landscape)용 — 필요 시 확장 */
+.a4--landscape {
+  width: 297mm;
+  height: 210mm;
+}
+.a4--landscape .a4-canvas {
+  width: 842px;
+  min-height: 595px;
+}
+
+/* 이력서 섹션 제목(보라) */
+.resume-heading {
+  color: var(--resume-accent);
+}
+
+/* ===== 인쇄 시: A4 영역만 남기고 전부 제거 ===== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+  @page landscape {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* 인쇄 시 블로그 헤더/푸터 제거 → A4만 남김 */
+  header,
+  footer {
+    display: none !important;
+  }
+
+  .resume-viewport {
+    padding: 0;
+    gap: 0;
+    background: #ffffff;
+  }
+
+  .a4 {
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .a4:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
