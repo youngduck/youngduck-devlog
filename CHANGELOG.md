@@ -4,6 +4,25 @@
 
 본 프로젝트는 [시맨틱 버저닝(Semantic Versioning)](https://semver.org/lang/ko/) 규칙을 따릅니다. 버전 표기 방식은 `MAJOR.MINOR.PATCH`(예: 1.2.3)입니다.
 
+## [1.3.0] - 2026-09-09
+
+**Branch**: `YD-v1.3.0-이력서포트폴리오라우터`
+
+### 추가
+
+- feat: 이력서/포트폴리오 문서함 라우터 추가 (`/private` 허브 → `/resume`, `/portfolio`)
+- feat: React 컴포넌트 적재 기반 A4 문서 시스템 (595px 캔버스 → A4 스케일, 브라우저 인쇄로 PDF 추출)
+- feat: Figma 디자인 픽셀 재현 — 이력서 2p(세로), 포트폴리오 8p(가로, 커버·프로필·프로젝트 상세)
+- feat: 포트폴리오 YD-UI 타이틀 Zen Maru Gothic 폰트 적용
+
+### 변경
+
+### 수정
+
+### 제거
+
+---
+
 ## [1.2.2] - 2025-12-29
 
 **Branch**: `YD-v1.2.2-YD-DATAS컨텐츠추가`
