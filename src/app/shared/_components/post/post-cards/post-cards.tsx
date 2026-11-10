@@ -9,6 +9,7 @@ type IPostCards = {
     excerpt: string;
     slug: string;
     category: string;
+    readingMinutes?: number;
   }[];
   domain: "blog" | "algorithms";
 };
@@ -25,6 +26,7 @@ const PostCards: React.FC<IPostCards> = ({ posts, domain }) => {
           date={item.date}
           excerpt={item.excerpt}
           category={item.category}
+          readingMinutes={item.readingMinutes}
           domain={domain}
         />
       ))}

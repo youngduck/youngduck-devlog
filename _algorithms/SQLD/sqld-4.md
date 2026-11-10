@@ -1,10 +1,10 @@
 ---
 title: "[SQLD] 4장. SQL 활용"
 excerpt: "서브쿼리, 집합연산자, 그룹함수, 윈도우함수, Top N 쿼리, 계층형 질의, PIVOT/UNPIVOT, 정규표현식"
-coverImage: "/assets/blog/posts/mysql/cover.png"
+coverImage: "/assets/algorithms/SQLD/cover.png"
 date: "2026-07-25T12:00:00"
 ogImage:
-  url: "/assets/blog/posts/mysql/cover.png"
+  url: "/assets/algorithms/SQLD/cover.png"
 ---
 
 ## 4.1 서브쿼리

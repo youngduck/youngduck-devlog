@@ -1,10 +1,10 @@
 ---
 title: "[SQLD] 1장. 데이터 모델링의 이해"
 excerpt: "데이터 모델의 이해, 엔터티, 속성, 관계, 식별자"
-coverImage: "/assets/blog/posts/mysql/cover.png"
+coverImage: "/assets/algorithms/SQLD/cover.png"
 date: "2026-06-08T21:00:00"
 ogImage:
-  url: "/assets/blog/posts/mysql/cover.png"
+  url: "/assets/algorithms/SQLD/cover.png"
 ---
 
 ## 1.1 데이터 모델의 이해

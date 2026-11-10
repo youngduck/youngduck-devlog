@@ -6,6 +6,7 @@ type IPostTitle = {
   category: string;
   date: string;
   coverImage: string;
+  readingMinutes?: number;
 };
 
 const PostTitle: React.FC<IPostTitle> = ({
@@ -13,6 +14,7 @@ const PostTitle: React.FC<IPostTitle> = ({
   category,
   date,
   coverImage,
+  readingMinutes,
 }) => {
   return (
     <div className="mt-[20px] transform animate-fade-up py-3 font-[KCC] duration-500 lg:mt-[70px]">
@@ -23,6 +25,7 @@ const PostTitle: React.FC<IPostTitle> = ({
       <div className="flex justify-between py-3">
         <span className="ml-[10px] text-[16px] text-gray-500">
           {date.split("T")[0]}
+          {readingMinutes && ` · ${readingMinutes} min read`}
         </span>
       </div>
       <Image

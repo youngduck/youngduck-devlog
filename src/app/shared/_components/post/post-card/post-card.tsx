@@ -8,6 +8,7 @@ type IPostCard = {
   excerpt: string;
   slug: string;
   category: string;
+  readingMinutes?: number;
   domain: "blog" | "algorithms";
 };
 
@@ -35,6 +36,7 @@ const PostCard: React.FC<IPostCard> = ({
   date,
   excerpt,
   category,
+  readingMinutes,
   domain,
 }) => {
   const domainUrl = getDomainUrl(domain);
@@ -59,6 +61,7 @@ const PostCard: React.FC<IPostCard> = ({
           </span>
           <p className="text-[10px] font-normal text-gray-400">
             {date.split("T")[0]}
+            {readingMinutes && ` · ${readingMinutes} min read`}
           </p>
         </div>
 

@@ -3,6 +3,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path, { join } from "path";
 import RSS from "rss";
+import { getReadingMinutes } from "@/lib/reading-time";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -58,6 +59,7 @@ export function getPostBySlug(slug: string) {
     slug: decodedSlug, // 디코딩된 slug 사용
     category: category === "." ? "ETC" : category,
     content,
+    readingMinutes: getReadingMinutes(content),
   } as Post;
 }
 

@@ -21,6 +21,8 @@ export interface CareerRow {
 export interface SimpleRow {
   name: string;
   desc: string;
+  /** 있으면 이름이 실제 링크가 된다. 검증 가능성을 열어두기 위함. */
+  href?: string;
 }
 
 export interface SkillGroup {

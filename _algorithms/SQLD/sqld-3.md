@@ -1,10 +1,10 @@
 ---
 title: "[SQLD] 3장. SQL 기본"
 excerpt: "관계형 데이터베이스 개요, SELECT문, 함수, WHERE절, GROUP BY, ORDER BY, 조인, 표준 조인"
-coverImage: "/assets/blog/posts/mysql/cover.png"
+coverImage: "/assets/algorithms/SQLD/cover.png"
 date: "2026-07-22T19:00:00"
 ogImage:
-  url: "/assets/blog/posts/mysql/cover.png"
+  url: "/assets/algorithms/SQLD/cover.png"
 ---
 
 ## 3.1 관계형 데이터베이스 개요
