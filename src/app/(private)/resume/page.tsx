@@ -157,9 +157,20 @@ export default function ResumePage() {
                     }}
                   />
                   <div className="flex flex-col">
-                    <p className="text-[14px] font-medium leading-[18px] text-black underline">
-                      {s.name}
-                    </p>
+                    {s.href ? (
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[14px] font-medium leading-[18px] text-black underline"
+                      >
+                        {s.name}
+                      </a>
+                    ) : (
+                      <p className="text-[14px] font-medium leading-[18px] text-black underline">
+                        {s.name}
+                      </p>
+                    )}
                     <p className="text-[12px] font-normal leading-[18px] text-black">
                       {s.desc}
                     </p>

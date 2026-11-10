@@ -16,7 +16,7 @@ const Page = async (props: { params: Params }) => {
   if (!post) {
     return notFound();
   }
-  const { title, category, date, coverImage, content } = post;
+  const { title, category, date, coverImage, content, readingMinutes } = post;
 
   return (
     <>
@@ -27,6 +27,7 @@ const Page = async (props: { params: Params }) => {
             category={category}
             date={date}
             coverImage={coverImage}
+            readingMinutes={readingMinutes}
           />
           <PostBody content={content} />
         </article>

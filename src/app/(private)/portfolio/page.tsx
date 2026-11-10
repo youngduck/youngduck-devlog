@@ -9,6 +9,8 @@ import PortfolioPage5 from "./_components/page5";
 import PortfolioPage6 from "./_components/page6";
 import PortfolioPage7 from "./_components/page7";
 import PortfolioPage8 from "./_components/page8";
+import PortfolioPage9 from "./_components/page9";
+import PortfolioPage10 from "./_components/page10";
 import { portfolio2026 as p } from "./_data/portfolio-2026";
 
 const L = "/assets/resume/logos";
@@ -257,6 +259,16 @@ export default function PortfolioPage() {
       {/* ===== 8페이지: 기술블로그 YD-Tech ===== */}
       <A4Page orientation="landscape">
         <PortfolioPage8 />
+      </A4Page>
+
+      {/* ===== 9페이지: 아키텍처 다이어그램 (계층형 노드/화살표 컴포넌트) ===== */}
+      <A4Page orientation="landscape">
+        <PortfolioPage9 />
+      </A4Page>
+
+      {/* ===== 10페이지: YD-Tech 아키텍처 (노란 테두리, 그림자 없음) ===== */}
+      <A4Page orientation="landscape">
+        <PortfolioPage10 />
       </A4Page>
     </div>
   );

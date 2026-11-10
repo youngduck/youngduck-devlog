@@ -1,10 +1,10 @@
 ---
 title: "[SQLD] 2장. 데이터 모델과 SQL"
 excerpt: "정규화, 관계와 조인의 이해, 트랜잭션, Null 속성, 본질식별자 vs 인조식별자"
-coverImage: "/assets/blog/posts/mysql/cover.png"
+coverImage: "/assets/algorithms/SQLD/cover.png"
 date: "2026-07-03T19:00:00"
 ogImage:
-  url: "/assets/blog/posts/mysql/cover.png"
+  url: "/assets/algorithms/SQLD/cover.png"
 ---
 
 ## 2.1 정규화

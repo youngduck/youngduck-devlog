@@ -10,5 +10,7 @@ export type Post = {
     url: string;
   };
   content: string;
+  /** 예상 읽기 시간(분) — 블로그 글만 계산 */
+  readingMinutes?: number;
   preview?: boolean;
 };
