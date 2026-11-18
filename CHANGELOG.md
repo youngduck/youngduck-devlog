@@ -4,6 +4,27 @@
 
 본 프로젝트는 [시맨틱 버저닝(Semantic Versioning)](https://semver.org/lang/ko/) 규칙을 따릅니다. 버전 표기 방식은 `MAJOR.MINOR.PATCH`(예: 1.2.3)입니다.
 
+## [1.4.0] - 2026-11-18
+
+**Branch**: `YD-v1.4.0-일정관리라우터`
+
+### 추가
+
+- feat: 비공개 일정관리 라우터 추가 (`/schedule`) — 월 달력 + 날짜별 할 일 체크리스트
+- feat: Notion API(YD-DEV 워크스페이스 DB)를 저장소로 사용해 할 일 조회·추가·체크·삭제 (Server Actions)
+- feat: GitHub 커밋 검색 API로 그 날 push 한 커밋을 "자동 완료" 항목으로 표시 (공개 저장소, 10분 캐시)
+- feat: 프로젝트별 필터 (저장소 이름 = Notion `프로젝트` 선택지, 숨긴 프로젝트는 브라우저에 기억)
+- feat: `middleware.ts` Basic Auth 게이트 — `/schedule` 접근 시 계정 필요 (env 미설정 시 전부 차단)
+- feat: Notion DB 셋업 스크립트 (`scripts/setup-schedule-db.mjs`) — 페이지 하위 DB 탐색·속성 추가
+
+### 변경
+
+### 수정
+
+### 제거
+
+---
+
 ## [1.3.0] - 2026-09-09
 
 **Branch**: `YD-v1.3.0-이력서포트폴리오라우터`
