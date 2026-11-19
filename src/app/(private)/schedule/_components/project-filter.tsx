@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { PROJECT_META } from "../_data/projects";
 
 export const NO_PROJECT = "__none__";
 
@@ -24,7 +26,15 @@ export function projectColor(project: string): string {
 }
 
 export function projectLabel(project: string): string {
-  return project === NO_PROJECT ? "기타" : project;
+  if (project === NO_PROJECT) return "기타";
+  return PROJECT_META[project]?.label ?? project;
+}
+
+/** 로고가 있으면 로고, 없으면 색 점 (달력 칸의 점과 같은 색) */
+export function ProjectMark({ project, size = 16 }: { project: string; size?: number }) {
+  const logo = PROJECT_META[project]?.logo;
+  if (!logo) return <span className={cn("h-2 w-2 shrink-0 rounded-full", projectColor(project))} />;
+  return <Image src={logo} alt="" width={size} height={size} className="shrink-0 rounded-sm object-contain" />;
 }
 
 interface Props {
@@ -50,11 +60,13 @@ export default function ProjectFilter({ projects, hidden, onChange }: Props) {
   if (projects.length === 0) return null;
 
   return (
-    <fieldset className="flex flex-wrap items-center gap-1.5">
+    // 휴대폰: 한 줄 가로 스크롤 (화면 끝까지 붙도록 -mx-4) · md~: 줄바꿈
+    // min-w-0: fieldset 기본값 min-inline-size:min-content 가 가로 스크롤 대신 페이지를 넓히는 것을 막는다
+    <fieldset className="-mx-4 flex min-w-0 items-center gap-1.5 overflow-x-auto px-4 pb-1 [scrollbar-width:none] md:mx-0 md:flex-wrap md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
       <legend className="sr-only">프로젝트 필터</legend>
       <label
         className={cn(
-          "flex cursor-pointer items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs",
+          "flex shrink-0 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full border border-border px-3 py-1.5 text-xs md:py-1",
           allVisible && "bg-secondary",
         )}
       >
@@ -75,7 +87,7 @@ export default function ProjectFilter({ projects, hidden, onChange }: Props) {
             only(p);
           }}
           className={cn(
-            "flex cursor-pointer select-none items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs transition-opacity",
+            "flex shrink-0 cursor-pointer select-none items-center gap-1.5 whitespace-nowrap rounded-full border border-border px-3 py-1.5 text-xs transition-opacity md:py-1",
             hidden.has(p) && "opacity-50",
           )}
         >
@@ -85,8 +97,10 @@ export default function ProjectFilter({ projects, hidden, onChange }: Props) {
             onChange={() => toggle(p)}
             className="h-3.5 w-3.5 accent-primary"
           />
-          <span className={cn("h-2 w-2 rounded-full", projectColor(p))} />
+          <ProjectMark project={p} />
           {projectLabel(p)}
+          {/* 달력 칸의 점 색과 짝을 맞추는 표시 */}
+          <span className={cn("h-1.5 w-1.5 rounded-full", projectColor(p))} aria-hidden />
         </label>
       ))}
     </fieldset>
