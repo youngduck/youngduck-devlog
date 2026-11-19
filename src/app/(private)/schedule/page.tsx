@@ -22,7 +22,7 @@ export default async function SchedulePage({
   ]);
 
   return (
-    <div className="mx-auto w-full max-w-[1100px] px-4 py-10">
+    <div className="mx-auto w-full max-w-[1100px] px-4 py-6 md:py-10">
       <QuickLinks />
       <Calendar
         month={month}

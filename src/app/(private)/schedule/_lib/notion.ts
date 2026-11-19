@@ -11,6 +11,8 @@ const PROP = {
   done: "완료", // checkbox
   project: "프로젝트", // select (GitHub 저장소 이름과 같게 쓰면 커밋과 함께 필터된다)
   carried: "이월", // number (미완료로 다음 날로 넘어간 횟수)
+  due: "기한", // date (선택 — 이 날이 지나면 이월하지 않고 "놓침" 처리)
+  missed: "놓침", // checkbox (기한을 넘겼거나 직접 포기한 할 일 — 더는 이월하지 않는다)
 } as const;
 
 const NOTION_VERSION = "2022-06-28";
@@ -22,6 +24,8 @@ export interface TodoItem {
   done: boolean;
   project: string | null;
   carried: number;
+  due: string | null; // YYYY-MM-DD
+  missed: boolean;
 }
 
 function env() {
@@ -75,6 +79,8 @@ function toItem(page: NotionPage): TodoItem {
     done: Boolean(p[PROP.done]?.checkbox),
     project: p[PROP.project]?.select?.name ?? null,
     carried: p[PROP.carried]?.number ?? 0,
+    due: p[PROP.due]?.date?.start?.slice(0, 10) ?? null,
+    missed: Boolean(p[PROP.missed]?.checkbox),
   };
 }
 
@@ -98,9 +104,9 @@ async function queryAll(body: Record<string, unknown>): Promise<NotionPage[]> {
 }
 
 /**
- * 오늘 이전 날짜인데 완료 체크가 안 된 할 일 → 오늘로 옮기고 이월 횟수 +1.
- * 화면을 열 때마다 호출된다 (옮길 게 없으면 조회 1번으로 끝).
- * 며칠 만에 열어도 한 번에 오늘로 오며, 이월은 1만 오른다.
+ * 오늘 이전 날짜인데 완료·놓침 둘 다 아닌 할 일을 정리한다. 화면을 열 때마다 호출된다.
+ * - 기한이 없거나 아직 안 지났으면 → 오늘로 옮기고 이월 +1 (며칠 만에 열어도 이월은 1만 오른다)
+ * - 기한이 지났으면 → 이월하지 않고 "놓침" 체크, 날짜는 기한 날로 둔다 (그 주에 못 한 기록이 남도록)
  */
 export async function rolloverOverdue(today: string): Promise<number> {
   const overdue = await queryAll({
@@ -108,17 +114,25 @@ export async function rolloverOverdue(today: string): Promise<number> {
       and: [
         { property: PROP.date, date: { before: today } },
         { property: PROP.done, checkbox: { equals: false } },
+        { property: PROP.missed, checkbox: { equals: false } },
       ],
     },
   });
   // Notion API 평균 3req/s 제한 → 순차 처리
   for (const page of overdue) {
     const item = toItem(page);
+    const expired = item.due !== null && item.due < today;
     await notion(`/pages/${page.id}`, "PATCH", {
-      properties: {
-        [PROP.date]: { date: { start: today } },
-        [PROP.carried]: { number: item.carried + 1 },
-      },
+      properties: expired
+        ? {
+            [PROP.missed]: { checkbox: true },
+            // 기한 전 날짜에 멈춰 있었다면 기한 날로 옮겨 마지막 기회였던 날에 표시
+            ...(item.date < item.due! && { [PROP.date]: { date: { start: item.due } } }),
+          }
+        : {
+            [PROP.date]: { date: { start: today } },
+            [PROP.carried]: { number: item.carried + 1 },
+          },
     });
   }
   return overdue.length;
@@ -149,7 +163,12 @@ export async function getMonthTodos(month: string): Promise<TodoItem[]> {
   return pages.map(toItem);
 }
 
-export async function createTodo(date: string, title: string, project: string | null): Promise<TodoItem> {
+export async function createTodo(
+  date: string,
+  title: string,
+  project: string | null,
+  due: string | null,
+): Promise<TodoItem> {
   const { dbId } = env();
   const page = await notion<NotionPage>("/pages", "POST", {
     parent: { database_id: dbId },
@@ -158,14 +177,23 @@ export async function createTodo(date: string, title: string, project: string | 
       [PROP.date]: { date: { start: date } },
       [PROP.done]: { checkbox: false },
       ...(project && { [PROP.project]: { select: { name: project } } }),
+      ...(due && { [PROP.due]: { date: { start: due } } }),
     },
   });
   return toItem(page);
 }
 
+/** 완료 체크. 놓친 할 일을 늦게라도 끝냈으면 놓침은 풀린다. */
 export async function setTodoDone(id: string, done: boolean): Promise<void> {
   await notion(`/pages/${id}`, "PATCH", {
-    properties: { [PROP.done]: { checkbox: done } },
+    properties: { [PROP.done]: { checkbox: done }, ...(done && { [PROP.missed]: { checkbox: false } }) },
+  });
+}
+
+/** 못 함(포기) 표시 / 되돌리기. 놓친 할 일은 이월되지 않는다. */
+export async function setTodoMissed(id: string, missed: boolean): Promise<void> {
+  await notion(`/pages/${id}`, "PATCH", {
+    properties: { [PROP.missed]: { checkbox: missed }, ...(missed && { [PROP.done]: { checkbox: false } }) },
   });
 }
 

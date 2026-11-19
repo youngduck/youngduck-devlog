@@ -2,7 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { TodoItem } from "./notion";
-import { addTodoAction, deleteTodoAction, toggleTodoAction } from "../actions";
+import { addTodoAction, deleteTodoAction, setMissedAction, toggleTodoAction } from "../actions";
 
 export const todosKey = (month: string) => ["schedule", "todos", month] as const;
 export const isTempId = (id: string) => id.startsWith("temp-");
@@ -51,7 +51,18 @@ export function useToggleTodo(month: string) {
     mutationKey: ["schedule", "toggle"],
     mutationFn: ({ id, done }: { id: string; done: boolean }) => toggleTodoAction(id, done),
     ...useOptimisticHandlers<{ id: string; done: boolean }>(month, (list, { id, done }) =>
-      list.map((t) => (t.id === id ? { ...t, done } : t)),
+      list.map((t) => (t.id === id ? { ...t, done, missed: done ? false : t.missed } : t)),
+    ),
+  });
+}
+
+/** 못 함(포기) ↔ 되돌리기 */
+export function useMissTodo(month: string) {
+  return useMutation({
+    mutationKey: ["schedule", "miss"],
+    mutationFn: ({ id, missed }: { id: string; missed: boolean }) => setMissedAction(id, missed),
+    ...useOptimisticHandlers<{ id: string; missed: boolean }>(month, (list, { id, missed }) =>
+      list.map((t) => (t.id === id ? { ...t, missed, done: missed ? false : t.done } : t)),
     ),
   });
 }
@@ -69,6 +80,7 @@ interface AddVars {
   date: string;
   title: string;
   project: string | null;
+  due: string | null;
 }
 
 export function useAddTodo(month: string) {
@@ -76,10 +88,10 @@ export function useAddTodo(month: string) {
   const key = todosKey(month);
   return useMutation({
     mutationKey: ["schedule", "add"],
-    mutationFn: ({ date, title, project }: AddVars) => addTodoAction(date, title, project),
+    mutationFn: ({ date, title, project, due }: AddVars) => addTodoAction(date, title, project, due),
     ...useOptimisticHandlers<AddVars>(month, (list, v) => [
       ...list,
-      { id: v.tempId, title: v.title, date: v.date, done: false, project: v.project, carried: 0 },
+      { id: v.tempId, title: v.title, date: v.date, done: false, project: v.project, carried: 0, due: v.due, missed: false },
     ]),
     // 임시 항목을 Notion 이 준 실제 항목(id)으로 교체
     onSuccess: (created: TodoItem | null, v: AddVars) => {
