@@ -2,7 +2,7 @@
  * yd-dev "일정,업무관리" 페이지 안의 인라인 DB를 찾아 일정관리용 속성을 맞춘다.
  *   node scripts/setup-schedule-db.mjs
  * - 필요: .env 의 NOTION_SCHEDULE_TOKEN (연동이 해당 페이지에 연결돼 있어야 함)
- * - 하는 일: 페이지 하위 DB 찾기 → 날짜(date)·완료(checkbox)·프로젝트(select) 속성 추가
+ * - 하는 일: 페이지 하위 DB 찾기 → 날짜(date)·완료(checkbox)·프로젝트(select)·이월(number) 속성 추가
  *            → .env 에 NOTION_SCHEDULE_DATABASE_ID 가 없으면 추가
  * - 여러 번 실행해도 안전하다 (이미 있으면 건너뜀).
  */
@@ -47,6 +47,7 @@ try {
   if (!props["날짜"]) patch["날짜"] = { date: {} };
   if (!props["완료"]) patch["완료"] = { checkbox: {} };
   if (!props["프로젝트"]) patch["프로젝트"] = { select: {} };
+  if (!props["이월"]) patch["이월"] = { number: {} };
   const needsTitle = !db.title?.length;
 
   if (Object.keys(patch).length || needsTitle) {

@@ -4,6 +4,27 @@
 
 본 프로젝트는 [시맨틱 버저닝(Semantic Versioning)](https://semver.org/lang/ko/) 규칙을 따릅니다. 버전 표기 방식은 `MAJOR.MINOR.PATCH`(예: 1.2.3)입니다.
 
+## [1.4.1] - 2026-11-19
+
+**Branch**: `YD-v1.4.1-일정관리개선`
+
+### 추가
+
+- feat: 미완료 할 일 자동 이월 — 지난 날짜에 체크 안 된 항목을 화면을 열 때 오늘로 옮기고 Notion `이월` 횟수 +1 (`↻n` 표시)
+- feat: 달력 위 바로가기 카드 — 기술블로그·YD-UI·보돌코 스코어드별 홈 버튼 + 운영 도구 아이콘 링크 (GitHub·Vercel·Sentry·Chromatic·npm·Storybook·Supabase·GA)
+
+### 변경
+
+- refactor: 할 일 체크·추가·삭제를 React Query 낙관적 업데이트로 전환 — Server Action 의 `revalidatePath`(페이지 전체 재렌더, 약 1.4초) 제거, 화면 반영 약 0.1초
+- refactor: 할 일 재조회용 `/schedule/api/todos` 라우트 추가, 추가 시 Notion 이 돌려준 항목으로 임시 항목 교체
+- chore: `@tanstack/react-query` 추가 (일정관리 화면에만 QueryClientProvider 적용)
+
+### 수정
+
+### 제거
+
+---
+
 ## [1.4.0] - 2026-11-18
 
 **Branch**: `YD-v1.4.0-일정관리라우터`

@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useIsMutating } from "@tanstack/react-query";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, GitCommitHorizontal, Plus, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { TodoItem } from "../_lib/notion";
 import type { CommitItem } from "../_lib/github";
 import { monthCells, shiftMonth } from "../_lib/month";
-import { addTodoAction, deleteTodoAction, toggleTodoAction } from "../actions";
+import { isTempId, useAddTodo, useDeleteTodo, useTodos, useToggleTodo } from "../_lib/use-todos";
 import ProjectFilter, { NO_PROJECT, projectColor, projectLabel } from "./project-filter";
 
 const DOW = ["일", "월", "화", "수", "목", "금", "토"];
@@ -30,14 +31,16 @@ function groupBy<T extends { date: string }>(list: T[]) {
 const todoProject = (t: TodoItem) => t.project ?? NO_PROJECT;
 
 export default function Calendar({ month, today, todos, commits, projectOptions }: Props) {
-  // 서버에서 새로 받은 목록으로 동기화 + 체크는 낙관적으로 먼저 반영
-  const [items, setItems] = useState(todos);
-  useEffect(() => setItems(todos), [todos]);
+  // 할 일 = React Query 캐시 (첫 값은 서버 렌더 결과). 체크·추가·삭제는 낙관적 업데이트.
+  const { data: items } = useTodos(month, todos);
+  const toggleMutation = useToggleTodo(month);
+  const deleteMutation = useDeleteTodo(month);
+  const addMutation = useAddTodo(month);
+  const pending = useIsMutating({ mutationKey: ["schedule"] }) > 0;
 
   const [selected, setSelected] = useState(today.startsWith(month) ? today : `${month}-01`);
   useEffect(() => setSelected(today.startsWith(month) ? today : `${month}-01`), [month, today]);
 
-  const [pending, startTransition] = useTransition();
   const [draft, setDraft] = useState("");
   const [draftProject, setDraftProject] = useState("");
 
@@ -83,22 +86,20 @@ export default function Calendar({ month, today, todos, commits, projectOptions 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shownProjects.join("|")]);
 
-  const toggle = (id: string, done: boolean) => {
-    setItems((prev) => prev.map((t) => (t.id === id ? { ...t, done } : t)));
-    startTransition(() => toggleTodoAction(id, done));
-  };
-
-  const remove = (id: string) => {
-    setItems((prev) => prev.filter((t) => t.id !== id));
-    startTransition(() => deleteTodoAction(id));
-  };
+  const toggle = (id: string, done: boolean) => toggleMutation.mutate({ id, done });
+  const remove = (id: string) => deleteMutation.mutate(id);
 
   const add = (e: React.FormEvent) => {
     e.preventDefault();
     const title = draft.trim();
     if (!title) return;
     setDraft("");
-    startTransition(() => addTodoAction(selected, title, draftProject.trim() || null));
+    addMutation.mutate({
+      tempId: `temp-${Date.now()}`,
+      date: selected,
+      title,
+      project: draftProject.trim() || null,
+    });
   };
 
   const dayTodos = todosByDate.get(selected) ?? [];
@@ -214,21 +215,31 @@ export default function Calendar({ month, today, todos, commits, projectOptions 
 
           <ul className="mb-3 space-y-1.5">
             {dayTodos.map((t) => (
-              <li key={t.id} className="group flex items-center gap-2 text-sm">
+              <li key={t.id} className={cn("group flex items-center gap-2 text-sm", isTempId(t.id) && "opacity-60")}>
                 <input
                   type="checkbox"
                   checked={t.done}
+                  disabled={isTempId(t.id)}
                   onChange={(e) => toggle(t.id, e.target.checked)}
                   className="h-4 w-4 accent-primary"
                 />
                 <span className={cn("flex-1", t.done && "text-muted-foreground line-through")}>
                   {t.title}
                   {t.project && <span className="ml-1.5 text-xs text-muted-foreground">{t.project}</span>}
+                  {t.carried > 0 && !t.done && (
+                    <span
+                      title={`미완료로 ${t.carried}번 이월됨`}
+                      className="ml-1.5 rounded bg-amber-500/15 px-1 text-[10px] font-medium text-amber-600"
+                    >
+                      ↻{t.carried}
+                    </span>
+                  )}
                 </span>
                 <button
                   type="button"
                   onClick={() => remove(t.id)}
-                  className="opacity-0 transition-opacity group-hover:opacity-100"
+                  disabled={isTempId(t.id)}
+                  className="opacity-0 transition-opacity group-hover:opacity-100 disabled:hidden"
                   aria-label="삭제"
                 >
                   <X className="h-4 w-4 text-muted-foreground" />
